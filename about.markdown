@@ -1,18 +1,9 @@
 ---
 layout: page
-title: About
+title: 소개
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+안녕하세요. 데이터와 개발 기록을 정리하는 Zoe Choi입니다.
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
-
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
-
-
-[jekyll-organization]: https://github.com/jekyll
+이 블로그에는 배운 내용, 문제 해결 과정, 프로젝트 기록을 짧게 남깁니다.
