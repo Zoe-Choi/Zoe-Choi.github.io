@@ -1,0 +1,345 @@
+:root {
+  --red: #e10600;
+  --red-dark: #8f0804;
+  --yellow: #ffd43b;
+  --ink: #080808;
+  --panel: #111111;
+  --line: rgba(255, 255, 255, 0.16);
+  --text: #f7f5f2;
+  --muted: #b8b3ac;
+  --paper: #f4f1eb;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--text);
+  background: var(--ink);
+  font-family: "Noto Sans KR", Arial, sans-serif;
+  line-height: 1.65;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.site-header {
+  position: fixed;
+  z-index: 20;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 72px;
+  padding: 0 42px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.78), rgba(0, 0, 0, 0));
+}
+
+.brand,
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.brand {
+  gap: 12px;
+  font-family: "Rajdhani", Arial, sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.brand-mark {
+  width: 34px;
+  height: 10px;
+  display: inline-block;
+  background: var(--red);
+  clip-path: polygon(0 0, 100% 0, 78% 100%, 0 100%);
+  box-shadow: 0 0 22px rgba(225, 6, 0, 0.75);
+}
+
+.site-nav a {
+  font-family: "Rajdhani", Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.84);
+}
+
+.site-nav a:hover {
+  color: #fff;
+}
+
+.hero {
+  position: relative;
+  min-height: 92vh;
+  display: grid;
+  align-items: end;
+  overflow: hidden;
+  padding: 138px 42px 86px;
+}
+
+.hero-media,
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+}
+
+.hero-media {
+  background-image: url("/assets/images/racing-hero.png");
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.02);
+}
+
+.hero-overlay {
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.62) 42%, rgba(0, 0, 0, 0.16) 100%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.18) 0%, rgba(0, 0, 0, 0.22) 58%, #080808 100%);
+}
+
+.hero-content {
+  position: relative;
+  max-width: 760px;
+}
+
+.eyebrow {
+  margin: 0 0 14px;
+  color: var(--yellow);
+  font-family: "Rajdhani", Arial, sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+p {
+  overflow-wrap: anywhere;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(54px, 9vw, 112px);
+  line-height: 0.92;
+  font-weight: 900;
+}
+
+.hero-copy {
+  max-width: 520px;
+  margin: 26px 0 0;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 19px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 34px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0 24px;
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  font-family: "Rajdhani", Arial, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.button-primary {
+  border-color: var(--red);
+  background: var(--red);
+}
+
+.button-ghost {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.section {
+  padding: 78px 42px 96px;
+}
+
+.section-dark {
+  background:
+    linear-gradient(180deg, #080808 0%, #14100f 100%),
+    radial-gradient(circle at top right, rgba(225, 6, 0, 0.26), transparent 34%);
+}
+
+.section-heading {
+  max-width: 1180px;
+  margin: 0 auto 28px;
+}
+
+.section-heading h2 {
+  margin: 0;
+  font-size: clamp(34px, 5vw, 66px);
+  line-height: 1;
+}
+
+.post-grid {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+}
+
+.post-card {
+  min-height: 250px;
+  border-top: 4px solid var(--red);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.035));
+}
+
+.post-card a {
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  padding: 26px;
+}
+
+.post-date,
+.post-link {
+  font-family: "Rajdhani", Arial, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.post-date {
+  color: var(--muted);
+}
+
+.post-card h3 {
+  margin: 28px 0 12px;
+  font-size: 30px;
+  line-height: 1.12;
+}
+
+.post-card p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.post-link {
+  margin-top: auto;
+  color: var(--yellow);
+}
+
+.content-page {
+  min-height: 78vh;
+  padding: 140px 42px 90px;
+  background:
+    linear-gradient(135deg, rgba(225, 6, 0, 0.25), transparent 35%),
+    var(--paper);
+  color: #161616;
+}
+
+.content-header,
+.prose {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.content-header {
+  padding-bottom: 28px;
+  border-bottom: 4px solid var(--red);
+}
+
+.content-header h1 {
+  margin: 0;
+  font-size: clamp(42px, 7vw, 82px);
+  line-height: 1;
+}
+
+.prose {
+  padding-top: 34px;
+  font-size: 19px;
+}
+
+.prose a {
+  color: var(--red-dark);
+  font-weight: 700;
+}
+
+.post-page .content-header .eyebrow,
+.content-page .eyebrow {
+  color: var(--red);
+}
+
+.site-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 32px 42px;
+  border-top: 1px solid var(--line);
+  background: #050505;
+  color: var(--muted);
+}
+
+.site-footer div {
+  display: grid;
+  gap: 4px;
+}
+
+.site-footer strong,
+.site-footer a {
+  color: #fff;
+}
+
+@media (max-width: 720px) {
+  .site-header {
+    min-height: 64px;
+    padding: 0 18px;
+  }
+
+  .site-nav {
+    gap: 12px;
+  }
+
+  .site-nav a {
+    font-size: 13px;
+  }
+
+  .hero {
+    min-height: 88vh;
+    padding: 112px 20px 60px;
+  }
+
+  .hero h1 {
+    font-size: 52px;
+  }
+
+  .hero-copy {
+    font-size: 17px;
+  }
+
+  .section,
+  .content-page {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .site-footer {
+    flex-direction: column;
+    padding: 28px 20px;
+  }
+}

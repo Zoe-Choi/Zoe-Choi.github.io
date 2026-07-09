@@ -27,7 +27,6 @@ url: "https://zoe-choi.github.io" # the base hostname & protocol for your site, 
 github_username: Zoe-Choi
 
 # Build settings
-theme: minima
 plugins:
   - jekyll-feed
 
