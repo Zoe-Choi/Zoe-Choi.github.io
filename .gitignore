@@ -4,3 +4,14 @@ _site
 .jekyll-cache
 .jekyll-metadata
 vendor
+
+# Retired Jekyll scaffolding, kept on disk as a local backup only
+_layouts/
+_posts/
+_config.yml
+Gemfile
+Gemfile.lock
+index.markdown
+about.markdown
+404.html
+assets/css/
