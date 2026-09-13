@@ -23,6 +23,7 @@
 <g id="i-chevron-right" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></g>
 <g id="i-mail" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></g>
 <g id="i-github" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9a3.4 3.4 0 0 0-.9-2.6c3-.3 6.2-1.5 6.2-6.7A5.2 5.2 0 0 0 19.9 5a4.9 4.9 0 0 0-.1-3.6s-1.1-.3-3.7 1.4a12.7 12.7 0 0 0-6.6 0C6.9 1.1 5.8 1.4 5.8 1.4A4.9 4.9 0 0 0 5.7 5 5.2 5.2 0 0 0 4.3 8.8c0 5.2 3.2 6.4 6.2 6.7a3.4 3.4 0 0 0-.9 2.6V22"/></g>
+<g id="i-linkedin" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="2.5" width="19" height="19" rx="3"/><line x1="7.3" y1="10.4" x2="7.3" y2="17"/><circle cx="7.3" cy="7.1" r="1"/><path d="M11.4 17v-6.6M11.4 13.2c0-1.6 1-2.8 2.6-2.8s2.6 1.1 2.6 2.9V17"/></g>
 <g id="i-book" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></g>
 <g id="i-target" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4"/></g>
 <g id="i-spark" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/></g>
@@ -62,7 +63,7 @@
   <header class="hero">
     <div class="hero__glow"><i></i><i></i></div>
     <div class="hero__inner wrap">
-      <span class="pill">Data Engineer &nbsp;·&nbsp; NHN KCP</span>
+      <span class="pill">Data Engineer &nbsp;·&nbsp; <span class="ko">결제 · 정산 도메인</span><span class="en">Payments &amp; Settlement</span></span>
       <h1>
         <span class="ko">믿고 쓸 수 있는 <em>데이터</em>를 만듭니다</span>
         <span class="en">Building data people can <em>actually trust.</em></span>
@@ -80,6 +81,10 @@
           GitHub
           <svg viewBox="0 0 24 24"><use href="#i-arrow-up-right"/></svg>
         </a>
+        <a class="btn btn--ghost" href="https://www.linkedin.com/in/jaeyeon-choi-614026245" rel="me noopener" target="_blank">
+          LinkedIn
+          <svg viewBox="0 0 24 24"><use href="#i-arrow-up-right"/></svg>
+        </a>
       </div>
       <dl class="hero__facts">
         <div>
@@ -87,8 +92,8 @@
           <dd><span class="ko">2023.07 ~ 현재</span><span class="en">2023.07 – Present</span></dd>
         </div>
         <div>
-          <dt><span class="ko">소속</span><span class="en">Company</span></dt>
-          <dd>NHN KCP</dd>
+          <dt><span class="ko">도메인</span><span class="en">Domain</span></dt>
+          <dd><span class="ko">결제 · 정산</span><span class="en">Payments &amp; Settlement</span></dd>
         </div>
         <div>
           <dt><span class="ko">위치</span><span class="en">Location</span></dt>
@@ -123,8 +128,8 @@
         <h2><span class="ko">데이터가 맞다고 말할 수 있어야, 그 위의 판단도 의미가 있습니다.</span><span class="en">A decision is only as good as the data you can vouch for.</span></h2>
         <div style="margin-top:28px">
           <p>
-            <span class="ko"><strong>NHN KCP</strong>에서 결제·정산 데이터를 다루는 온프레미스 데이터 플랫폼을 만들고 운영합니다. 일 300만 건 규모의 적재를 책임지다 보니, 자연스럽게 <span class="mark">틀린 데이터가 조회되지 않게 막는 일</span>에 집중하게 됐습니다.</span>
-            <span class="en">At <strong>NHN KCP</strong> I build and run the on-prem platform that carries our payment and settlement data. Owning a load of roughly 3M rows a day pulled my focus toward one thing: <span class="mark">making sure wrong data never becomes queryable</span>.</span>
+            <span class="ko"><strong>결제·정산 데이터</strong>를 다루는 온프레미스 데이터 플랫폼을 만들고 운영합니다. 일 300만 건 규모의 적재를 책임지다 보니, 자연스럽게 <span class="mark">틀린 데이터가 조회되지 않게 막는 일</span>에 집중하게 됐습니다.</span>
+            <span class="en">I build and run the on-prem platform that carries <strong>payment and settlement data</strong>. Owning a load of roughly 3M rows a day pulled my focus toward one thing: <span class="mark">making sure wrong data never becomes queryable</span>.</span>
           </p>
           <p>
             <span class="ko">제가 한 일의 대부분은 새 기능이 아니라 <span class="mark">이미 잘못 돌고 있던 것</span>에서 시작했습니다. 건수만 세던 검증을 컬럼별 해시 대조로 바꾸고, 초록불로 보이던 태스크가 사실 매일 실패하고 있었다는 걸 드러냈고, 실패가 실패로 보이게 만든 다음에야 진짜 결함들을 찾을 수 있었습니다.</span>
@@ -395,7 +400,7 @@
             <span class="tl__kind"><span class="ko">경력</span><span class="en">Career</span></span>
             <span class="tl__when">2023.07 — <span class="ko">현재</span><span class="en">Present</span></span>
           </div>
-          <h3><span class="ko">데이터 엔지니어, NHN KCP</span><span class="en">Data Engineer, NHN KCP</span></h3>
+          <h3><span class="ko">데이터 엔지니어 · 결제·정산 데이터 플랫폼</span><span class="en">Data Engineer · Payments &amp; Settlement Data Platform</span></h3>
           <p><span class="ko">사내 온프레미스 데이터 플랫폼과 ML 업무를 받치는 데이터 인프라를 구축하고 운영합니다. 결제·정산 원천의 적재부터 마트 제공, 검증과 알림 체계까지 담당합니다.</span><span class="en">I build and run the on-prem data platform and the infrastructure behind our ML work — from ingesting payment and settlement sources through to serving marts, validation and alerting.</span></p>
           <div>
             <span class="tag">Hadoop</span><span class="tag">Spark</span><span class="tag">Trino</span><span class="tag">Iceberg</span><span class="tag">Airflow</span>
@@ -408,7 +413,7 @@
             <span class="tl__when">2026.08</span>
           </div>
           <h3><span class="ko">사내 AI 스프린톤 본선 진출 — Re:cord</span><span class="en">AI Sprintathon Finalist — Re:cord</span></h3>
-          <p class="tl__org"><span class="ko">NHN 전 계열사 대상</span><span class="en">NHN group-wide</span></p>
+          <p class="tl__org"><span class="ko">전 그룹사 대상 사내 AI 스프린톤</span><span class="en">Group-wide internal AI sprintathon</span></p>
           <p><span class="ko">Re:cord는 노무사가 흩어진 증거를 정리하는 워크스페이스입니다. 3인 팀에서 UI/UX와 발표를 담당했고, 프로토타입 전량을 AI 도구로 2일 만에 개발했습니다.</span><span class="en">Re:cord organises scattered evidence for labor attorneys. In a three-person team I owned UI/UX and the final pitch, with the whole prototype built using AI tooling in two days.</span></p>
         </div>
       </div>
@@ -439,6 +444,13 @@
             <span>
               <h4><span class="ko">코드</span><span class="en">Codebase</span></h4>
               <span class="val">github.com/Zoe-Choi</span>
+            </span>
+          </a>
+          <a class="channel" href="https://www.linkedin.com/in/jaeyeon-choi-614026245" rel="me noopener" target="_blank">
+            <span class="ic"><svg viewBox="0 0 24 24"><use href="#i-linkedin"/></svg></span>
+            <span>
+              <h4><span class="ko">경력</span><span class="en">Career</span></h4>
+              <span class="val">linkedin.com/in/jaeyeon-choi</span>
             </span>
           </a>
         </div>
@@ -770,6 +782,7 @@
     <div class="foot__links">
       <a href="mailto:moonfg9@gmail.com">Email</a>
       <a href="https://github.com/Zoe-Choi" rel="me noopener" target="_blank">GitHub</a>
+      <a href="https://www.linkedin.com/in/jaeyeon-choi-614026245" rel="me noopener" target="_blank">LinkedIn</a>
     </div>
   </div>
 </footer>
