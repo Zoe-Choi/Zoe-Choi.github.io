@@ -471,31 +471,50 @@ h3{ font-size:22px; line-height:1.3 }
 [hidden]{ display:none !important }
 
 /* ============================================================
-   ARCHITECTURE DIAGRAM
+   DIAGRAMS
    ============================================================ */
-.figurewrap{ margin:44px 0 8px }
-.figurewrap figcaption{
-  margin-top:14px; font-size:12.5px; color:var(--faint);
-  letter-spacing:.02em;
-}
+.figurewrap{ margin:40px 0 8px }
+.figurewrap figcaption{ margin-top:16px; font-size:12.5px; color:var(--faint); line-height:1.6 }
+
 .diagram{
   overflow-x:auto;
   -webkit-overflow-scrolling:touch;
-  border:1px solid var(--line-2);
-  border-radius:var(--r-md);
-  background:var(--white);
-  padding:28px 24px;
+  padding:8px 2px 14px;
 }
-.diagram svg{ display:block; width:100%; min-width:840px; height:auto }
+.diagram svg{ display:block; width:100%; min-width:820px; height:auto }
 
-.dg-panel{ fill:#FAF8F6; stroke:none }
-.dg-box{ fill:#fff; stroke:var(--line-2); stroke-width:1.2 }
-.dg-pill{ fill:none; stroke:var(--line-2); stroke-width:1.2 }
-.dg-line{ stroke:var(--rose); stroke-width:1.4 }
-.dg-head{ fill:var(--rose-deep); font-size:14px; font-weight:700; letter-spacing:.16em }
-.dg-t{ fill:var(--ink); font-size:20px; font-weight:600 }
-.dg-t-sm{ fill:var(--ink); font-size:17px; font-weight:600 }
-.dg-s{ fill:var(--mute); font-size:14px; font-weight:400 }
-.dg-s-xs{ fill:var(--faint); font-size:13px; font-weight:500 }
-.dg-dot{ fill:var(--rose) }
+/* grouping: outline only, no fill */
+.dg-group{ fill:none; stroke:var(--line-2); stroke-width:1; stroke-dasharray:5 5; opacity:.75 }
+
+/* nodes: nearly invisible until you look at them */
+.dg-node rect{
+  fill:#fff; stroke:var(--line-2); stroke-width:1;
+  transition:fill .2s var(--ease), stroke .2s var(--ease);
+}
+.dg-node:hover rect{ fill:#FDF7F6; stroke:var(--rose) }
+.dg-node:hover .dg-t,
+.dg-node:hover .dg-t-sm{ fill:var(--rose-deep) }
+.dg-node .dg-t,
+.dg-node .dg-t-sm{ transition:fill .2s var(--ease) }
+
+.dg-pill{ fill:none; stroke:var(--line-2); stroke-width:1 }
+.dg-line{ stroke:var(--rose); stroke-width:1.2 }
 .dg-arrow{ fill:var(--rose) }
+.dg-dot{ fill:var(--rose) }
+
+.dg-head{ fill:var(--rose-deep); font-size:13px; font-weight:700; letter-spacing:.18em }
+.dg-t{ fill:var(--ink); font-size:19px; font-weight:600 }
+.dg-t-sm{ fill:var(--ink); font-size:16px; font-weight:600 }
+.dg-s{ fill:var(--mute); font-size:13.5px; font-weight:400 }
+.dg-s-xs{ fill:var(--faint); font-size:12.5px; font-weight:500 }
+
+@media (prefers-reduced-motion:reduce){
+  .dg-node rect,.dg-node .dg-t,.dg-node .dg-t-sm{ transition:none }
+}
+
+/* contribution tracks on the card front */
+.tracks--card{ margin-top:18px; padding-top:16px; border-top:1px solid var(--line) }
+.tracks--card .stage{ width:54px }
+.tracks--card .lbl{ font-size:9px; letter-spacing:.04em; margin-bottom:4px }
+.tracks--card .bar{ height:3px }
+.diagram--narrow svg{ min-width:700px }

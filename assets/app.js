@@ -144,3 +144,20 @@
   var yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 })();
+
+  /* ---------------- reuse the architecture diagram inside the detail view ---------------- */
+  (function () {
+    var source = document.getElementById("arch-hadoop");
+    var targets = document.querySelectorAll("[data-arch-clone]");
+    if (!source || !targets.length) return;
+    targets.forEach(function (t) {
+      var copy = source.cloneNode(true);
+      copy.removeAttribute("id");
+      copy.classList.add("in");
+      var title = copy.querySelector("title[id]");
+      if (title) title.removeAttribute("id");
+      var svg = copy.querySelector("svg");
+      if (svg) svg.removeAttribute("aria-labelledby");
+      t.appendChild(copy);
+    });
+  })();

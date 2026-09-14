@@ -45,6 +45,7 @@
     <div class="nav__links">
       <a href="#about"><span class="ko">소개</span><span class="en">About</span></a>
       <a href="#skills"><span class="ko">기술</span><span class="en">Skills</span></a>
+      <a href="#architecture"><span class="ko">구조</span><span class="en">Architecture</span></a>
       <a href="#projects"><span class="ko">프로젝트</span><span class="en">Projects</span></a>
       <a href="#operations"><span class="ko">운영 기록</span><span class="en">Operations</span></a>
       <a href="#career"><span class="ko">경력</span><span class="en">Career</span></a>
@@ -183,6 +184,139 @@
   </section>
 
   <!-- ================= PROJECTS ================= -->
+  <!-- ================= ARCHITECTURE ================= -->
+  <section class="band band--white" id="architecture">
+    <div class="wrap">
+      <div class="center-head rv">
+        <span class="eyebrow"><span class="ko">구조</span><span class="en">Architecture</span></span>
+        <h2><span class="ko">무엇을 굴리고 있는지</span><span class="en">What I actually run</span></h2>
+        <p><span class="ko">2년간 설계하고 운영한 온프레미스 Hadoop 클러스터입니다. 박스에 커서를 올리면 강조됩니다.</span><span class="en">The on-prem Hadoop cluster I designed and ran for two years. Hover a box to highlight it.</span></p>
+      </div>
+      <figure class="figurewrap rv" id="arch-hadoop">
+        <div class="diagram">
+        <svg viewBox="0 0 1700 590" role="img" aria-labelledby="archTitle">
+          <title id="archTitle">On-prem Hadoop data pipeline architecture</title>
+          <text class="dg-head" x="0" y="18">EXTERNAL SOURCES</text>
+          <g class="dg-node">
+            <rect x="0" y="33" width="360" height="112" rx="12"/>
+            <rect class="dg-pill" x="22" y="81" width="86" height="28" rx="14"/>
+            <text class="dg-t ko" x="26" y="73">정산 시스템</text>
+            <text class="dg-t en" x="26" y="73">Settlement system</text>
+            <text class="dg-s-xs ko" x="34" y="99">FTP · CSV</text>
+            <text class="dg-s-xs en" x="34" y="99">FTP · CSV</text>
+            <text class="dg-s ko" x="26" y="130">일별 CSV 파일 송신</text>
+            <text class="dg-s en" x="26" y="130">Daily CSV delivery</text>
+          </g>
+          <g class="dg-node">
+            <rect x="0" y="157" width="360" height="112" rx="12"/>
+            <rect class="dg-pill" x="22" y="205" width="92" height="28" rx="14"/>
+            <text class="dg-t ko" x="26" y="197">운영 PostgreSQL</text>
+            <text class="dg-t en" x="26" y="197">Production PostgreSQL</text>
+            <text class="dg-s-xs ko" x="34" y="223">service_db</text>
+            <text class="dg-s-xs en" x="34" y="223">service_db</text>
+            <text class="dg-s ko" x="26" y="254">운영 DB 연동 적재</text>
+            <text class="dg-s en" x="26" y="254">Direct DB ingestion</text>
+          </g>
+          <g class="dg-node">
+            <rect x="0" y="281" width="360" height="112" rx="12"/>
+            <rect class="dg-pill" x="22" y="329" width="62" height="28" rx="14"/>
+            <text class="dg-t ko" x="26" y="321">Oracle DBs</text>
+            <text class="dg-t en" x="26" y="321">Oracle DBs</text>
+            <text class="dg-s-xs ko" x="34" y="347">4종</text>
+            <text class="dg-s-xs en" x="34" y="347">4 DBs</text>
+            <text class="dg-s ko" x="26" y="378">결제 · 정산 · 통계 · 관리</text>
+            <text class="dg-s en" x="26" y="378">Payment · settlement · stats · admin</text>
+          </g>
+          <line class="dg-line" x1="366" y1="249" x2="434" y2="249"/>
+          <path class="dg-arrow" d="M434 244 L444 249 L434 254 Z"/>
+          <text class="dg-t ko" x="486" y="90">HadoopCluster</text>
+          <text class="dg-t en" x="486" y="90">HadoopCluster</text>
+          <text class="dg-s ko" x="486" y="123">HDFS · YARN · Hive · Trino · Spark</text>
+          <text class="dg-s en" x="486" y="123">HDFS · YARN · Hive · Trino · Spark</text>
+          <text class="dg-head" x="486" y="158">MASTER</text>
+          <g class="dg-node">
+            <rect x="486" y="172" width="300" height="86" rx="12"/>
+            <text class="dg-t-sm ko" x="512" y="210">Master Node</text>
+            <text class="dg-t-sm en" x="512" y="210">Master Node</text>
+            <text class="dg-s ko" x="512" y="239">Standby</text>
+            <text class="dg-s en" x="512" y="239">Standby</text>
+          </g>
+          <g class="dg-node">
+            <rect x="816" y="172" width="300" height="86" rx="12"/>
+            <text class="dg-t-sm ko" x="842" y="210">Master Node</text>
+            <text class="dg-t-sm en" x="842" y="210">Master Node</text>
+            <text class="dg-s ko" x="842" y="239">Active</text>
+            <text class="dg-s en" x="842" y="239">Active</text>
+            <circle class="dg-dot" cx="1088" cy="203" r="4"/>
+          </g>
+          <text class="dg-head" x="486" y="300">DATA NODE</text>
+          <g class="dg-node">
+            <rect x="486" y="314" width="194" height="78" rx="12"/>
+            <text class="dg-t-sm ko" x="512" y="361">Data Node</text>
+            <text class="dg-t-sm en" x="512" y="361">Data Node</text>
+          </g>
+          <g class="dg-node">
+            <rect x="700" y="314" width="194" height="78" rx="12"/>
+            <text class="dg-t-sm ko" x="726" y="361">Data Node</text>
+            <text class="dg-t-sm en" x="726" y="361">Data Node</text>
+          </g>
+          <g class="dg-node">
+            <rect x="914" y="314" width="194" height="78" rx="12"/>
+            <text class="dg-t-sm ko" x="940" y="361">Data Node</text>
+            <text class="dg-t-sm en" x="940" y="361">Data Node</text>
+          </g>
+          <text class="dg-s ko" x="486" y="428">Master 2 (HA) · Data Node 3</text>
+          <text class="dg-s en" x="486" y="428">Master 2 (HA) · Data Node 3</text>
+          <line class="dg-line" x1="1152" y1="249" x2="1230" y2="249"/>
+          <path class="dg-arrow" d="M1230 244 L1240 249 L1230 254 Z"/>
+          <g class="dg-node">
+            <rect x="1244" y="33" width="456" height="104" rx="12"/>
+            <text class="dg-t ko" x="1270" y="79">Airflow</text>
+            <text class="dg-t en" x="1270" y="79">Airflow</text>
+            <text class="dg-s ko" x="1270" y="108">클러스터 작업 스케줄링</text>
+            <text class="dg-s en" x="1270" y="108">Cluster job scheduling</text>
+          </g>
+          <g class="dg-node">
+            <rect x="1244" y="151" width="456" height="104" rx="12"/>
+            <text class="dg-t ko" x="1270" y="197">Storage</text>
+            <text class="dg-t en" x="1270" y="197">Storage</text>
+            <text class="dg-s ko" x="1270" y="226">PostgreSQL + Nessie (Iceberg 카탈로그)</text>
+            <text class="dg-s en" x="1270" y="226">PostgreSQL + Nessie (Iceberg catalog)</text>
+          </g>
+          <g class="dg-node">
+            <rect x="1244" y="269" width="456" height="104" rx="12"/>
+            <text class="dg-t ko" x="1270" y="315">Monitoring</text>
+            <text class="dg-t en" x="1270" y="315">Monitoring</text>
+            <text class="dg-s ko" x="1270" y="344">Grafana · Prometheus · SMS</text>
+            <text class="dg-s en" x="1270" y="344">Grafana · Prometheus · SMS</text>
+          </g>
+          <text class="dg-head" x="1244" y="420">USER</text>
+          <text class="dg-s ko" x="1310" y="420">외부 데이터 소비자</text>
+          <text class="dg-s en" x="1310" y="420">External data consumers</text>
+          <g class="dg-node">
+            <rect x="1244" y="440" width="216" height="82" rx="12"/>
+            <text class="dg-t-sm ko" x="1264" y="474">사업부서 A</text>
+            <text class="dg-t-sm en" x="1264" y="474">Business unit A</text>
+            <text class="dg-s ko" x="1264" y="499">HiveServer2 로 조회</text>
+            <text class="dg-s en" x="1264" y="499">Queries via HiveServer2</text>
+          </g>
+          <g class="dg-node">
+            <rect x="1484" y="440" width="216" height="82" rx="12"/>
+            <text class="dg-t-sm ko" x="1504" y="474">사업부서 B</text>
+            <text class="dg-t-sm en" x="1504" y="474">Business unit B</text>
+            <text class="dg-s ko" x="1504" y="499">Trino Coordinator 로 조회</text>
+            <text class="dg-s en" x="1504" y="499">Queries via Trino Coordinator</text>
+          </g>
+        </svg>
+        </div>
+        <figcaption>
+          <span class="ko">Master 2대(HA)와 Data Node 3대. 원천 3종을 Airflow로 적재하고, 사업부서는 HiveServer2와 Trino로 직접 조회합니다.</span>
+          <span class="en">Two HA masters and three data nodes. Three source systems are ingested through Airflow, and business units query it directly through HiveServer2 and Trino.</span>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
   <section class="band band--white" id="projects">
     <div class="wrap">
       <div class="sec-head rv">
@@ -203,6 +337,12 @@
           <h3><span class="ko">망 분리 CI/CD 파이프라인</span><span class="en">Air-Gapped CI/CD Pipeline</span></h3>
           <p><span class="ko">산출물을 옮기지 않고 코드만 승격하면서, 재빌드 결과가 검증본과 같음을 해시로 증명.</span><span class="en">Promote code, never artifacts, and prove the rebuild matches what was tested, by hash.</span></p>
           <span class="projcard__date">2026.07 <span class="ko">~ </span><span class="en">- </span><span class="ko">현재</span><span class="en">Present</span></span>
+          <div class="tracks tracks--card">
+            <span class="stage" data-level="full"><span class="lbl"><span class="ko">설계</span><span class="en">Design</span></span><span class="bar"></span></span>
+            <span class="stage" data-level="half"><span class="lbl"><span class="ko">구축</span><span class="en">Build</span></span><span class="bar"></span></span>
+            <span class="stage" data-level="half"><span class="lbl"><span class="ko">튜닝</span><span class="en">Tune</span></span><span class="bar"></span></span>
+            <span class="stage" data-level="half"><span class="lbl"><span class="ko">운영</span><span class="en">Operate</span></span><span class="bar"></span></span>
+          </div>
         </div>
 
         <div class="projcard rv" role="button" tabindex="0" data-open="catalog">
@@ -215,6 +355,12 @@
           <h3><span class="ko">OpenMetadata 카탈로그 및 text-to-SQL 검증</span><span class="en">OpenMetadata Catalog &amp; Text-to-SQL</span></h3>
           <p><span class="ko">도입 성공이 아니라 “어디까지 쓸 수 있는가”를 실제 업무 요청으로 갈라냄.</span><span class="en">The deliverable was not a rollout but a measured boundary of where it works.</span></p>
           <span class="projcard__date">2026.06 <span class="ko">~ </span><span class="en">- </span><span class="ko">현재</span><span class="en">Present</span></span>
+          <div class="tracks tracks--card">
+            <span class="stage" data-level="full"><span class="lbl"><span class="ko">설계</span><span class="en">Design</span></span><span class="bar"></span></span>
+            <span class="stage" data-level="full"><span class="lbl"><span class="ko">구축</span><span class="en">Build</span></span><span class="bar"></span></span>
+            <span class="stage" data-level="full"><span class="lbl"><span class="ko">튜닝</span><span class="en">Tune</span></span><span class="bar"></span></span>
+            <span class="stage" data-level="full"><span class="lbl"><span class="ko">운영</span><span class="en">Operate</span></span><span class="bar"></span></span>
+          </div>
         </div>
 
         <div class="projcard rv" role="button" tabindex="0" data-open="iceberg">
@@ -227,6 +373,12 @@
           <h3><span class="ko">Iceberg-Trino 데이터 마트</span><span class="en">Iceberg-Trino Data Mart</span></h3>
           <p><span class="ko">건수 비교를 컬럼 해시 대조로 올리고, 검증 통과분만 main에 병합되도록 브랜치로 격리.</span><span class="en">Row counts became column-hash comparison, and only what passes the audit is merged into main.</span></p>
           <span class="projcard__date">2026.03 <span class="ko">~ </span><span class="en">- </span><span class="ko">현재</span><span class="en">Present</span></span>
+          <div class="tracks tracks--card">
+            <span class="stage" data-level="full"><span class="lbl"><span class="ko">설계</span><span class="en">Design</span></span><span class="bar"></span></span>
+            <span class="stage" data-level="full"><span class="lbl"><span class="ko">구축</span><span class="en">Build</span></span><span class="bar"></span></span>
+            <span class="stage" data-level="full"><span class="lbl"><span class="ko">튜닝</span><span class="en">Tune</span></span><span class="bar"></span></span>
+            <span class="stage" data-level="full"><span class="lbl"><span class="ko">운영</span><span class="en">Operate</span></span><span class="bar"></span></span>
+          </div>
         </div>
 
         <div class="projcard rv" role="button" tabindex="0" data-open="logstream">
@@ -239,6 +391,12 @@
           <h3><span class="ko">실시간 로그 스트리밍 파이프라인 PoC</span><span class="en">Real-Time Log Streaming PoC</span></h3>
           <p><span class="ko">운영 서버 접속 없이 로그를 볼 수 있게, 스트리밍 파싱과 적재 구간을 담당.</span><span class="en">Owned the streaming parse-and-load leg so logs could be read without touching production.</span></p>
           <span class="projcard__date">2026.02 ~ 2026.03</span>
+          <div class="tracks tracks--card">
+            <span class="stage" data-level="none"><span class="lbl"><span class="ko">설계</span><span class="en">Design</span></span><span class="bar"></span></span>
+            <span class="stage" data-level="half"><span class="lbl"><span class="ko">구축</span><span class="en">Build</span></span><span class="bar"></span></span>
+            <span class="stage" data-level="full"><span class="lbl"><span class="ko">튜닝</span><span class="en">Tune</span></span><span class="bar"></span></span>
+            <span class="stage" data-level="none"><span class="lbl"><span class="ko">운영</span><span class="en">Operate</span></span><span class="bar"></span></span>
+          </div>
         </div>
 
         <div class="projcard rv" role="button" tabindex="0" data-open="crypto">
@@ -251,6 +409,12 @@
           <h3><span class="ko">실시간 암호화폐 시세 파이프라인</span><span class="en">Real-Time Crypto Market Pipeline</span></h3>
           <p><span class="ko">사내에서 다뤄볼 기회가 없던 스트리밍 스택을 개인 학습용으로 end-to-end 구성.</span><span class="en">A personal build to get hands on the streaming stack I had no chance to touch at work.</span></p>
           <span class="projcard__date">2025.11 ~ 2026.01</span>
+          <div class="tracks tracks--card">
+            <span class="stage" data-level="full"><span class="lbl"><span class="ko">설계</span><span class="en">Design</span></span><span class="bar"></span></span>
+            <span class="stage" data-level="full"><span class="lbl"><span class="ko">구축</span><span class="en">Build</span></span><span class="bar"></span></span>
+            <span class="stage" data-level="full"><span class="lbl"><span class="ko">튜닝</span><span class="en">Tune</span></span><span class="bar"></span></span>
+            <span class="stage" data-level="full"><span class="lbl"><span class="ko">운영</span><span class="en">Operate</span></span><span class="bar"></span></span>
+          </div>
         </div>
 
         <div class="projcard rv" role="button" tabindex="0" data-open="llm">
@@ -263,6 +427,12 @@
           <h3><span class="ko">사내 LLM 서빙 및 RAG</span><span class="en">In-house LLM Serving &amp; RAG</span></h3>
           <p><span class="ko">폐쇄망에서 쓸 AI가 없어 직접 구축. 수요는 확인했지만 GPU 부족으로 종료를 택함.</span><span class="en">Built because an air-gapped network had no usable AI. Demand was proven; capacity was not.</span></p>
           <span class="projcard__date">2025.04 ~ 2025.08</span>
+          <div class="tracks tracks--card">
+            <span class="stage" data-level="full"><span class="lbl"><span class="ko">설계</span><span class="en">Design</span></span><span class="bar"></span></span>
+            <span class="stage" data-level="full"><span class="lbl"><span class="ko">구축</span><span class="en">Build</span></span><span class="bar"></span></span>
+            <span class="stage" data-level="full"><span class="lbl"><span class="ko">튜닝</span><span class="en">Tune</span></span><span class="bar"></span></span>
+            <span class="stage" data-level="full"><span class="lbl"><span class="ko">운영</span><span class="en">Operate</span></span><span class="bar"></span></span>
+          </div>
         </div>
 
         <div class="projcard rv" role="button" tabindex="0" data-open="hadoop">
@@ -275,6 +445,12 @@
           <h3><span class="ko">온프레미스 Hadoop 파이프라인 및 마트</span><span class="en">On-Prem Hadoop Pipeline &amp; Mart</span></h3>
           <p><span class="ko">일 300만 건, 누적 5TB, DAG 20개. 운영 DB에 직접 붙던 분석 쿼리를 마트로 옮겼습니다.</span><span class="en">3M rows a day, 5 TB accumulated, 20 DAGs. Analytical queries moved off the operational DB and onto the mart.</span></p>
           <span class="projcard__date">2023.08 ~ 2025.08</span>
+          <div class="tracks tracks--card">
+            <span class="stage" data-level="none"><span class="lbl"><span class="ko">설계</span><span class="en">Design</span></span><span class="bar"></span></span>
+            <span class="stage" data-level="full"><span class="lbl"><span class="ko">구축</span><span class="en">Build</span></span><span class="bar"></span></span>
+            <span class="stage" data-level="full"><span class="lbl"><span class="ko">튜닝</span><span class="en">Tune</span></span><span class="bar"></span></span>
+            <span class="stage" data-level="full"><span class="lbl"><span class="ko">운영</span><span class="en">Operate</span></span><span class="bar"></span></span>
+          </div>
         </div>
 
         <div class="projcard rv" role="button" tabindex="0" data-open="nrt">
@@ -287,6 +463,12 @@
           <h3><span class="ko">준실시간 30분 배치와 자원 격리</span><span class="en">Near-Real-Time Batch &amp; Isolation</span></h3>
           <p><span class="ko">주기를 30분으로 줄이자 생긴 자원 경합을, 큐 분할과 Spark 튜닝으로 제거.</span><span class="en">Cutting the cycle to 30 minutes created contention; queue splitting and Spark tuning removed it.</span></p>
           <span class="projcard__date">2023.08 ~ 2025.08</span>
+          <div class="tracks tracks--card">
+            <span class="stage" data-level="full"><span class="lbl"><span class="ko">설계</span><span class="en">Design</span></span><span class="bar"></span></span>
+            <span class="stage" data-level="full"><span class="lbl"><span class="ko">구축</span><span class="en">Build</span></span><span class="bar"></span></span>
+            <span class="stage" data-level="full"><span class="lbl"><span class="ko">튜닝</span><span class="en">Tune</span></span><span class="bar"></span></span>
+            <span class="stage" data-level="full"><span class="lbl"><span class="ko">운영</span><span class="en">Operate</span></span><span class="bar"></span></span>
+          </div>
         </div>
 
         <div class="projcard rv" role="button" tabindex="0" data-open="perf">
@@ -299,6 +481,12 @@
           <h3><span class="ko">병목 구간 정의와 스토리지 최적화</span><span class="en">Finding the Bottlenecks, Reclaiming Storage</span></h3>
           <p><span class="ko">동시성, 실행 계획, 스토리지를 나눠서 따로 확인하고 각각 다른 방법으로 처리했습니다.</span><span class="en">Concurrency, query plans and storage, checked separately and each handled a different way.</span></p>
           <span class="projcard__date">2026.03 <span class="ko">~ 현재</span><span class="en">- Present</span></span>
+          <div class="tracks tracks--card">
+            <span class="stage" data-level="full"><span class="lbl"><span class="ko">설계</span><span class="en">Design</span></span><span class="bar"></span></span>
+            <span class="stage" data-level="full"><span class="lbl"><span class="ko">구축</span><span class="en">Build</span></span><span class="bar"></span></span>
+            <span class="stage" data-level="full"><span class="lbl"><span class="ko">튜닝</span><span class="en">Tune</span></span><span class="bar"></span></span>
+            <span class="stage" data-level="full"><span class="lbl"><span class="ko">운영</span><span class="en">Operate</span></span><span class="bar"></span></span>
+          </div>
         </div>
 
       </div>
@@ -336,6 +524,118 @@
       </div>
 
       <div>
+      <figure class="figurewrap rv">
+        <div class="diagram diagram--narrow">
+        <svg viewBox="0 0 1180 620" role="img" aria-labelledby="wapTitle">
+          <title id="wapTitle">Write, audit and publish flow for load validation</title>
+          <text class="dg-head" x="0" y="18">1  WRITE</text>
+          <g class="dg-node">
+            <rect x="0" y="33" width="470" height="96" rx="12"/>
+            <text class="dg-t-sm ko" x="22" y="71">원천 Oracle · CSV</text>
+            <text class="dg-t-sm en" x="22" y="71">Source Oracle · CSV</text>
+            <text class="dg-s ko" x="22" y="99">Nessie 브랜치에 write (main 아님)</text>
+            <text class="dg-s en" x="22" y="99">Written to a Nessie branch, not main</text>
+          </g>
+          <line class="dg-line" x1="235" y1="129" x2="235" y2="165"/>
+          <path class="dg-arrow" d="M230 165 L235 175 L240 165 Z"/>
+          <text class="dg-head" x="0" y="166">2  AUDIT</text>
+          <text class="dg-s ko" x="150" y="166">검증 깊이 2단계</text>
+          <text class="dg-s en" x="150" y="166">Two levels of checking</text>
+          <g class="dg-node">
+            <rect x="0" y="181" width="228" height="150" rx="12"/>
+            <text class="dg-t-sm ko" x="22" y="217">count 티어</text>
+            <text class="dg-t-sm en" x="22" y="217">count tier</text>
+            <text class="dg-s ko" x="22" y="245">건수 검증</text>
+            <text class="dg-s en" x="22" y="245">Row-count check</text>
+            <text class="dg-s ko" x="22" y="267">모든 테이블 기본</text>
+            <text class="dg-s en" x="22" y="267">Default for every table</text>
+            <text class="dg-s ko" x="22" y="289">Oracle 재조회 0회</text>
+            <text class="dg-s en" x="22" y="289">Zero Oracle re-reads</text>
+            <text class="dg-s ko" x="22" y="311">$partitions 로 스캔 0</text>
+            <text class="dg-s en" x="22" y="311">No scan, read from $partitions</text>
+          </g>
+          <g class="dg-node">
+            <rect x="242" y="181" width="228" height="150" rx="12"/>
+            <text class="dg-t-sm ko" x="264" y="217">full 티어</text>
+            <text class="dg-t-sm en" x="264" y="217">full tier</text>
+            <text class="dg-s ko" x="264" y="245">값 검증</text>
+            <text class="dg-s en" x="264" y="245">Value check</text>
+            <text class="dg-s ko" x="264" y="267">값 대조가 필요한 테이블만</text>
+            <text class="dg-s en" x="264" y="267">Only tables that need it</text>
+            <text class="dg-s ko" x="264" y="289">컬럼별 해시 합계 대조</text>
+            <text class="dg-s en" x="264" y="289">Per-column hash sums</text>
+            <text class="dg-s ko" x="264" y="311">중복은 full-row hash</text>
+            <text class="dg-s en" x="264" y="311">Duplicates by full-row hash</text>
+          </g>
+          <line class="dg-line" x1="235" y1="331" x2="235" y2="367"/>
+          <path class="dg-arrow" d="M230 367 L235 377 L240 367 Z"/>
+          <text class="dg-head" x="0" y="368">3  PUBLISH</text>
+          <g class="dg-node">
+            <rect x="0" y="383" width="228" height="132" rx="12"/>
+            <text class="dg-t-sm ko" x="22" y="419">PASS</text>
+            <text class="dg-t-sm en" x="22" y="419">PASS</text>
+            <text class="dg-s ko" x="22" y="447">main 에 머지</text>
+            <text class="dg-s en" x="22" y="447">Merged into main</text>
+            <text class="dg-s ko" x="22" y="469">이 시점부터 조회 가능</text>
+            <text class="dg-s en" x="22" y="469">Queryable from here on</text>
+          </g>
+          <g class="dg-node">
+            <rect x="242" y="383" width="228" height="132" rx="12"/>
+            <text class="dg-t-sm ko" x="264" y="419">FAIL</text>
+            <text class="dg-t-sm en" x="264" y="419">FAIL</text>
+            <text class="dg-s ko" x="264" y="447">브랜치에 격리 유지</text>
+            <text class="dg-s en" x="264" y="447">Kept isolated on the branch</text>
+            <text class="dg-s ko" x="264" y="469">main 미노출</text>
+            <text class="dg-s en" x="264" y="469">Never reaches main</text>
+            <text class="dg-s ko" x="264" y="491">태스크 실패로 승격, SMS 발송</text>
+            <text class="dg-s en" x="264" y="491">Promoted to a task failure, paged</text>
+          </g>
+          <line class="dg-line" x1="490" y1="249" x2="630" y2="249"/>
+          <path class="dg-arrow" d="M630 244 L640 249 L630 254 Z"/>
+          <text class="dg-head" x="660" y="18">WHY IT MATTERS</text>
+          <g class="dg-node">
+            <rect x="660" y="33" width="520" height="132" rx="12"/>
+            <text class="dg-t-sm ko" x="682" y="71">검증이 형태만 있었음</text>
+            <text class="dg-t-sm en" x="682" y="71">The check existed in shape only</text>
+            <text class="dg-s ko" x="682" y="99">원천 건수를 대상 건수 칸에 복사만 함</text>
+            <text class="dg-s en" x="682" y="99">The source count was copied into the target field</text>
+            <text class="dg-s ko" x="682" y="121">비교하는 값이 실제로 없었음</text>
+            <text class="dg-s en" x="682" y="121">so no value was ever compared</text>
+            <text class="dg-s ko" x="682" y="143">main 에 바로 써서 잘못 적재돼도 조회 가능</text>
+            <text class="dg-s en" x="682" y="143">and writes went straight to main</text>
+          </g>
+          <g class="dg-node">
+            <rect x="660" y="181" width="520" height="150" rx="12"/>
+            <text class="dg-t-sm ko" x="682" y="219">파싱과 정밀도에서 새던 곳</text>
+            <text class="dg-t-sm en" x="682" y="219">Where it leaked before</text>
+            <text class="dg-s ko" x="682" y="247">개행·특수문자가 Hive 컬럼을 밀어냄</text>
+            <text class="dg-s en" x="682" y="247">Line breaks shifted Hive columns</text>
+            <text class="dg-s ko" x="682" y="269">신규 컬럼 소수점 스펙이 공유되지 않음</text>
+            <text class="dg-s en" x="682" y="269">A new decimal spec was never shared</text>
+            <text class="dg-s ko" x="682" y="291">값이 잘린 채 그대로 적재됨</text>
+            <text class="dg-s en" x="682" y="291">so values loaded truncated</text>
+            <text class="dg-s ko" x="682" y="313">적재 전 이스케이프와 정밀도 검사 추가</text>
+            <text class="dg-s en" x="682" y="313">Escaping and a precision check now run first</text>
+          </g>
+          <g class="dg-node">
+            <rect x="660" y="383" width="520" height="132" rx="12"/>
+            <text class="dg-t-sm ko" x="682" y="421">지금은</text>
+            <text class="dg-t-sm en" x="682" y="421">Now</text>
+            <text class="dg-s ko" x="682" y="449">검증 실패분이 main 에 닿지 않음</text>
+            <text class="dg-s en" x="682" y="449">Failed loads never reach main</text>
+            <text class="dg-s ko" x="682" y="471">확인이 SSH 에서 대시보드로 이동</text>
+            <text class="dg-s en" x="682" y="471">Checking moved from SSH to a dashboard</text>
+            <text class="dg-s ko" x="682" y="493">공유가 없어도 소수점이 버려지지 않음</text>
+            <text class="dg-s en" x="682" y="493">Decimals survive even with no hand-off</text>
+          </g>
+        </svg>
+        </div>
+        <figcaption>
+          <span class="ko">검증을 통과한 데이터만 main 에 병합됩니다. 실패분은 브랜치에 남고 태스크 실패로 승격되어 알림이 나갑니다.</span>
+          <span class="en">Only data that passes the audit is merged into main. What fails stays on the branch and is promoted to a task failure with an alert.</span>
+        </figcaption>
+      </figure>
+
         <div class="notecard rv">
           <span class="when">2023.08 <span class="ko">~ </span><span class="en">- </span><span class="ko">현재</span><span class="en">Present</span></span>
           <h3><span class="ko">적재 데이터 검증, 컬럼 지문 대조와 WAP 브랜치 격리</span><span class="en">Load Validation: Column Fingerprints &amp; WAP Branch Isolation</span></h3>
@@ -701,127 +1001,8 @@
       </div>
     </div>
 
-    <figure class="figurewrap rv">
-      <div class="diagram">
-        <svg viewBox="0 0 1700 590" role="img" aria-labelledby="archTitle">
-          <title id="archTitle">On-prem Hadoop data pipeline architecture</title>
+    <div class="figurewrap rv" data-arch-clone></div>
 
-          <g>
-            <rect class="dg-box" x="0" y="33" width="360" height="112" rx="3"/>
-            <rect class="dg-pill" x="22" y="81" width="86" height="28" rx="14"/>
-            <rect class="dg-box" x="0" y="157" width="360" height="112" rx="3"/>
-            <rect class="dg-pill" x="22" y="205" width="92" height="28" rx="14"/>
-            <rect class="dg-box" x="0" y="281" width="360" height="112" rx="3"/>
-            <rect class="dg-pill" x="22" y="329" width="62" height="28" rx="14"/>
-
-            <line class="dg-line" x1="360" y1="249" x2="434" y2="249"/>
-            <path class="dg-arrow" d="M434 244 L444 249 L434 254 Z"/>
-
-            <rect class="dg-panel" x="452" y="33" width="700" height="440" rx="6"/>
-            <rect class="dg-box" x="486" y="155" width="300" height="86" rx="3"/>
-            <rect class="dg-box" x="816" y="155" width="300" height="86" rx="3"/>
-            <circle class="dg-dot" cx="1088" cy="186" r="4"/>
-            <rect class="dg-box" x="486" y="283" width="194" height="78" rx="3"/>
-            <rect class="dg-box" x="700" y="283" width="194" height="78" rx="3"/>
-            <rect class="dg-box" x="914" y="283" width="194" height="78" rx="3"/>
-
-            <line class="dg-line" x1="1152" y1="249" x2="1226" y2="249"/>
-            <path class="dg-arrow" d="M1226 244 L1236 249 L1226 254 Z"/>
-
-            <rect class="dg-box" x="1244" y="33" width="456" height="104" rx="3"/>
-            <rect class="dg-box" x="1244" y="151" width="456" height="104" rx="3"/>
-            <rect class="dg-box" x="1244" y="269" width="456" height="104" rx="3"/>
-            <rect class="dg-panel" x="1244" y="403" width="456" height="170" rx="6"/>
-            <rect class="dg-box" x="1270" y="473" width="198" height="78" rx="3"/>
-            <rect class="dg-box" x="1480" y="473" width="198" height="78" rx="3"/>
-          </g>
-
-          <g class="ko">
-            <text class="dg-head" x="0" y="18">EXTERNAL SOURCES</text>
-            <text class="dg-t" x="26" y="73">정산 시스템</text>
-            <text class="dg-s-xs" x="34" y="100">FTP · CSV</text>
-            <text class="dg-s" x="26" y="130">일별 CSV 파일 송신</text>
-            <text class="dg-t" x="26" y="197">운영 PostgreSQL</text>
-            <text class="dg-s-xs" x="34" y="224">service_db</text>
-            <text class="dg-s" x="26" y="254">운영 DB 연동 적재</text>
-            <text class="dg-t" x="26" y="321">Oracle DBs</text>
-            <text class="dg-s-xs" x="34" y="348">4종</text>
-            <text class="dg-s" x="26" y="378">결제 · 정산 · 통계 · 관리</text>
-
-            <text class="dg-t" x="486" y="90">HadoopCluster</text>
-            <text class="dg-s" x="486" y="123">HDFS · YARN · Hive · Trino · Spark</text>
-            <text class="dg-head" x="486" y="148">MASTER</text>
-            <text class="dg-t-sm" x="510" y="193">Master Node</text>
-            <text class="dg-s" x="510" y="222">Standby</text>
-            <text class="dg-t-sm" x="840" y="193">Master Node</text>
-            <text class="dg-s" x="840" y="222">Active</text>
-            <text class="dg-head" x="486" y="276">DATA NODE</text>
-            <text class="dg-t-sm" x="508" y="330">Data Node</text>
-            <text class="dg-t-sm" x="722" y="330">Data Node</text>
-            <text class="dg-t-sm" x="936" y="330">Data Node</text>
-            <text class="dg-s" x="486" y="400">Master 2 (HA) · Data Node 3</text>
-
-            <text class="dg-t" x="1270" y="79">Airflow</text>
-            <text class="dg-s" x="1270" y="108">클러스터 작업 스케줄링</text>
-            <text class="dg-t" x="1270" y="197">Storage</text>
-            <text class="dg-s" x="1270" y="226">PostgreSQL + Nessie (Iceberg 카탈로그)</text>
-            <text class="dg-t" x="1270" y="315">Monitoring</text>
-            <text class="dg-s" x="1270" y="344">Grafana · Prometheus · SMS</text>
-
-            <text class="dg-t-sm" x="1270" y="447">USER</text>
-            <text class="dg-s" x="1342" y="447">외부 데이터 소비자</text>
-            <text class="dg-t-sm" x="1290" y="507">사업부서 A</text>
-            <text class="dg-s-xs" x="1290" y="532">HiveServer2 로 조회</text>
-            <text class="dg-t-sm" x="1500" y="507">사업부서 B</text>
-            <text class="dg-s-xs" x="1500" y="532">Trino Coordinator 로 조회</text>
-          </g>
-
-          <g class="en">
-            <text class="dg-head" x="0" y="18">EXTERNAL SOURCES</text>
-            <text class="dg-t" x="26" y="73">Settlement system</text>
-            <text class="dg-s-xs" x="34" y="100">FTP · CSV</text>
-            <text class="dg-s" x="26" y="130">Daily CSV delivery</text>
-            <text class="dg-t" x="26" y="197">Production PostgreSQL</text>
-            <text class="dg-s-xs" x="34" y="224">service_db</text>
-            <text class="dg-s" x="26" y="254">Direct DB ingestion</text>
-            <text class="dg-t" x="26" y="321">Oracle DBs</text>
-            <text class="dg-s-xs" x="34" y="348">4 DBs</text>
-            <text class="dg-s" x="26" y="378">Payment · settlement · stats · admin</text>
-
-            <text class="dg-t" x="486" y="90">HadoopCluster</text>
-            <text class="dg-s" x="486" y="123">HDFS · YARN · Hive · Trino · Spark</text>
-            <text class="dg-head" x="486" y="148">MASTER</text>
-            <text class="dg-t-sm" x="510" y="193">Master Node</text>
-            <text class="dg-s" x="510" y="222">Standby</text>
-            <text class="dg-t-sm" x="840" y="193">Master Node</text>
-            <text class="dg-s" x="840" y="222">Active</text>
-            <text class="dg-head" x="486" y="276">DATA NODE</text>
-            <text class="dg-t-sm" x="508" y="330">Data Node</text>
-            <text class="dg-t-sm" x="722" y="330">Data Node</text>
-            <text class="dg-t-sm" x="936" y="330">Data Node</text>
-            <text class="dg-s" x="486" y="400">Master 2 (HA) · Data Node 3</text>
-
-            <text class="dg-t" x="1270" y="79">Airflow</text>
-            <text class="dg-s" x="1270" y="108">Cluster job scheduling</text>
-            <text class="dg-t" x="1270" y="197">Storage</text>
-            <text class="dg-s" x="1270" y="226">PostgreSQL + Nessie (Iceberg catalog)</text>
-            <text class="dg-t" x="1270" y="315">Monitoring</text>
-            <text class="dg-s" x="1270" y="344">Grafana · Prometheus · SMS</text>
-
-            <text class="dg-t-sm" x="1270" y="447">USER</text>
-            <text class="dg-s" x="1342" y="447">External data consumers</text>
-            <text class="dg-t-sm" x="1290" y="507">Business unit A</text>
-            <text class="dg-s-xs" x="1290" y="532">Queries via HiveServer2</text>
-            <text class="dg-t-sm" x="1500" y="507">Business unit B</text>
-            <text class="dg-s-xs" x="1500" y="532">Queries via Trino Coordinator</text>
-          </g>
-        </svg>
-      </div>
-      <figcaption>
-        <span class="ko">Master 2대(HA)와 Data Node 3대로 구성한 온프레미스 Hadoop 클러스터. 원천 3종을 Airflow로 적재하고, 사업부서는 HiveServer2와 Trino로 직접 조회합니다.</span>
-        <span class="en">An on-prem Hadoop cluster of 2 HA masters and 3 data nodes. Three source systems are ingested through Airflow, and business units query it directly through HiveServer2 and Trino.</span>
-      </figcaption>
-    </figure>
 
     <div class="detail__body">
       <ul class="qa qa--lg rv">
