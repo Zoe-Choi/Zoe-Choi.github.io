@@ -451,41 +451,7 @@
           </div>
         </div>
 
-        <div class="projcard rv" role="button" tabindex="0" data-open="nrt">
-          <span class="projcard__cover">
-            <span class="projcard__num">08</span>
-            <span class="projcard__arrow"><svg viewBox="0 0 24 24"><use href="#i-arrow-up-right"/></svg></span>
-            <span class="projcard__stack"><span>YARN</span><span>Spark Tuning</span><span>Airflow</span></span>
-          </span>
-          <span class="projcard__cat">Performance</span>
-          <h3><span class="ko">준실시간 30분 배치와 자원 격리</span><span class="en">Near-Real-Time Batch &amp; Isolation</span></h3>
-          <p><span class="ko">주기를 30분으로 줄이자 생긴 자원 경합을, 큐 분할과 Spark 튜닝으로 제거.</span><span class="en">Cutting the cycle to 30 minutes created contention; queue splitting and Spark tuning removed it.</span></p>
-          <span class="projcard__date">2023.08 ~ 2025.08</span>
-          <div class="tracks tracks--card">
-            <span class="stage" data-level="full"><span class="lbl"><span class="ko">설계</span><span class="en">Design</span></span><span class="bar"></span></span>
-            <span class="stage" data-level="full"><span class="lbl"><span class="ko">구축</span><span class="en">Build</span></span><span class="bar"></span></span>
-            <span class="stage" data-level="full"><span class="lbl"><span class="ko">튜닝</span><span class="en">Tune</span></span><span class="bar"></span></span>
-            <span class="stage" data-level="full"><span class="lbl"><span class="ko">운영</span><span class="en">Operate</span></span><span class="bar"></span></span>
-          </div>
-        </div>
 
-        <div class="projcard rv" role="button" tabindex="0" data-open="perf">
-          <span class="projcard__cover">
-            <span class="projcard__num">09</span>
-            <span class="projcard__arrow"><svg viewBox="0 0 24 24"><use href="#i-arrow-up-right"/></svg></span>
-            <span class="projcard__stack"><span>Spark</span><span>FAIR Scheduler</span><span>Trino</span><span>HDFS</span></span>
-          </span>
-          <span class="projcard__cat">Performance</span>
-          <h3><span class="ko">병목 구간 정의와 스토리지 최적화</span><span class="en">Finding the Bottlenecks, Reclaiming Storage</span></h3>
-          <p><span class="ko">동시성, 실행 계획, 스토리지를 나눠서 따로 확인하고 각각 다른 방법으로 처리했습니다.</span><span class="en">Concurrency, query plans and storage, checked separately and each handled a different way.</span></p>
-          <span class="projcard__date">2026.03 <span class="ko">~ 현재</span><span class="en">- Present</span></span>
-          <div class="tracks tracks--card">
-            <span class="stage" data-level="full"><span class="lbl"><span class="ko">설계</span><span class="en">Design</span></span><span class="bar"></span></span>
-            <span class="stage" data-level="full"><span class="lbl"><span class="ko">구축</span><span class="en">Build</span></span><span class="bar"></span></span>
-            <span class="stage" data-level="full"><span class="lbl"><span class="ko">튜닝</span><span class="en">Tune</span></span><span class="bar"></span></span>
-            <span class="stage" data-level="full"><span class="lbl"><span class="ko">운영</span><span class="en">Operate</span></span><span class="bar"></span></span>
-          </div>
-        </div>
 
       </div>
 
@@ -1002,6 +968,101 @@
         </div>
       </aside>
     </div>
+    <section class="subwork rv">
+      <span class="eyebrow"><span class="ko">이 프로젝트 안에서</span><span class="en">Within this project</span></span>
+      <h2><span class="ko">병목 구간 정의, 스토리지 리소스 최적화</span><span class="en">Defining the Bottlenecks, Optimising Storage</span></h2>
+    <figure class="figurewrap rv">
+          <div class="diagram">
+            <svg viewBox="0 0 1180 508" role="img" aria-labelledby="perfTitle">
+              <title id="perfTitle">Bottlenecks measured before and after</title>
+              <g class="dg-node">
+                <rect x="280" y="44" width="400" height="92" rx="14"/>
+                <text class="dg-t-sm ko" x="304" y="96.3">테이블 단위 순차 실행</text>
+                <text class="dg-t-sm en" x="304" y="96.3">Tables processed one at a time</text>
+              </g>
+              <g class="dg-node">
+                <rect x="740" y="44" width="440" height="92" rx="14"/>
+                <text class="dg-t-sm ko" x="764" y="96.3">76개 테이블 주말 무인 병렬</text>
+                <text class="dg-t-sm en" x="764" y="96.3">76 tables, unattended in parallel</text>
+              </g>
+              <g class="dg-node">
+                <rect x="280" y="160" width="400" height="92" rx="14"/>
+                <text class="dg-t-sm ko" x="304" y="212.3">하루치 전체로 중앙값 계산</text>
+                <text class="dg-t-sm en" x="304" y="212.3">Median over a full day of rows</text>
+              </g>
+              <g class="dg-node">
+                <rect x="740" y="160" width="440" height="92" rx="14"/>
+                <text class="dg-t-sm ko" x="764" y="212.3">중복 제거 후 계산</text>
+                <text class="dg-t-sm en" x="764" y="212.3">De-duplicated first, then computed</text>
+              </g>
+              <g class="dg-node">
+                <rect x="280" y="276" width="400" height="92" rx="14"/>
+                <text class="dg-t-sm ko" x="304" y="328.3">76%</text>
+                <text class="dg-t-sm en" x="304" y="328.3">76%</text>
+              </g>
+              <g class="dg-node">
+                <rect x="740" y="276" width="440" height="92" rx="14"/>
+                <text class="dg-t-sm ko" x="764" y="328.3">약 57%  ·  노드당 471GB 회수</text>
+                <text class="dg-t-sm en" x="764" y="328.3">About 57%, 471 GB reclaimed per node</text>
+              </g>
+              <g class="dg-node">
+                <rect x="280" y="392" width="400" height="92" rx="14"/>
+                <text class="dg-t-sm ko" x="304" y="444.3">잔여 6GB 시스템 폴더</text>
+                <text class="dg-t-sm en" x="304" y="444.3">A system folder with 6 GB left</text>
+              </g>
+              <g class="dg-node">
+                <rect x="740" y="392" width="440" height="92" rx="14"/>
+                <text class="dg-t-sm ko" x="764" y="444.3">여유 800GB 데이터 볼륨</text>
+                <text class="dg-t-sm en" x="764" y="444.3">A data volume with 800 GB free</text>
+              </g>
+              <text class="dg-head" x="300" y="20">BEFORE</text>
+              <text class="dg-head" x="760" y="20">AFTER</text>
+              <text class="dg-t-sm ko" x="0" y="98">동시성</text>
+              <text class="dg-t-sm en" x="0" y="98">Concurrency</text>
+              <text class="dg-t-sm ko" x="0" y="214">실행 계획</text>
+              <text class="dg-t-sm en" x="0" y="214">Query plan</text>
+              <text class="dg-t-sm ko" x="0" y="330">데이터 디스크</text>
+              <text class="dg-t-sm en" x="0" y="330">Data disk</text>
+              <text class="dg-t-sm ko" x="0" y="446">임시 파일 경로</text>
+              <text class="dg-t-sm en" x="0" y="446">Temp path</text>
+              <line class="dg-line" x1="690" y1="90" x2="721" y2="90"/>
+              <path class="dg-arrow" d="M721 84 L732 90 L721 96 Z"/>
+              <line class="dg-line" x1="690" y1="206" x2="721" y2="206"/>
+              <path class="dg-arrow" d="M721 200 L732 206 L721 212 Z"/>
+              <line class="dg-line" x1="690" y1="322" x2="721" y2="322"/>
+              <path class="dg-arrow" d="M721 316 L732 322 L721 328 Z"/>
+              <line class="dg-line" x1="690" y1="438" x2="721" y2="438"/>
+              <path class="dg-arrow" d="M721 432 L732 438 L721 444 Z"/>
+            </svg>
+          </div>
+          <figcaption>
+            <span class="ko">병목을 한 덩어리로 보지 않고 네 구간으로 나눠 각각 측정했습니다.</span>
+            <span class="en">Rather than treat the bottleneck as one thing, it was split into four and each measured.</span>
+          </figcaption>
+        </figure>
+      <div class="detail__body">
+        <ul class="qa qa--lg rv">
+                <li><b><span class="ko">문제</span><span class="en">Problem</span></b><span><span class="ko">직접 만든 Hive에서 Iceberg로의 마이그레이션이 테이블을 하나씩 순서대로 처리해서, 한 테이블이 저장·집계되는 동안 나머지 클러스터가 놀고 있었습니다. 매출 예측 입력 쿼리는 하루치 데이터 전부를 대상으로 중앙값을 계산했고, 이벤트 로그 누적과 잘못 지정된 임시 파일 경로로 디스크가 포화 상태였습니다.</span><span class="en">A Hive to Iceberg migration I had written processed tables one at a time, so the rest of the cluster sat idle while one table committed and aggregated. The revenue forecast input query computed a median over a full day of rows, and disks were saturating from accumulated event logs and a badly placed temp path.</span></span></li>
+                <li><b><span class="ko">접근</span><span class="en">Approach</span></b><span><span class="ko">병목을 동시성, 실행 계획, 스토리지로 나눠 따로 확인했습니다. 테이블을 하나씩 돌리던 것을 여러 개 동시 실행으로 바꾸고 무인 실행은 전용 큐만 쓰게 해 새벽 배치와 분리했습니다. 쿼리는 그룹으로 묶어 중복을 먼저 없앤 뒤 중앙값을 계산하도록 바꿨습니다. 주말 무인 실행에서 멈추던 지점도 정리했는데, 날짜 컬럼이 없는 테이블은 파일 경로에서 날짜를 뽑고, 실제 파일이 없는 파티션 하나 때문에 테이블 전체가 멈추던 것은 그 파티션만 건너뛰게 했습니다. 실패한 테이블은 목록으로 남겨 다음 회차에 재실행합니다.</span><span class="en">I separated the bottleneck into concurrency, query plan and storage and checked each on its own. Tables that ran one by one now run several at a time, and unattended runs use a dedicated queue so they stay clear of the overnight batch. The query was rewritten to group and de-duplicate before computing the median. I also cleared what kept stalling weekend runs: tables with no date column take the date from the file path, and a partition with no actual files no longer halts the whole table, it is skipped. Failed tables are written to a list and retried next round.</span></span></li>
+                <li><b><span class="ko">결과</span><span class="en">Result</span></b><span><span class="ko">76개 테이블을 주말 동안 사람 없이 돌릴 수 있게 됐습니다. 데이터 디스크 사용률은 76%에서 약 57%로 내려갔고(노드당 약 471GB 회수), 운영 임시 파일 경로는 잔여 6GB짜리 시스템 폴더에서 800GB 여유가 있는 데이터 볼륨으로 옮겼습니다.</span><span class="en">76 tables now run unattended over a weekend. Data disk usage dropped from 76% to about 57%, reclaiming roughly 471 GB per node, and the temp path moved off a system folder with 6 GB left onto a data volume with 800 GB free.</span></span></li>
+              </ul>
+        <aside>
+                <div class="detail__aside rv">
+                  <h4><span class="ko">담당 범위</span><span class="en">My role</span></h4>
+                  <div class="tracks">
+                    <span class="stage" data-level="full"><span class="lbl"><span class="ko">설계</span><span class="en">Design</span></span><span class="bar"></span></span>
+                    <span class="stage" data-level="full"><span class="lbl"><span class="ko">구축</span><span class="en">Build</span></span><span class="bar"></span></span>
+                    <span class="stage" data-level="full"><span class="lbl"><span class="ko">튜닝</span><span class="en">Tune</span></span><span class="bar"></span></span>
+                    <span class="stage" data-level="full"><span class="lbl"><span class="ko">운영</span><span class="en">Operate</span></span><span class="bar"></span></span>
+                  </div>
+                </div>
+                <div class="detail__aside rv">
+                  <h4>Stack</h4>
+                  <div><span class="tag">Spark</span><span class="tag">YARN FAIR Scheduler</span><span class="tag">Trino</span><span class="tag">Iceberg</span><span class="tag">HDFS</span></div>
+                </div>
+              </aside>
+      </div>
+    </section>
   </div>
 </article>
 
@@ -1394,203 +1455,88 @@
         </div>
       </aside>
     </div>
-  </div>
-</article>
-
-<article class="detailwrap" data-detail="nrt" hidden>
-  <div class="wrap">
-    <button class="backlink" type="button" data-back><svg viewBox="0 0 24 24"><use href="#i-arrow-left"/></svg><span class="ko">프로젝트로 돌아가기</span><span class="en">Back to projects</span></button>
-    <div class="detail__head rv">
-      <span class="eyebrow">Project 08 · Performance</span>
-      <h1><span class="ko">준실시간 30분 배치, 자원 격리와 Spark 튜닝</span><span class="en">Near-Real-Time 30-Minute Batch, Isolation &amp; Spark Tuning</span></h1>
-      <div class="detail__meta">
-        <span><b><span class="ko">기간</span><span class="en">Period</span></b> 2023.08 ~ 2025.08</span>
-        <span><b><span class="ko">역할</span><span class="en">Role</span></b> <span class="ko">실시간 수요 대응 과정에서 생긴 병목 제거</span><span class="en">Removing the bottleneck that came with near-real-time demand</span></span>
-      </div>
-    </div>
+    <section class="subwork rv">
+      <span class="eyebrow"><span class="ko">이 프로젝트 안에서</span><span class="en">Within this project</span></span>
+      <h2><span class="ko">준실시간 30분 배치, 자원 격리와 Spark 튜닝</span><span class="en">Near-Real-Time 30-Minute Batch, Isolation &amp; Spark Tuning</span></h2>
     <figure class="figurewrap rv">
-      <div class="diagram">
-        <svg viewBox="0 0 1180 420" role="img" aria-labelledby="nrtTitle">
-          <title id="nrtTitle">Queue isolation for the near real time batch</title>
-          <g class="dg-node">
-            <rect x="0" y="56" width="420" height="96" rx="14"/>
-            <text class="dg-t-sm ko" x="24" y="99.3">일 1회 배치</text>
-            <text class="dg-t-sm en" x="24" y="99.3">Once a day</text>
-            <text class="dg-s ko" x="24" y="120.6">실시간 수요를 감당 못 함</text>
-            <text class="dg-s en" x="24" y="120.6">Could not meet the demand</text>
-          </g>
-          <g class="dg-node">
-            <rect x="520" y="56" width="420" height="96" rx="14"/>
-            <text class="dg-t-sm ko" x="544" y="99.3">30분 주기</text>
-            <text class="dg-t-sm en" x="544" y="99.3">Every 30 minutes</text>
-            <text class="dg-s ko" x="544" y="120.6">태스크 급증, DAG 간 자원 경합</text>
-            <text class="dg-s en" x="544" y="120.6">Task count jumped, DAGs contended</text>
-          </g>
-          <g class="dg-node">
-            <rect x="0" y="236" width="363" height="100" rx="14"/>
-            <text class="dg-t-sm ko" x="20" y="281.3">일 배치 큐</text>
-            <text class="dg-t-sm en" x="20" y="281.3">Daily batch queue</text>
-            <text class="dg-s ko" x="20" y="302.6">기존 대량 적재</text>
-            <text class="dg-s en" x="20" y="302.6">The existing bulk loads</text>
-          </g>
-          <g class="dg-node">
-            <rect x="409" y="236" width="363" height="100" rx="14"/>
-            <text class="dg-t-sm ko" x="429" y="281.3">준실시간 큐</text>
-            <text class="dg-t-sm en" x="429" y="281.3">Near-real-time queue</text>
-            <text class="dg-s ko" x="429" y="302.6">30분 주기 전용</text>
-            <text class="dg-s en" x="429" y="302.6">Dedicated to the 30-minute cycle</text>
-          </g>
-          <g class="dg-node">
-            <rect x="818" y="236" width="363" height="100" rx="14"/>
-            <text class="dg-t-sm ko" x="838" y="281.3">분석 큐</text>
-            <text class="dg-t-sm en" x="838" y="281.3">Analytics queue</text>
-            <text class="dg-s ko" x="838" y="302.6">사용자 조회</text>
-            <text class="dg-s en" x="838" y="302.6">User queries</text>
-          </g>
-          <text class="dg-head" x="0" y="20">CYCLE</text>
-          <text class="dg-head" x="0" y="222">YARN QUEUE 분할  ·  ISOLATION PER DAG</text>
-          <text class="dg-s ko" x="0" y="396">한 파이프라인의 지연이 다른 파이프라인을 밀지 않게 막았습니다</text>
-          <text class="dg-s en" x="0" y="396">One pipeline's delay no longer pushes the others</text>
-          <line class="dg-line" x1="430" y1="104" x2="501" y2="104"/>
-          <path class="dg-arrow" d="M501 98 L512 104 L501 110 Z"/>
-        </svg>
-      </div>
-      <figcaption>
-        <span class="ko">주기를 줄이면서 생긴 경합을 큐 분할로 끊었습니다.</span>
-        <span class="en">Shortening the cycle created contention; splitting queues cut it.</span>
-      </figcaption>
-    </figure>
-
-    <div class="detail__body">
-      <ul class="qa qa--lg rv">
-        <li><b><span class="ko">문제</span><span class="en">Problem</span></b><span><span class="ko">일 1회 배치로는 실시간에 가까운 데이터 수요를 감당할 수 없었습니다. 주기를 30분으로 바꾸자 태스크 수가 크게 늘면서 DAG 간 자원 경합으로 병목이 생겼습니다.</span><span class="en">A once-a-day batch could not meet demand for near-real-time data. Moving to a 30-minute cycle multiplied the task count until DAGs began contending for resources.</span></span></li>
-        <li><b><span class="ko">접근</span><span class="en">Approach</span></b><span><span class="ko">30분 단위 준실시간 배치 파이프라인을 Airflow로 개발하고, YARN queue를 분할해 DAG별로 자원을 격리했습니다. Spark 로그에서 stage·task 편차를 읽어 불필요한 셔플과 데이터 SKEW 여부를 판별하고, 실제로 자주 실행되는 쿼리 패턴을 기준으로 파티셔닝 키를 결정했습니다. Spark 리소스 설정을 바꿔가며 실행 시간과 자원 사용량을 수십 회 측정·비교했습니다.</span><span class="en">I built the 30-minute near-real-time pipeline on Airflow and split YARN queues so resources are isolated per DAG. Reading stage and task variance in Spark logs identified needless shuffles and data skew, partition keys were chosen from the query patterns that actually run, and Spark resource settings were changed and measured against runtime and usage across dozens of iterations.</span></span></li>
-        <li><b><span class="ko">결과</span><span class="en">Result</span></b><span><span class="ko">30분 주기 준실시간 적재를 병목 없이 운영했습니다. 자원 격리 덕분에 한 파이프라인의 지연이 다른 파이프라인으로 번지지 않아 장애 전파 범위가 DAG 단위로 한정되고 대응 시간도 짧아졌습니다.</span><span class="en">The 30-minute near-real-time load ran without a bottleneck. Because resources are isolated, one pipeline's delay no longer pushes the others, the blast radius of a failure stays inside a single DAG and response time dropped with it.</span></span></li>
-      </ul>
-      <aside>
-        <div class="detail__aside rv">
-          <h4><span class="ko">담당 범위</span><span class="en">My role</span></h4>
-          <div class="tracks">
-            <span class="stage" data-level="full"><span class="lbl"><span class="ko">설계</span><span class="en">Design</span></span><span class="bar"></span></span>
-            <span class="stage" data-level="full"><span class="lbl"><span class="ko">구축</span><span class="en">Build</span></span><span class="bar"></span></span>
-            <span class="stage" data-level="full"><span class="lbl"><span class="ko">튜닝</span><span class="en">Tune</span></span><span class="bar"></span></span>
-            <span class="stage" data-level="full"><span class="lbl"><span class="ko">운영</span><span class="en">Operate</span></span><span class="bar"></span></span>
+          <div class="diagram">
+            <svg viewBox="0 0 1180 420" role="img" aria-labelledby="nrtTitle">
+              <title id="nrtTitle">Queue isolation for the near real time batch</title>
+              <g class="dg-node">
+                <rect x="0" y="56" width="420" height="96" rx="14"/>
+                <text class="dg-t-sm ko" x="24" y="99.3">일 1회 배치</text>
+                <text class="dg-t-sm en" x="24" y="99.3">Once a day</text>
+                <text class="dg-s ko" x="24" y="120.6">실시간 수요를 감당 못 함</text>
+                <text class="dg-s en" x="24" y="120.6">Could not meet the demand</text>
+              </g>
+              <g class="dg-node">
+                <rect x="520" y="56" width="420" height="96" rx="14"/>
+                <text class="dg-t-sm ko" x="544" y="99.3">30분 주기</text>
+                <text class="dg-t-sm en" x="544" y="99.3">Every 30 minutes</text>
+                <text class="dg-s ko" x="544" y="120.6">태스크 급증, DAG 간 자원 경합</text>
+                <text class="dg-s en" x="544" y="120.6">Task count jumped, DAGs contended</text>
+              </g>
+              <g class="dg-node">
+                <rect x="0" y="236" width="363" height="100" rx="14"/>
+                <text class="dg-t-sm ko" x="20" y="281.3">일 배치 큐</text>
+                <text class="dg-t-sm en" x="20" y="281.3">Daily batch queue</text>
+                <text class="dg-s ko" x="20" y="302.6">기존 대량 적재</text>
+                <text class="dg-s en" x="20" y="302.6">The existing bulk loads</text>
+              </g>
+              <g class="dg-node">
+                <rect x="409" y="236" width="363" height="100" rx="14"/>
+                <text class="dg-t-sm ko" x="429" y="281.3">준실시간 큐</text>
+                <text class="dg-t-sm en" x="429" y="281.3">Near-real-time queue</text>
+                <text class="dg-s ko" x="429" y="302.6">30분 주기 전용</text>
+                <text class="dg-s en" x="429" y="302.6">Dedicated to the 30-minute cycle</text>
+              </g>
+              <g class="dg-node">
+                <rect x="818" y="236" width="363" height="100" rx="14"/>
+                <text class="dg-t-sm ko" x="838" y="281.3">분석 큐</text>
+                <text class="dg-t-sm en" x="838" y="281.3">Analytics queue</text>
+                <text class="dg-s ko" x="838" y="302.6">사용자 조회</text>
+                <text class="dg-s en" x="838" y="302.6">User queries</text>
+              </g>
+              <text class="dg-head" x="0" y="20">CYCLE</text>
+              <text class="dg-head" x="0" y="222">YARN QUEUE 분할  ·  ISOLATION PER DAG</text>
+              <text class="dg-s ko" x="0" y="396">한 파이프라인의 지연이 다른 파이프라인을 밀지 않게 막았습니다</text>
+              <text class="dg-s en" x="0" y="396">One pipeline's delay no longer pushes the others</text>
+              <line class="dg-line" x1="430" y1="104" x2="501" y2="104"/>
+              <path class="dg-arrow" d="M501 98 L512 104 L501 110 Z"/>
+            </svg>
           </div>
-        </div>
-        <div class="detail__aside rv">
-          <h4>Stack</h4>
-          <div><span class="tag">Airflow</span><span class="tag">Spark</span><span class="tag">YARN</span><span class="tag">Hive</span><span class="tag">Iceberg</span></div>
-        </div>
-      </aside>
-    </div>
+          <figcaption>
+            <span class="ko">주기를 줄이면서 생긴 경합을 큐 분할로 끊었습니다.</span>
+            <span class="en">Shortening the cycle created contention; splitting queues cut it.</span>
+          </figcaption>
+        </figure>
+      <div class="detail__body">
+        <ul class="qa qa--lg rv">
+                <li><b><span class="ko">문제</span><span class="en">Problem</span></b><span><span class="ko">일 1회 배치로는 실시간에 가까운 데이터 수요를 감당할 수 없었습니다. 주기를 30분으로 바꾸자 태스크 수가 크게 늘면서 DAG 간 자원 경합으로 병목이 생겼습니다.</span><span class="en">A once-a-day batch could not meet demand for near-real-time data. Moving to a 30-minute cycle multiplied the task count until DAGs began contending for resources.</span></span></li>
+                <li><b><span class="ko">접근</span><span class="en">Approach</span></b><span><span class="ko">30분 단위 준실시간 배치 파이프라인을 Airflow로 개발하고, YARN queue를 분할해 DAG별로 자원을 격리했습니다. Spark 로그에서 stage·task 편차를 읽어 불필요한 셔플과 데이터 SKEW 여부를 판별하고, 실제로 자주 실행되는 쿼리 패턴을 기준으로 파티셔닝 키를 결정했습니다. Spark 리소스 설정을 바꿔가며 실행 시간과 자원 사용량을 수십 회 측정·비교했습니다.</span><span class="en">I built the 30-minute near-real-time pipeline on Airflow and split YARN queues so resources are isolated per DAG. Reading stage and task variance in Spark logs identified needless shuffles and data skew, partition keys were chosen from the query patterns that actually run, and Spark resource settings were changed and measured against runtime and usage across dozens of iterations.</span></span></li>
+                <li><b><span class="ko">결과</span><span class="en">Result</span></b><span><span class="ko">30분 주기 준실시간 적재를 병목 없이 운영했습니다. 자원 격리 덕분에 한 파이프라인의 지연이 다른 파이프라인으로 번지지 않아 장애 전파 범위가 DAG 단위로 한정되고 대응 시간도 짧아졌습니다.</span><span class="en">The 30-minute near-real-time load ran without a bottleneck. Because resources are isolated, one pipeline's delay no longer pushes the others, the blast radius of a failure stays inside a single DAG and response time dropped with it.</span></span></li>
+              </ul>
+        <aside>
+                <div class="detail__aside rv">
+                  <h4><span class="ko">담당 범위</span><span class="en">My role</span></h4>
+                  <div class="tracks">
+                    <span class="stage" data-level="full"><span class="lbl"><span class="ko">설계</span><span class="en">Design</span></span><span class="bar"></span></span>
+                    <span class="stage" data-level="full"><span class="lbl"><span class="ko">구축</span><span class="en">Build</span></span><span class="bar"></span></span>
+                    <span class="stage" data-level="full"><span class="lbl"><span class="ko">튜닝</span><span class="en">Tune</span></span><span class="bar"></span></span>
+                    <span class="stage" data-level="full"><span class="lbl"><span class="ko">운영</span><span class="en">Operate</span></span><span class="bar"></span></span>
+                  </div>
+                </div>
+                <div class="detail__aside rv">
+                  <h4>Stack</h4>
+                  <div><span class="tag">Airflow</span><span class="tag">Spark</span><span class="tag">YARN</span><span class="tag">Hive</span><span class="tag">Iceberg</span></div>
+                </div>
+              </aside>
+      </div>
+    </section>
   </div>
 </article>
 
-<article class="detailwrap" data-detail="perf" hidden>
-  <div class="wrap">
-    <button class="backlink" type="button" data-back><svg viewBox="0 0 24 24"><use href="#i-arrow-left"/></svg><span class="ko">프로젝트로 돌아가기</span><span class="en">Back to projects</span></button>
-    <div class="detail__head rv">
-      <span class="eyebrow">Project 09 · Performance</span>
-      <h1><span class="ko">병목 구간 정의, 스토리지 리소스 최적화</span><span class="en">Defining the Bottlenecks, Optimising Storage</span></h1>
-      <div class="detail__meta">
-        <span><b><span class="ko">기간</span><span class="en">Period</span></b> 2026.03 <span class="ko">~ 현재</span><span class="en">- Present</span></span>
-        <span><b><span class="ko">역할</span><span class="en">Role</span></b> <span class="ko">직접 설계·운영한 파이프라인을 측정하며 구간별로 병목 제거</span><span class="en">Measuring pipelines I built myself and clearing bottlenecks one section at a time</span></span>
-      </div>
-    </div>
-    <figure class="figurewrap rv">
-      <div class="diagram">
-        <svg viewBox="0 0 1180 508" role="img" aria-labelledby="perfTitle">
-          <title id="perfTitle">Bottlenecks measured before and after</title>
-          <g class="dg-node">
-            <rect x="280" y="44" width="400" height="92" rx="14"/>
-            <text class="dg-t-sm ko" x="304" y="96.3">테이블 단위 순차 실행</text>
-            <text class="dg-t-sm en" x="304" y="96.3">Tables processed one at a time</text>
-          </g>
-          <g class="dg-node">
-            <rect x="740" y="44" width="440" height="92" rx="14"/>
-            <text class="dg-t-sm ko" x="764" y="96.3">76개 테이블 주말 무인 병렬</text>
-            <text class="dg-t-sm en" x="764" y="96.3">76 tables, unattended in parallel</text>
-          </g>
-          <g class="dg-node">
-            <rect x="280" y="160" width="400" height="92" rx="14"/>
-            <text class="dg-t-sm ko" x="304" y="212.3">하루치 전체로 중앙값 계산</text>
-            <text class="dg-t-sm en" x="304" y="212.3">Median over a full day of rows</text>
-          </g>
-          <g class="dg-node">
-            <rect x="740" y="160" width="440" height="92" rx="14"/>
-            <text class="dg-t-sm ko" x="764" y="212.3">중복 제거 후 계산</text>
-            <text class="dg-t-sm en" x="764" y="212.3">De-duplicated first, then computed</text>
-          </g>
-          <g class="dg-node">
-            <rect x="280" y="276" width="400" height="92" rx="14"/>
-            <text class="dg-t-sm ko" x="304" y="328.3">76%</text>
-            <text class="dg-t-sm en" x="304" y="328.3">76%</text>
-          </g>
-          <g class="dg-node">
-            <rect x="740" y="276" width="440" height="92" rx="14"/>
-            <text class="dg-t-sm ko" x="764" y="328.3">약 57%  ·  노드당 471GB 회수</text>
-            <text class="dg-t-sm en" x="764" y="328.3">About 57%, 471 GB reclaimed per node</text>
-          </g>
-          <g class="dg-node">
-            <rect x="280" y="392" width="400" height="92" rx="14"/>
-            <text class="dg-t-sm ko" x="304" y="444.3">잔여 6GB 시스템 폴더</text>
-            <text class="dg-t-sm en" x="304" y="444.3">A system folder with 6 GB left</text>
-          </g>
-          <g class="dg-node">
-            <rect x="740" y="392" width="440" height="92" rx="14"/>
-            <text class="dg-t-sm ko" x="764" y="444.3">여유 800GB 데이터 볼륨</text>
-            <text class="dg-t-sm en" x="764" y="444.3">A data volume with 800 GB free</text>
-          </g>
-          <text class="dg-head" x="300" y="20">BEFORE</text>
-          <text class="dg-head" x="760" y="20">AFTER</text>
-          <text class="dg-t-sm ko" x="0" y="98">동시성</text>
-          <text class="dg-t-sm en" x="0" y="98">Concurrency</text>
-          <text class="dg-t-sm ko" x="0" y="214">실행 계획</text>
-          <text class="dg-t-sm en" x="0" y="214">Query plan</text>
-          <text class="dg-t-sm ko" x="0" y="330">데이터 디스크</text>
-          <text class="dg-t-sm en" x="0" y="330">Data disk</text>
-          <text class="dg-t-sm ko" x="0" y="446">임시 파일 경로</text>
-          <text class="dg-t-sm en" x="0" y="446">Temp path</text>
-          <line class="dg-line" x1="690" y1="90" x2="721" y2="90"/>
-          <path class="dg-arrow" d="M721 84 L732 90 L721 96 Z"/>
-          <line class="dg-line" x1="690" y1="206" x2="721" y2="206"/>
-          <path class="dg-arrow" d="M721 200 L732 206 L721 212 Z"/>
-          <line class="dg-line" x1="690" y1="322" x2="721" y2="322"/>
-          <path class="dg-arrow" d="M721 316 L732 322 L721 328 Z"/>
-          <line class="dg-line" x1="690" y1="438" x2="721" y2="438"/>
-          <path class="dg-arrow" d="M721 432 L732 438 L721 444 Z"/>
-        </svg>
-      </div>
-      <figcaption>
-        <span class="ko">병목을 한 덩어리로 보지 않고 네 구간으로 나눠 각각 측정했습니다.</span>
-        <span class="en">Rather than treat the bottleneck as one thing, it was split into four and each measured.</span>
-      </figcaption>
-    </figure>
 
-    <div class="detail__body">
-      <ul class="qa qa--lg rv">
-        <li><b><span class="ko">문제</span><span class="en">Problem</span></b><span><span class="ko">직접 만든 Hive에서 Iceberg로의 마이그레이션이 테이블을 하나씩 순서대로 처리해서, 한 테이블이 저장·집계되는 동안 나머지 클러스터가 놀고 있었습니다. 매출 예측 입력 쿼리는 하루치 데이터 전부를 대상으로 중앙값을 계산했고, 이벤트 로그 누적과 잘못 지정된 임시 파일 경로로 디스크가 포화 상태였습니다.</span><span class="en">A Hive to Iceberg migration I had written processed tables one at a time, so the rest of the cluster sat idle while one table committed and aggregated. The revenue forecast input query computed a median over a full day of rows, and disks were saturating from accumulated event logs and a badly placed temp path.</span></span></li>
-        <li><b><span class="ko">접근</span><span class="en">Approach</span></b><span><span class="ko">병목을 동시성, 실행 계획, 스토리지로 나눠 따로 확인했습니다. 테이블을 하나씩 돌리던 것을 여러 개 동시 실행으로 바꾸고 무인 실행은 전용 큐만 쓰게 해 새벽 배치와 분리했습니다. 쿼리는 그룹으로 묶어 중복을 먼저 없앤 뒤 중앙값을 계산하도록 바꿨습니다. 주말 무인 실행에서 멈추던 지점도 정리했는데, 날짜 컬럼이 없는 테이블은 파일 경로에서 날짜를 뽑고, 실제 파일이 없는 파티션 하나 때문에 테이블 전체가 멈추던 것은 그 파티션만 건너뛰게 했습니다. 실패한 테이블은 목록으로 남겨 다음 회차에 재실행합니다.</span><span class="en">I separated the bottleneck into concurrency, query plan and storage and checked each on its own. Tables that ran one by one now run several at a time, and unattended runs use a dedicated queue so they stay clear of the overnight batch. The query was rewritten to group and de-duplicate before computing the median. I also cleared what kept stalling weekend runs: tables with no date column take the date from the file path, and a partition with no actual files no longer halts the whole table, it is skipped. Failed tables are written to a list and retried next round.</span></span></li>
-        <li><b><span class="ko">결과</span><span class="en">Result</span></b><span><span class="ko">76개 테이블을 주말 동안 사람 없이 돌릴 수 있게 됐습니다. 데이터 디스크 사용률은 76%에서 약 57%로 내려갔고(노드당 약 471GB 회수), 운영 임시 파일 경로는 잔여 6GB짜리 시스템 폴더에서 800GB 여유가 있는 데이터 볼륨으로 옮겼습니다.</span><span class="en">76 tables now run unattended over a weekend. Data disk usage dropped from 76% to about 57%, reclaiming roughly 471 GB per node, and the temp path moved off a system folder with 6 GB left onto a data volume with 800 GB free.</span></span></li>
-      </ul>
-      <aside>
-        <div class="detail__aside rv">
-          <h4><span class="ko">담당 범위</span><span class="en">My role</span></h4>
-          <div class="tracks">
-            <span class="stage" data-level="full"><span class="lbl"><span class="ko">설계</span><span class="en">Design</span></span><span class="bar"></span></span>
-            <span class="stage" data-level="full"><span class="lbl"><span class="ko">구축</span><span class="en">Build</span></span><span class="bar"></span></span>
-            <span class="stage" data-level="full"><span class="lbl"><span class="ko">튜닝</span><span class="en">Tune</span></span><span class="bar"></span></span>
-            <span class="stage" data-level="full"><span class="lbl"><span class="ko">운영</span><span class="en">Operate</span></span><span class="bar"></span></span>
-          </div>
-        </div>
-        <div class="detail__aside rv">
-          <h4>Stack</h4>
-          <div><span class="tag">Spark</span><span class="tag">YARN FAIR Scheduler</span><span class="tag">Trino</span><span class="tag">Iceberg</span><span class="tag">HDFS</span></div>
-        </div>
-      </aside>
-    </div>
-  </div>
-</article>
 
 <!-- ================= FOOTER ================= -->
 <footer class="foot">

@@ -529,3 +529,12 @@ h3{ font-size:22px; line-height:1.3 }
 .diagram--wide .dg-t-sm{ font-size:22px }
 .diagram--wide .dg-s{ font-size:20px }
 .diagram--wide .dg-s-xs{ font-size:18px }
+
+/* a sub-work nested inside a parent project detail */
+.subwork{
+  margin-top:72px; padding-top:56px;
+  border-top:1px solid var(--line-2);
+}
+.subwork h2{ font-size:clamp(24px,2.6vw,30px); margin-bottom:8px }
+.subwork .figurewrap{ margin-top:32px }
+.subwork .detail__body{ margin-top:36px }
