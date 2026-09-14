@@ -700,6 +700,129 @@
         <span><b><span class="ko">역할</span><span class="en">Role</span></b> <span class="ko">분석가의 운영 DB 쿼리 부담 제거</span><span class="en">Removing analyst query load from the operational DB</span></span>
       </div>
     </div>
+
+    <figure class="figurewrap rv">
+      <div class="diagram">
+        <svg viewBox="0 0 1700 590" role="img" aria-labelledby="archTitle">
+          <title id="archTitle">On-prem Hadoop data pipeline architecture</title>
+
+          <g>
+            <rect class="dg-box" x="0" y="33" width="360" height="112" rx="3"/>
+            <rect class="dg-pill" x="22" y="81" width="86" height="28" rx="14"/>
+            <rect class="dg-box" x="0" y="157" width="360" height="112" rx="3"/>
+            <rect class="dg-pill" x="22" y="205" width="92" height="28" rx="14"/>
+            <rect class="dg-box" x="0" y="281" width="360" height="112" rx="3"/>
+            <rect class="dg-pill" x="22" y="329" width="62" height="28" rx="14"/>
+
+            <line class="dg-line" x1="360" y1="249" x2="434" y2="249"/>
+            <path class="dg-arrow" d="M434 244 L444 249 L434 254 Z"/>
+
+            <rect class="dg-panel" x="452" y="33" width="700" height="440" rx="6"/>
+            <rect class="dg-box" x="486" y="155" width="300" height="86" rx="3"/>
+            <rect class="dg-box" x="816" y="155" width="300" height="86" rx="3"/>
+            <circle class="dg-dot" cx="1088" cy="186" r="4"/>
+            <rect class="dg-box" x="486" y="283" width="194" height="78" rx="3"/>
+            <rect class="dg-box" x="700" y="283" width="194" height="78" rx="3"/>
+            <rect class="dg-box" x="914" y="283" width="194" height="78" rx="3"/>
+
+            <line class="dg-line" x1="1152" y1="249" x2="1226" y2="249"/>
+            <path class="dg-arrow" d="M1226 244 L1236 249 L1226 254 Z"/>
+
+            <rect class="dg-box" x="1244" y="33" width="456" height="104" rx="3"/>
+            <rect class="dg-box" x="1244" y="151" width="456" height="104" rx="3"/>
+            <rect class="dg-box" x="1244" y="269" width="456" height="104" rx="3"/>
+            <rect class="dg-panel" x="1244" y="403" width="456" height="170" rx="6"/>
+            <rect class="dg-box" x="1270" y="473" width="198" height="78" rx="3"/>
+            <rect class="dg-box" x="1480" y="473" width="198" height="78" rx="3"/>
+          </g>
+
+          <g class="ko">
+            <text class="dg-head" x="0" y="18">EXTERNAL SOURCES</text>
+            <text class="dg-t" x="26" y="73">정산 시스템</text>
+            <text class="dg-s-xs" x="34" y="100">FTP · CSV</text>
+            <text class="dg-s" x="26" y="130">일별 CSV 파일 송신</text>
+            <text class="dg-t" x="26" y="197">운영 PostgreSQL</text>
+            <text class="dg-s-xs" x="34" y="224">service_db</text>
+            <text class="dg-s" x="26" y="254">운영 DB 연동 적재</text>
+            <text class="dg-t" x="26" y="321">Oracle DBs</text>
+            <text class="dg-s-xs" x="34" y="348">4종</text>
+            <text class="dg-s" x="26" y="378">결제 · 정산 · 통계 · 관리</text>
+
+            <text class="dg-t" x="486" y="90">HadoopCluster</text>
+            <text class="dg-s" x="486" y="123">HDFS · YARN · Hive · Trino · Spark</text>
+            <text class="dg-head" x="486" y="148">MASTER</text>
+            <text class="dg-t-sm" x="510" y="193">Master Node</text>
+            <text class="dg-s" x="510" y="222">Standby</text>
+            <text class="dg-t-sm" x="840" y="193">Master Node</text>
+            <text class="dg-s" x="840" y="222">Active</text>
+            <text class="dg-head" x="486" y="276">DATA NODE</text>
+            <text class="dg-t-sm" x="508" y="330">Data Node</text>
+            <text class="dg-t-sm" x="722" y="330">Data Node</text>
+            <text class="dg-t-sm" x="936" y="330">Data Node</text>
+            <text class="dg-s" x="486" y="400">Master 2 (HA) · Data Node 3</text>
+
+            <text class="dg-t" x="1270" y="79">Airflow</text>
+            <text class="dg-s" x="1270" y="108">클러스터 작업 스케줄링</text>
+            <text class="dg-t" x="1270" y="197">Storage</text>
+            <text class="dg-s" x="1270" y="226">PostgreSQL + Nessie (Iceberg 카탈로그)</text>
+            <text class="dg-t" x="1270" y="315">Monitoring</text>
+            <text class="dg-s" x="1270" y="344">Grafana · Prometheus · SMS</text>
+
+            <text class="dg-t-sm" x="1270" y="447">USER</text>
+            <text class="dg-s" x="1342" y="447">외부 데이터 소비자</text>
+            <text class="dg-t-sm" x="1290" y="507">사업부서 A</text>
+            <text class="dg-s-xs" x="1290" y="532">HiveServer2 로 조회</text>
+            <text class="dg-t-sm" x="1500" y="507">사업부서 B</text>
+            <text class="dg-s-xs" x="1500" y="532">Trino Coordinator 로 조회</text>
+          </g>
+
+          <g class="en">
+            <text class="dg-head" x="0" y="18">EXTERNAL SOURCES</text>
+            <text class="dg-t" x="26" y="73">Settlement system</text>
+            <text class="dg-s-xs" x="34" y="100">FTP · CSV</text>
+            <text class="dg-s" x="26" y="130">Daily CSV delivery</text>
+            <text class="dg-t" x="26" y="197">Production PostgreSQL</text>
+            <text class="dg-s-xs" x="34" y="224">service_db</text>
+            <text class="dg-s" x="26" y="254">Direct DB ingestion</text>
+            <text class="dg-t" x="26" y="321">Oracle DBs</text>
+            <text class="dg-s-xs" x="34" y="348">4 DBs</text>
+            <text class="dg-s" x="26" y="378">Payment · settlement · stats · admin</text>
+
+            <text class="dg-t" x="486" y="90">HadoopCluster</text>
+            <text class="dg-s" x="486" y="123">HDFS · YARN · Hive · Trino · Spark</text>
+            <text class="dg-head" x="486" y="148">MASTER</text>
+            <text class="dg-t-sm" x="510" y="193">Master Node</text>
+            <text class="dg-s" x="510" y="222">Standby</text>
+            <text class="dg-t-sm" x="840" y="193">Master Node</text>
+            <text class="dg-s" x="840" y="222">Active</text>
+            <text class="dg-head" x="486" y="276">DATA NODE</text>
+            <text class="dg-t-sm" x="508" y="330">Data Node</text>
+            <text class="dg-t-sm" x="722" y="330">Data Node</text>
+            <text class="dg-t-sm" x="936" y="330">Data Node</text>
+            <text class="dg-s" x="486" y="400">Master 2 (HA) · Data Node 3</text>
+
+            <text class="dg-t" x="1270" y="79">Airflow</text>
+            <text class="dg-s" x="1270" y="108">Cluster job scheduling</text>
+            <text class="dg-t" x="1270" y="197">Storage</text>
+            <text class="dg-s" x="1270" y="226">PostgreSQL + Nessie (Iceberg catalog)</text>
+            <text class="dg-t" x="1270" y="315">Monitoring</text>
+            <text class="dg-s" x="1270" y="344">Grafana · Prometheus · SMS</text>
+
+            <text class="dg-t-sm" x="1270" y="447">USER</text>
+            <text class="dg-s" x="1342" y="447">External data consumers</text>
+            <text class="dg-t-sm" x="1290" y="507">Business unit A</text>
+            <text class="dg-s-xs" x="1290" y="532">Queries via HiveServer2</text>
+            <text class="dg-t-sm" x="1500" y="507">Business unit B</text>
+            <text class="dg-s-xs" x="1500" y="532">Queries via Trino Coordinator</text>
+          </g>
+        </svg>
+      </div>
+      <figcaption>
+        <span class="ko">Master 2대(HA)와 Data Node 3대로 구성한 온프레미스 Hadoop 클러스터. 원천 3종을 Airflow로 적재하고, 사업부서는 HiveServer2와 Trino로 직접 조회합니다.</span>
+        <span class="en">An on-prem Hadoop cluster of 2 HA masters and 3 data nodes. Three source systems are ingested through Airflow, and business units query it directly through HiveServer2 and Trino.</span>
+      </figcaption>
+    </figure>
+
     <div class="detail__body">
       <ul class="qa qa--lg rv">
         <li><b><span class="ko">문제</span><span class="en">Problem</span></b><span><span class="ko">비개발자가 데이터를 보려면 개발 부서에 요청해 파일로 받아야 했고 직접 쿼리할 곳이 없었습니다. 분석가들은 운영 Oracle DB에 직접 붙어 쿼리했고 그만큼 운영 부하와 장애 리스크가 쌓이고 있었습니다.</span><span class="en">Anyone outside the dev team who needed data had to request a file, with nowhere to query directly. Analysts were hitting the operational Oracle DB themselves, and the load and outage risk piled up with it.</span></span></li>
