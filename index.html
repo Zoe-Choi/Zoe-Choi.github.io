@@ -193,103 +193,103 @@
         <p><span class="ko">2년간 설계하고 운영한 온프레미스 Hadoop 클러스터입니다. 박스에 커서를 올리면 강조됩니다.</span><span class="en">The on-prem Hadoop cluster I designed and ran for two years. Hover a box to highlight it.</span></p>
       </div>
       <figure class="figurewrap rv" id="arch-hadoop">
-        <div class="diagram">
+        <div class="diagram diagram--wide">
         <svg viewBox="0 0 1700 620" role="img" aria-labelledby="archTitle">
           <title id="archTitle">On-prem Hadoop data pipeline architecture</title>
           <g class="dg-node">
             <rect x="0" y="33" width="400" height="126" rx="14"/>
-            <rect class="dg-pill" x="22" y="95" width="110" height="30" rx="15"/>
-            <text class="dg-s-xs ko" x="32" y="115">FTP · CSV</text>
-            <text class="dg-s-xs en" x="32" y="115">FTP · CSV</text>
-            <text class="dg-t ko" x="26" y="81">정산 시스템</text>
-            <text class="dg-t en" x="26" y="81">Settlement system</text>
-            <text class="dg-s ko" x="26" y="145">일별 CSV 파일 송신</text>
-            <text class="dg-s en" x="26" y="145">Daily CSV delivery</text>
+            <text class="dg-t ko" x="24" y="73.1">정산 시스템</text>
+            <text class="dg-t en" x="24" y="73.1">Settlement system</text>
+            <rect class="dg-pill" x="20" y="83" width="110" height="30" rx="15"/>
+            <text class="dg-s-xs ko" x="30" y="104.3">FTP · CSV</text>
+            <text class="dg-s-xs en" x="30" y="104.3">FTP · CSV</text>
+            <text class="dg-s ko" x="24" y="137">일별 CSV 파일 송신</text>
+            <text class="dg-s en" x="24" y="137">Daily CSV delivery</text>
           </g>
           <g class="dg-node">
             <rect x="0" y="175" width="400" height="126" rx="14"/>
-            <rect class="dg-pill" x="22" y="237" width="122" height="30" rx="15"/>
-            <text class="dg-s-xs ko" x="32" y="257">service_db</text>
-            <text class="dg-s-xs en" x="32" y="257">service_db</text>
-            <text class="dg-t ko" x="26" y="223">운영 PostgreSQL</text>
-            <text class="dg-t en" x="26" y="223">Production PostgreSQL</text>
-            <text class="dg-s ko" x="26" y="287">운영 DB 연동 적재</text>
-            <text class="dg-s en" x="26" y="287">Direct DB ingestion</text>
+            <text class="dg-t ko" x="24" y="215.1">운영 PostgreSQL</text>
+            <text class="dg-t en" x="24" y="215.1">Production PostgreSQL</text>
+            <rect class="dg-pill" x="20" y="225" width="122" height="30" rx="15"/>
+            <text class="dg-s-xs ko" x="30" y="246.3">service_db</text>
+            <text class="dg-s-xs en" x="30" y="246.3">service_db</text>
+            <text class="dg-s ko" x="24" y="279">운영 DB 연동 적재</text>
+            <text class="dg-s en" x="24" y="279">Direct DB ingestion</text>
           </g>
           <g class="dg-node">
             <rect x="0" y="317" width="400" height="126" rx="14"/>
-            <rect class="dg-pill" x="22" y="379" width="84" height="30" rx="15"/>
-            <text class="dg-s-xs ko" x="32" y="399">4종</text>
-            <text class="dg-s-xs en" x="32" y="399">4 DBs</text>
-            <text class="dg-t ko" x="26" y="365">Oracle DBs</text>
-            <text class="dg-t en" x="26" y="365">Oracle DBs</text>
-            <text class="dg-s ko" x="26" y="429">결제 · 정산 · 통계 · 관리</text>
-            <text class="dg-s en" x="26" y="429">Payment · settlement · stats</text>
+            <text class="dg-t ko" x="24" y="357.1">Oracle DBs</text>
+            <text class="dg-t en" x="24" y="357.1">Oracle DBs</text>
+            <rect class="dg-pill" x="20" y="367" width="84" height="30" rx="15"/>
+            <text class="dg-s-xs ko" x="30" y="388.3">4종</text>
+            <text class="dg-s-xs en" x="30" y="388.3">4 DBs</text>
+            <text class="dg-s ko" x="24" y="421">결제 · 정산 · 통계 · 관리</text>
+            <text class="dg-s en" x="24" y="421">Payment · settlement · stats</text>
           </g>
           <g class="dg-node">
             <rect x="492" y="180" width="310" height="96" rx="14"/>
-            <text class="dg-t-sm ko" x="518" y="222">Master Node</text>
-            <text class="dg-t-sm en" x="518" y="222">Master Node</text>
-            <text class="dg-s ko" x="518" y="254">Standby</text>
-            <text class="dg-s en" x="518" y="254">Standby</text>
+            <text class="dg-t-sm ko" x="516" y="220.7">Master Node</text>
+            <text class="dg-t-sm en" x="516" y="220.7">Master Node</text>
+            <text class="dg-s ko" x="516" y="249.5">Standby</text>
+            <text class="dg-s en" x="516" y="249.5">Standby</text>
           </g>
           <g class="dg-node">
             <rect x="822" y="180" width="310" height="96" rx="14"/>
-            <text class="dg-t-sm ko" x="848" y="222">Master Node</text>
-            <text class="dg-t-sm en" x="848" y="222">Master Node</text>
-            <text class="dg-s ko" x="848" y="254">Active</text>
-            <text class="dg-s en" x="848" y="254">Active</text>
+            <text class="dg-t-sm ko" x="846" y="220.7">Master Node</text>
+            <text class="dg-t-sm en" x="846" y="220.7">Master Node</text>
+            <text class="dg-s ko" x="846" y="249.5">Active</text>
+            <text class="dg-s en" x="846" y="249.5">Active</text>
             <circle class="dg-dot" cx="1104" cy="212" r="5"/>
           </g>
           <g class="dg-node">
             <rect x="492" y="330" width="200" height="86" rx="14"/>
-            <text class="dg-t-sm ko" x="518" y="382">Data Node</text>
-            <text class="dg-t-sm en" x="518" y="382">Data Node</text>
+            <text class="dg-t-sm ko" x="516" y="380.7">Data Node</text>
+            <text class="dg-t-sm en" x="516" y="380.7">Data Node</text>
           </g>
           <g class="dg-node">
             <rect x="712" y="330" width="200" height="86" rx="14"/>
-            <text class="dg-t-sm ko" x="738" y="382">Data Node</text>
-            <text class="dg-t-sm en" x="738" y="382">Data Node</text>
+            <text class="dg-t-sm ko" x="736" y="380.7">Data Node</text>
+            <text class="dg-t-sm en" x="736" y="380.7">Data Node</text>
           </g>
           <g class="dg-node">
             <rect x="932" y="330" width="200" height="86" rx="14"/>
-            <text class="dg-t-sm ko" x="958" y="382">Data Node</text>
-            <text class="dg-t-sm en" x="958" y="382">Data Node</text>
+            <text class="dg-t-sm ko" x="956" y="380.7">Data Node</text>
+            <text class="dg-t-sm en" x="956" y="380.7">Data Node</text>
           </g>
           <g class="dg-node">
             <rect x="1224" y="33" width="476" height="112" rx="14"/>
-            <text class="dg-t ko" x="1250" y="83">Airflow</text>
-            <text class="dg-t en" x="1250" y="83">Airflow</text>
-            <text class="dg-s ko" x="1250" y="119">클러스터 작업 스케줄링</text>
-            <text class="dg-s en" x="1250" y="119">Cluster job scheduling</text>
+            <text class="dg-t ko" x="1248" y="83.1">Airflow</text>
+            <text class="dg-t en" x="1248" y="83.1">Airflow</text>
+            <text class="dg-s ko" x="1248" y="113">클러스터 작업 스케줄링</text>
+            <text class="dg-s en" x="1248" y="113">Cluster job scheduling</text>
           </g>
           <g class="dg-node">
             <rect x="1224" y="161" width="476" height="112" rx="14"/>
-            <text class="dg-t ko" x="1250" y="211">Storage</text>
-            <text class="dg-t en" x="1250" y="211">Storage</text>
-            <text class="dg-s ko" x="1250" y="247">PostgreSQL + Nessie (Iceberg 카탈로그)</text>
-            <text class="dg-s en" x="1250" y="247">PostgreSQL + Nessie (Iceberg catalog)</text>
+            <text class="dg-t ko" x="1248" y="211.1">Storage</text>
+            <text class="dg-t en" x="1248" y="211.1">Storage</text>
+            <text class="dg-s ko" x="1248" y="241">PostgreSQL + Nessie (Iceberg 카탈로그)</text>
+            <text class="dg-s en" x="1248" y="241">PostgreSQL + Nessie (Iceberg catalog)</text>
           </g>
           <g class="dg-node">
             <rect x="1224" y="289" width="476" height="112" rx="14"/>
-            <text class="dg-t ko" x="1250" y="339">Monitoring</text>
-            <text class="dg-t en" x="1250" y="339">Monitoring</text>
-            <text class="dg-s ko" x="1250" y="375">Grafana · Prometheus · SMS</text>
-            <text class="dg-s en" x="1250" y="375">Grafana · Prometheus · SMS</text>
+            <text class="dg-t ko" x="1248" y="339.1">Monitoring</text>
+            <text class="dg-t en" x="1248" y="339.1">Monitoring</text>
+            <text class="dg-s ko" x="1248" y="369">Grafana · Prometheus · SMS</text>
+            <text class="dg-s en" x="1248" y="369">Grafana · Prometheus · SMS</text>
           </g>
           <g class="dg-node">
             <rect x="1224" y="456" width="476" height="76" rx="14"/>
-            <text class="dg-t-sm ko" x="1248" y="490">사업부서 A</text>
-            <text class="dg-t-sm en" x="1248" y="490">Business unit A</text>
-            <text class="dg-s ko" x="1248" y="518">HiveServer2 로 조회</text>
-            <text class="dg-s en" x="1248" y="518">Queries via HiveServer2</text>
+            <text class="dg-t-sm ko" x="1248" y="486.7">사업부서 A</text>
+            <text class="dg-t-sm en" x="1248" y="486.7">Business unit A</text>
+            <text class="dg-s ko" x="1248" y="515.5">HiveServer2 로 조회</text>
+            <text class="dg-s en" x="1248" y="515.5">Queries via HiveServer2</text>
           </g>
           <g class="dg-node">
             <rect x="1224" y="544" width="476" height="76" rx="14"/>
-            <text class="dg-t-sm ko" x="1248" y="578">사업부서 B</text>
-            <text class="dg-t-sm en" x="1248" y="578">Business unit B</text>
-            <text class="dg-s ko" x="1248" y="606">Trino Coordinator 로 조회</text>
-            <text class="dg-s en" x="1248" y="606">Queries via Trino Coordinator</text>
+            <text class="dg-t-sm ko" x="1248" y="574.7">사업부서 B</text>
+            <text class="dg-t-sm en" x="1248" y="574.7">Business unit B</text>
+            <text class="dg-s ko" x="1248" y="603.5">Trino Coordinator 로 조회</text>
+            <text class="dg-s en" x="1248" y="603.5">Queries via Trino Coordinator</text>
           </g>
           <text class="dg-head" x="0" y="20">EXTERNAL SOURCES</text>
           <text class="dg-t ko" x="492" y="96">HadoopCluster</text>
@@ -301,10 +301,10 @@
           <text class="dg-s ko" x="492" y="452">Master 2 (HA) · Data Node 3</text>
           <text class="dg-s en" x="492" y="452">Master 2 (HA) · Data Node 3</text>
           <text class="dg-head" x="1224" y="438">USER</text>
-          <line class="dg-line" x1="410" y1="290" x2="472" y2="290"/>
-          <path class="dg-arrow" d="M472 284 L484 290 L472 296 Z"/>
-          <line class="dg-line" x1="1140" y1="290" x2="1204" y2="290"/>
-          <path class="dg-arrow" d="M1204 284 L1216 290 L1204 296 Z"/>
+          <line class="dg-line" x1="410" y1="290" x2="473" y2="290"/>
+          <path class="dg-arrow" d="M473 284 L484 290 L473 296 Z"/>
+          <line class="dg-line" x1="1140" y1="290" x2="1205" y2="290"/>
+          <path class="dg-arrow" d="M1205 284 L1216 290 L1205 296 Z"/>
         </svg>
         </div>
         <figcaption>
@@ -555,106 +555,106 @@
     </div>
     <div class="wrap opsfig">
         <figure class="figurewrap rv">
-          <div class="diagram diagram--wap">
-          <svg viewBox="0 0 1180 580" role="img" aria-labelledby="wapTitle">
-            <title id="wapTitle">Write, audit and publish flow for load validation</title>
-            <g class="dg-node">
-              <rect x="0" y="34" width="490" height="104" rx="14"/>
-              <text class="dg-t-sm ko" x="24" y="78">원천 Oracle · CSV</text>
-              <text class="dg-t-sm en" x="24" y="78">Source Oracle · CSV</text>
-              <text class="dg-s ko" x="24" y="112">Nessie 브랜치에 write (main 아님)</text>
-              <text class="dg-s en" x="24" y="112">Written to a Nessie branch, not main</text>
-            </g>
-            <g class="dg-node">
-              <rect x="0" y="190" width="236" height="166" rx="14"/>
-              <text class="dg-t-sm ko" x="22" y="232">count 티어</text>
-              <text class="dg-t-sm en" x="22" y="232">count tier</text>
-              <text class="dg-s ko" x="22" y="268">건수 검증</text>
-              <text class="dg-s en" x="22" y="268">Row-count check</text>
-              <text class="dg-s ko" x="22" y="291">모든 테이블 기본</text>
-              <text class="dg-s en" x="22" y="291">Every table by default</text>
-              <text class="dg-s ko" x="22" y="314">Oracle 재조회 0회</text>
-              <text class="dg-s en" x="22" y="314">Zero Oracle re-reads</text>
-              <text class="dg-s ko" x="22" y="337">$partitions 로 스캔 0</text>
-              <text class="dg-s en" x="22" y="337">Read from $partitions</text>
-            </g>
-            <g class="dg-node">
-              <rect x="254" y="190" width="236" height="166" rx="14"/>
-              <text class="dg-t-sm ko" x="276" y="232">full 티어</text>
-              <text class="dg-t-sm en" x="276" y="232">full tier</text>
-              <text class="dg-s ko" x="276" y="268">값 검증</text>
-              <text class="dg-s en" x="276" y="268">Value check</text>
-              <text class="dg-s ko" x="276" y="291">필요한 테이블만</text>
-              <text class="dg-s en" x="276" y="291">Only where needed</text>
-              <text class="dg-s ko" x="276" y="314">컬럼별 해시 대조</text>
-              <text class="dg-s en" x="276" y="314">Per-column hash sums</text>
-              <text class="dg-s ko" x="276" y="337">중복은 full-row hash</text>
-              <text class="dg-s en" x="276" y="337">Dupes by full-row hash</text>
-            </g>
-            <g class="dg-node">
-              <rect x="0" y="408" width="236" height="140" rx="14"/>
-              <text class="dg-t-sm ko" x="22" y="450">PASS</text>
-              <text class="dg-t-sm en" x="22" y="450">PASS</text>
-              <text class="dg-s ko" x="22" y="486">main 에 머지</text>
-              <text class="dg-s en" x="22" y="486">Merged into main</text>
-              <text class="dg-s ko" x="22" y="509">이 시점부터 조회 가능</text>
-              <text class="dg-s en" x="22" y="509">Queryable from here</text>
-            </g>
-            <g class="dg-node">
-              <rect x="254" y="408" width="236" height="140" rx="14"/>
-              <text class="dg-t-sm ko" x="276" y="450">FAIL</text>
-              <text class="dg-t-sm en" x="276" y="450">FAIL</text>
-              <text class="dg-s ko" x="276" y="486">브랜치에 격리 유지</text>
-              <text class="dg-s en" x="276" y="486">Isolated on the branch</text>
-              <text class="dg-s ko" x="276" y="509">main 미노출</text>
-              <text class="dg-s en" x="276" y="509">Never reaches main</text>
-              <text class="dg-s ko" x="276" y="532">태스크 실패로 승격</text>
-              <text class="dg-s en" x="276" y="532">Promoted to a failure</text>
-            </g>
-            <g class="dg-node">
-              <rect x="640" y="34" width="540" height="140" rx="14"/>
-              <text class="dg-t-sm ko" x="666" y="78">검증이 형태만 있었음</text>
-              <text class="dg-t-sm en" x="666" y="78">The check existed in shape only</text>
-              <text class="dg-s ko" x="666" y="114">원천 건수를 대상 건수 칸에 복사만 함</text>
-              <text class="dg-s en" x="666" y="114">The source count was copied across</text>
-              <text class="dg-s ko" x="666" y="137">비교하는 값이 실제로 없었음</text>
-              <text class="dg-s en" x="666" y="137">so no value was ever compared</text>
-              <text class="dg-s ko" x="666" y="160">main 에 바로 써서 바로 노출됨</text>
-              <text class="dg-s en" x="666" y="160">and writes went straight to main</text>
-            </g>
-            <g class="dg-node">
-              <rect x="640" y="190" width="540" height="166" rx="14"/>
-              <text class="dg-t-sm ko" x="666" y="234">새던 곳</text>
-              <text class="dg-t-sm en" x="666" y="234">Where it leaked</text>
-              <text class="dg-s ko" x="666" y="270">개행·특수문자가 Hive 컬럼을 밀어냄</text>
-              <text class="dg-s en" x="666" y="270">Line breaks shifted Hive columns</text>
-              <text class="dg-s ko" x="666" y="293">신규 컬럼 소수점 스펙 미공유</text>
-              <text class="dg-s en" x="666" y="293">A new decimal spec was never shared</text>
-              <text class="dg-s ko" x="666" y="316">값이 잘린 채 적재됨</text>
-              <text class="dg-s en" x="666" y="316">so values loaded truncated</text>
-              <text class="dg-s ko" x="666" y="339">이스케이프와 정밀도 검사 추가</text>
-              <text class="dg-s en" x="666" y="339">Escaping and precision checks added</text>
-            </g>
-            <g class="dg-node">
-              <rect x="640" y="408" width="540" height="140" rx="14"/>
-              <text class="dg-t-sm ko" x="666" y="452">지금은</text>
-              <text class="dg-t-sm en" x="666" y="452">Now</text>
-              <text class="dg-s ko" x="666" y="488">검증 실패분이 main 에 닿지 않음</text>
-              <text class="dg-s en" x="666" y="488">Failed loads never reach main</text>
-              <text class="dg-s ko" x="666" y="511">확인이 SSH 에서 대시보드로</text>
-              <text class="dg-s en" x="666" y="511">Checking moved from SSH to a dashboard</text>
-              <text class="dg-s ko" x="666" y="534">공유가 없어도 소수점 보존</text>
-              <text class="dg-s en" x="666" y="534">Decimals survive with no hand-off</text>
-            </g>
-            <text class="dg-head" x="0" y="20">1  WRITE</text>
-            <text class="dg-head" x="0" y="176">2  AUDIT</text>
-            <text class="dg-head" x="0" y="394">3  PUBLISH</text>
-            <text class="dg-head" x="640" y="20">WHY IT MATTERS</text>
-            <line class="dg-line" x1="245" y1="138" x2="245" y2="172"/>
-            <path class="dg-arrow" d="M239 172 L245 184 L251 172 Z"/>
-            <line class="dg-line" x1="245" y1="356" x2="245" y2="390"/>
-            <path class="dg-arrow" d="M239 390 L245 402 L251 390 Z"/>
-          </svg>
+          <div class="diagram">
+        <svg viewBox="0 0 1180 566" role="img" aria-labelledby="wapTitle">
+          <title id="wapTitle">Write, audit and publish flow for load validation</title>
+          <g class="dg-node">
+            <rect x="0" y="34" width="490" height="96" rx="14"/>
+            <text class="dg-t-sm ko" x="24" y="77.3">원천 Oracle · CSV</text>
+            <text class="dg-t-sm en" x="24" y="77.3">Source Oracle · CSV</text>
+            <text class="dg-s ko" x="24" y="98.6">Nessie 브랜치에 write (main 아님)</text>
+            <text class="dg-s en" x="24" y="98.6">Written to a Nessie branch, not main</text>
+          </g>
+          <g class="dg-node">
+            <rect x="0" y="186" width="236" height="158" rx="14"/>
+            <text class="dg-t-sm ko" x="20" y="227.3">count 티어</text>
+            <text class="dg-t-sm en" x="20" y="227.3">count tier</text>
+            <text class="dg-s ko" x="20" y="248.6">건수 검증</text>
+            <text class="dg-s en" x="20" y="248.6">Row-count check</text>
+            <text class="dg-s ko" x="20" y="270.6">모든 테이블 기본</text>
+            <text class="dg-s en" x="20" y="270.6">Every table by default</text>
+            <text class="dg-s ko" x="20" y="292.6">Oracle 재조회 0회</text>
+            <text class="dg-s en" x="20" y="292.6">Zero Oracle re-reads</text>
+            <text class="dg-s ko" x="20" y="314.6">$partitions 로 스캔 0</text>
+            <text class="dg-s en" x="20" y="314.6">Read from $partitions</text>
+          </g>
+          <g class="dg-node">
+            <rect x="254" y="186" width="236" height="158" rx="14"/>
+            <text class="dg-t-sm ko" x="274" y="227.3">full 티어</text>
+            <text class="dg-t-sm en" x="274" y="227.3">full tier</text>
+            <text class="dg-s ko" x="274" y="248.6">값 검증</text>
+            <text class="dg-s en" x="274" y="248.6">Value check</text>
+            <text class="dg-s ko" x="274" y="270.6">필요한 테이블만</text>
+            <text class="dg-s en" x="274" y="270.6">Only where needed</text>
+            <text class="dg-s ko" x="274" y="292.6">컬럼별 해시 대조</text>
+            <text class="dg-s en" x="274" y="292.6">Per-column hash sums</text>
+            <text class="dg-s ko" x="274" y="314.6">중복은 full-row hash</text>
+            <text class="dg-s en" x="274" y="314.6">Dupes by full-row hash</text>
+          </g>
+          <g class="dg-node">
+            <rect x="0" y="400" width="236" height="132" rx="14"/>
+            <text class="dg-t-sm ko" x="20" y="450.3">PASS</text>
+            <text class="dg-t-sm en" x="20" y="450.3">PASS</text>
+            <text class="dg-s ko" x="20" y="471.6">main 에 머지</text>
+            <text class="dg-s en" x="20" y="471.6">Merged into main</text>
+            <text class="dg-s ko" x="20" y="493.6">이 시점부터 조회 가능</text>
+            <text class="dg-s en" x="20" y="493.6">Queryable from here</text>
+          </g>
+          <g class="dg-node">
+            <rect x="254" y="400" width="236" height="132" rx="14"/>
+            <text class="dg-t-sm ko" x="274" y="439.3">FAIL</text>
+            <text class="dg-t-sm en" x="274" y="439.3">FAIL</text>
+            <text class="dg-s ko" x="274" y="460.6">브랜치에 격리 유지</text>
+            <text class="dg-s en" x="274" y="460.6">Isolated on the branch</text>
+            <text class="dg-s ko" x="274" y="482.6">main 미노출</text>
+            <text class="dg-s en" x="274" y="482.6">Never reaches main</text>
+            <text class="dg-s ko" x="274" y="504.6">태스크 실패로 승격</text>
+            <text class="dg-s en" x="274" y="504.6">Promoted to a failure</text>
+          </g>
+          <g class="dg-node">
+            <rect x="640" y="34" width="540" height="132" rx="14"/>
+            <text class="dg-t-sm ko" x="664" y="73.3">검증이 형태만 있었음</text>
+            <text class="dg-t-sm en" x="664" y="73.3">The check existed in shape only</text>
+            <text class="dg-s ko" x="664" y="94.6">원천 건수를 대상 건수 칸에 복사만 함</text>
+            <text class="dg-s en" x="664" y="94.6">The source count was copied across</text>
+            <text class="dg-s ko" x="664" y="116.6">비교하는 값이 실제로 없었음</text>
+            <text class="dg-s en" x="664" y="116.6">so no value was ever compared</text>
+            <text class="dg-s ko" x="664" y="138.6">main 에 바로 써서 바로 노출됨</text>
+            <text class="dg-s en" x="664" y="138.6">and writes went straight to main</text>
+          </g>
+          <g class="dg-node">
+            <rect x="640" y="186" width="540" height="158" rx="14"/>
+            <text class="dg-t-sm ko" x="664" y="227.3">새던 곳</text>
+            <text class="dg-t-sm en" x="664" y="227.3">Where it leaked</text>
+            <text class="dg-s ko" x="664" y="248.6">개행·특수문자가 Hive 컬럼을 밀어냄</text>
+            <text class="dg-s en" x="664" y="248.6">Line breaks shifted Hive columns</text>
+            <text class="dg-s ko" x="664" y="270.6">신규 컬럼 소수점 스펙 미공유</text>
+            <text class="dg-s en" x="664" y="270.6">A new decimal spec was never shared</text>
+            <text class="dg-s ko" x="664" y="292.6">값이 잘린 채 적재됨</text>
+            <text class="dg-s en" x="664" y="292.6">so values loaded truncated</text>
+            <text class="dg-s ko" x="664" y="314.6">이스케이프와 정밀도 검사 추가</text>
+            <text class="dg-s en" x="664" y="314.6">Escaping and precision checks added</text>
+          </g>
+          <g class="dg-node">
+            <rect x="640" y="400" width="540" height="132" rx="14"/>
+            <text class="dg-t-sm ko" x="664" y="439.3">지금은</text>
+            <text class="dg-t-sm en" x="664" y="439.3">Now</text>
+            <text class="dg-s ko" x="664" y="460.6">검증 실패분이 main 에 닿지 않음</text>
+            <text class="dg-s en" x="664" y="460.6">Failed loads never reach main</text>
+            <text class="dg-s ko" x="664" y="482.6">확인이 SSH 에서 대시보드로</text>
+            <text class="dg-s en" x="664" y="482.6">Checking moved from SSH to a dashboard</text>
+            <text class="dg-s ko" x="664" y="504.6">공유가 없어도 소수점 보존</text>
+            <text class="dg-s en" x="664" y="504.6">Decimals survive with no hand-off</text>
+          </g>
+          <text class="dg-head" x="0" y="20">1  WRITE</text>
+          <text class="dg-head" x="0" y="172">2  AUDIT</text>
+          <text class="dg-head" x="0" y="386">3  PUBLISH</text>
+          <text class="dg-head" x="640" y="20">WHY IT MATTERS</text>
+          <line class="dg-line" x1="245" y1="130" x2="245" y2="169"/>
+          <path class="dg-arrow" d="M239 169 L245 180 L251 169 Z"/>
+          <line class="dg-line" x1="245" y1="344" x2="245" y2="383"/>
+          <path class="dg-arrow" d="M239 383 L245 394 L251 383 Z"/>
+        </svg>
           </div>
           <figcaption>
             <span class="ko">검증을 통과한 데이터만 main 에 병합됩니다. 실패분은 브랜치에 남고 태스크 실패로 승격되어 알림이 나갑니다.</span>
@@ -776,6 +776,65 @@
         <span><b><span class="ko">역할</span><span class="en">Role</span></b> <span class="ko">산출물을 옮기는 대신 동일성을 증명하는 구조 설계</span><span class="en">Designing a structure that proves equality instead of moving the artifact</span></span>
       </div>
     </div>
+    <figure class="figurewrap rv">
+      <div class="diagram">
+        <svg viewBox="0 0 1180 400" role="img" aria-labelledby="cicdTitle">
+          <title id="cicdTitle">Air-gapped promotion pipeline</title>
+          <g class="dg-node">
+            <rect x="0" y="34" width="359" height="92" rx="14"/>
+            <text class="dg-t-sm ko" x="20" y="75.3">빌드</text>
+            <text class="dg-t-sm en" x="20" y="75.3">Build</text>
+            <text class="dg-s ko" x="20" y="96.6">Gradle</text>
+            <text class="dg-s en" x="20" y="96.6">Gradle</text>
+          </g>
+          <g class="dg-node">
+            <rect x="411" y="34" width="359" height="92" rx="14"/>
+            <text class="dg-t-sm ko" x="431" y="75.3">검증</text>
+            <text class="dg-t-sm en" x="431" y="75.3">Verify</text>
+            <text class="dg-s ko" x="431" y="96.6">테스트 실행</text>
+            <text class="dg-s en" x="431" y="96.6">Run tests</text>
+          </g>
+          <g class="dg-node">
+            <rect x="822" y="34" width="359" height="92" rx="14"/>
+            <text class="dg-t-sm ko" x="842" y="75.3">코드 승격</text>
+            <text class="dg-t-sm en" x="842" y="75.3">Promote code</text>
+            <text class="dg-s ko" x="842" y="96.6">태그를 달면 승격</text>
+            <text class="dg-s en" x="842" y="96.6">Tag to promote</text>
+          </g>
+          <g class="dg-node">
+            <rect x="0" y="244" width="364" height="92" rx="14"/>
+            <text class="dg-t-sm ko" x="20" y="285.3">운영 재빌드</text>
+            <text class="dg-t-sm en" x="20" y="285.3">Rebuild in prod</text>
+            <text class="dg-s ko" x="20" y="306.6">내부망에서 다시 빌드</text>
+            <text class="dg-s en" x="20" y="306.6">Rebuilt inside the network</text>
+          </g>
+          <g class="dg-node">
+            <rect x="416" y="244" width="364" height="92" rx="14"/>
+            <text class="dg-t-sm ko" x="436" y="285.3">배치</text>
+            <text class="dg-t-sm en" x="436" y="285.3">Deploy</text>
+            <text class="dg-s ko" x="436" y="306.6">서버 키 등록 대기</text>
+            <text class="dg-s en" x="436" y="306.6">Waiting on server keys</text>
+          </g>
+          <text class="dg-head" x="0" y="20">연구개발망  ·  R&amp;D NETWORK</text>
+          <text class="dg-head" x="0" y="230">내부망  ·  INTERNAL NETWORK</text>
+          <text class="dg-s ko" x="0" y="376">승격 대상에 빌드 산출물이 섞이면 중단됩니다</text>
+          <text class="dg-s en" x="0" y="376">Promotion aborts if a build artifact slips into the tree</text>
+          <line class="dg-line" x1="367" y1="80" x2="392" y2="80"/>
+          <path class="dg-arrow" d="M392 74 L403 80 L392 86 Z"/>
+          <line class="dg-line" x1="778" y1="80" x2="803" y2="80"/>
+          <path class="dg-arrow" d="M803 74 L814 80 L803 86 Z"/>
+          <line class="dg-line" x1="372" y1="290" x2="397" y2="290"/>
+          <path class="dg-arrow" d="M397 284 L408 290 L397 296 Z"/>
+          <line class="dg-line" x1="1010" y1="126" x2="1010" y2="227"/>
+          <path class="dg-arrow" d="M1004 227 L1010 238 L1016 227 Z"/>
+        </svg>
+      </div>
+      <figcaption>
+        <span class="ko">망 분리 구간을 넘는 승격 경로입니다. 산출물이 아니라 코드가 넘어가고, 운영망에서 다시 빌드합니다.</span>
+        <span class="en">The promotion path across separated networks. Code crosses, not artifacts, and production rebuilds it.</span>
+      </figcaption>
+    </figure>
+
     <div class="detail__body">
       <ul class="qa qa--lg rv">
         <li><b><span class="ko">문제</span><span class="en">Problem</span></b><span><span class="ko">연구개발망과 전산센터망은 통신이 불가하고 빌드 산출물을 직접 전달할 수 없어 코드만 승격 가능한 환경이었습니다. SVN과 셸 스크립트로 배포하던 구조라 개발에서 운영으로 옮길 때 변경된 파일을 손으로 골라 복사해야 했고, 그 과정에서 변경분이 자주 누락됐습니다. 무엇보다 운영에서 다시 빌드한 산출물이 개발에서 검증한 것과 같은지 보장할 방법이 없었습니다.</span><span class="en">The R&amp;D and data-center networks cannot talk to each other and artifacts cannot be handed across, so only code may be promoted. Deploys ran on SVN and shell scripts, which meant picking changed files by hand on the way to production, and changes were regularly missed. Above all, there was no way to guarantee the production rebuild matched what had been verified in development.</span></span></li>
@@ -812,6 +871,77 @@
         <span><b><span class="ko">역할</span><span class="en">Role</span></b> <span class="ko">도입 성공 여부가 아니라 사용 가능 범위를 갈라내는 것</span><span class="en">Mapping the usable boundary rather than declaring a rollout</span></span>
       </div>
     </div>
+    <figure class="figurewrap rv">
+      <div class="diagram">
+        <svg viewBox="0 0 1180 360" role="img" aria-labelledby="catalogTitle">
+          <title id="catalogTitle">Catalog driven text to SQL loop and its boundary</title>
+          <g class="dg-node">
+            <rect x="0" y="60" width="209" height="96" rx="14"/>
+            <text class="dg-t-sm ko" x="20" y="114.3">업무 요청</text>
+            <text class="dg-t-sm en" x="20" y="114.3">Business request</text>
+          </g>
+          <g class="dg-node">
+            <rect x="243" y="60" width="209" height="96" rx="14"/>
+            <text class="dg-t-sm ko" x="263" y="103.3">카탈로그</text>
+            <text class="dg-t-sm en" x="263" y="103.3">Catalog</text>
+            <text class="dg-s ko" x="263" y="124.6">스키마 · 리니지</text>
+            <text class="dg-s en" x="263" y="124.6">Schema · lineage</text>
+          </g>
+          <g class="dg-node">
+            <rect x="486" y="60" width="209" height="96" rx="14"/>
+            <text class="dg-t-sm ko" x="506" y="114.3">SQL 생성</text>
+            <text class="dg-t-sm en" x="506" y="114.3">Generate SQL</text>
+          </g>
+          <g class="dg-node">
+            <rect x="729" y="60" width="209" height="96" rx="14"/>
+            <text class="dg-t-sm ko" x="749" y="103.3">Trino MCP</text>
+            <text class="dg-t-sm en" x="749" y="103.3">Trino MCP</text>
+            <text class="dg-s ko" x="749" y="124.6">read-only 실행</text>
+            <text class="dg-s en" x="749" y="124.6">Read-only execution</text>
+          </g>
+          <g class="dg-node">
+            <rect x="972" y="60" width="209" height="96" rx="14"/>
+            <text class="dg-t-sm ko" x="992" y="103.3">결과 대조</text>
+            <text class="dg-t-sm en" x="992" y="103.3">Compare</text>
+            <text class="dg-s ko" x="992" y="124.6">사람 쿼리와</text>
+            <text class="dg-s en" x="992" y="124.6">Against the human query</text>
+          </g>
+          <g class="dg-node">
+            <rect x="0" y="222" width="578" height="118" rx="14"/>
+            <text class="dg-t-sm ko" x="24" y="265.3">여기까지는 됩니다</text>
+            <text class="dg-t-sm en" x="24" y="265.3">This far it works</text>
+            <text class="dg-s ko" x="24" y="286.6">스키마 · 코드값 · 조인 관계로 풀리는 영역</text>
+            <text class="dg-s en" x="24" y="286.6">Anything solvable from schema, codes and joins</text>
+            <text class="dg-s ko" x="24" y="308.6">조인 경로 탐색, 교차 검증용 대안 쿼리</text>
+            <text class="dg-s en" x="24" y="308.6">Join-path discovery, cross-check queries</text>
+          </g>
+          <g class="dg-node">
+            <rect x="602" y="222" width="578" height="118" rx="14"/>
+            <text class="dg-t-sm ko" x="626" y="265.3">여기부터는 안 됩니다</text>
+            <text class="dg-t-sm en" x="626" y="265.3">Past here it does not</text>
+            <text class="dg-s ko" x="626" y="286.6">집계 구간 정의, 산출 항목 구성, 매출 판정 기준</text>
+            <text class="dg-s en" x="626" y="286.6">Aggregation windows, output composition, revenue rules</text>
+            <text class="dg-s ko" x="626" y="308.6">업무 규칙이 문서화되지 않은 영역</text>
+            <text class="dg-s en" x="626" y="308.6">Anywhere the business rule was never written down</text>
+          </g>
+          <text class="dg-head" x="0" y="20">TEXT-TO-SQL LOOP</text>
+          <text class="dg-head" x="0" y="208">MEASURED BOUNDARY</text>
+          <line class="dg-line" x1="217" y1="108" x2="224" y2="108"/>
+          <path class="dg-arrow" d="M224 102 L235 108 L224 114 Z"/>
+          <line class="dg-line" x1="460" y1="108" x2="467" y2="108"/>
+          <path class="dg-arrow" d="M467 102 L478 108 L467 114 Z"/>
+          <line class="dg-line" x1="703" y1="108" x2="710" y2="108"/>
+          <path class="dg-arrow" d="M710 102 L721 108 L710 114 Z"/>
+          <line class="dg-line" x1="946" y1="108" x2="953" y2="108"/>
+          <path class="dg-arrow" d="M953 102 L964 108 L953 114 Z"/>
+        </svg>
+      </div>
+      <figcaption>
+        <span class="ko">카탈로그가 스키마와 리니지를 주고 실행은 read-only로 분리했습니다. 아래는 실제 업무 요청으로 재 본 경계입니다.</span>
+        <span class="en">The catalog supplies schema and lineage while execution stays read-only. Below is the boundary measured on a real request.</span>
+      </figcaption>
+    </figure>
+
     <div class="detail__body">
       <ul class="qa qa--lg rv">
         <li><b><span class="ko">문제</span><span class="en">Problem</span></b><span><span class="ko">데이터마트는 있었지만 컬럼과 테이블 description 대부분이 비어 있어, 데이터를 봐도 의미·단위·코드값을 알 수 없었습니다. 어떤 데이터가 어느 업무에 속하는지 정리된 문서도 없어 그룹핑을 저희 팀이 임의로 판단할 수 없었고, 스키마 변경과 신규 테이블은 사람이 따라다니며 문서화하고 있었습니다. 다른 부서 인터뷰에서 가장 많이 나온 요구는 “반복되는 데이터 추출을 직접 하고 싶다”였습니다.</span><span class="en">The mart existed, but most column and table descriptions were empty, so the data gave away no meaning, unit or code value. No document said which data belonged to which business area, so we could not group it on our own authority, and schema changes and new tables were documented by hand after the fact. In interviews with other teams, the top ask was to run their own repeated extractions.</span></span></li>
@@ -884,6 +1014,55 @@
         <span><b><span class="ko">역할</span><span class="en">Role</span></b> <span class="ko">스트리밍 정형화·적재 구간 담당</span><span class="en">Owned the streaming parse-and-load leg</span></span>
       </div>
     </div>
+    <figure class="figurewrap rv">
+      <div class="diagram">
+        <svg viewBox="0 0 1180 260" role="img" aria-labelledby="logTitle">
+          <title id="logTitle">Log streaming proof of concept</title>
+          <g class="dg-node">
+            <rect x="0" y="60" width="255" height="110" rx="14"/>
+            <text class="dg-t-sm ko" x="20" y="110.3">Filebeat · Kafka</text>
+            <text class="dg-t-sm en" x="20" y="110.3">Filebeat · Kafka</text>
+            <text class="dg-s ko" x="20" y="131.6">같은 PoC의 다른 담당자</text>
+            <text class="dg-s en" x="20" y="131.6">Built by another engineer</text>
+          </g>
+          <g class="dg-node">
+            <rect x="309" y="60" width="255" height="110" rx="14"/>
+            <text class="dg-t-sm ko" x="329" y="110.3">Spark Streaming</text>
+            <text class="dg-t-sm en" x="329" y="110.3">Spark Streaming</text>
+            <text class="dg-s ko" x="329" y="131.6">로그 파싱 · 스키마 고정</text>
+            <text class="dg-s en" x="329" y="131.6">Parsing · fixed schema</text>
+          </g>
+          <g class="dg-node">
+            <rect x="618" y="60" width="255" height="110" rx="14"/>
+            <text class="dg-t-sm ko" x="638" y="110.3">Elasticsearch</text>
+            <text class="dg-t-sm en" x="638" y="110.3">Elasticsearch</text>
+            <text class="dg-s ko" x="638" y="131.6">적재, 인덱스 설계는 미담당</text>
+            <text class="dg-s en" x="638" y="131.6">Loading; index design not mine</text>
+          </g>
+          <g class="dg-node">
+            <rect x="927" y="60" width="255" height="110" rx="14"/>
+            <text class="dg-t-sm ko" x="947" y="110.3">Kibana</text>
+            <text class="dg-t-sm en" x="947" y="110.3">Kibana</text>
+            <text class="dg-s ko" x="947" y="131.6">조회 화면과 대시보드</text>
+            <text class="dg-s en" x="947" y="131.6">Search view and dashboards</text>
+          </g>
+          <text class="dg-head" x="0" y="20">PIPELINE</text>
+          <text class="dg-s ko" x="0" y="228">운영 서버에 접속하지 않고 로그를 찾아볼 수 있는 경로를 만드는 것이 목표였습니다</text>
+          <text class="dg-s en" x="0" y="228">The goal was a path to read logs without opening a production server</text>
+          <line class="dg-line" x1="263" y1="115" x2="290" y2="115"/>
+          <path class="dg-arrow" d="M290 109 L301 115 L290 121 Z"/>
+          <line class="dg-line" x1="572" y1="115" x2="599" y2="115"/>
+          <path class="dg-arrow" d="M599 109 L610 115 L599 121 Z"/>
+          <line class="dg-line" x1="881" y1="115" x2="908" y2="115"/>
+          <path class="dg-arrow" d="M908 109 L919 115 L908 121 Z"/>
+        </svg>
+      </div>
+      <figcaption>
+        <span class="ko">같은 PoC를 나눠 맡았고, 가운데 두 구간이 제가 개발한 부분입니다.</span>
+        <span class="en">The PoC was split across people; the middle two stages are the part I wrote.</span>
+      </figcaption>
+    </figure>
+
     <div class="detail__body">
       <ul class="qa qa--lg rv">
         <li><b><span class="ko">문제</span><span class="en">Problem</span></b><span><span class="ko">개발자가 로그를 보려면 운영 서버에 직접 접속해야 했고, 운영 서버 접근 횟수 자체를 줄이라는 요구가 있었습니다.</span><span class="en">Reading logs meant connecting to production servers directly, and the ask was to cut how often anyone touches them at all.</span></span></li>
@@ -920,6 +1099,89 @@
         <span><b><span class="ko">성격</span><span class="en">Type</span></b> <span class="ko">개인 학습 프로젝트</span><span class="en">Personal learning project</span></span>
       </div>
     </div>
+    <figure class="figurewrap rv">
+      <div class="diagram">
+        <svg viewBox="0 0 1180 400" role="img" aria-labelledby="cryptoTitle">
+          <title id="cryptoTitle">Real time and batch lanes of the crypto pipeline</title>
+          <g class="dg-node">
+            <rect x="0" y="60" width="204" height="92" rx="14"/>
+            <text class="dg-t-sm ko" x="20" y="101.3">Upbit WebSocket</text>
+            <text class="dg-t-sm en" x="20" y="101.3">Upbit WebSocket</text>
+            <text class="dg-s ko" x="20" y="122.6">초당 1~2건</text>
+            <text class="dg-s en" x="20" y="122.6">1-2 ticks per second</text>
+          </g>
+          <g class="dg-node">
+            <rect x="244" y="60" width="204" height="92" rx="14"/>
+            <text class="dg-t-sm ko" x="264" y="112.3">Gap Filter</text>
+            <text class="dg-t-sm en" x="264" y="112.3">Gap Filter</text>
+          </g>
+          <g class="dg-node">
+            <rect x="488" y="60" width="204" height="92" rx="14"/>
+            <text class="dg-t-sm ko" x="508" y="112.3">Kafka</text>
+            <text class="dg-t-sm en" x="508" y="112.3">Kafka</text>
+          </g>
+          <g class="dg-node">
+            <rect x="732" y="60" width="204" height="92" rx="14"/>
+            <text class="dg-t-sm ko" x="752" y="112.3">ClickHouse</text>
+            <text class="dg-t-sm en" x="752" y="112.3">ClickHouse</text>
+          </g>
+          <g class="dg-node">
+            <rect x="976" y="60" width="204" height="92" rx="14"/>
+            <text class="dg-t-sm ko" x="996" y="101.3">Grafana</text>
+            <text class="dg-t-sm en" x="996" y="101.3">Grafana</text>
+            <text class="dg-s ko" x="996" y="122.6">실시간 대시보드</text>
+            <text class="dg-s en" x="996" y="122.6">Live dashboard</text>
+          </g>
+          <g class="dg-node">
+            <rect x="0" y="240" width="195" height="92" rx="14"/>
+            <text class="dg-t-sm ko" x="20" y="292.3">Kafka stream</text>
+            <text class="dg-t-sm en" x="20" y="292.3">Kafka stream</text>
+          </g>
+          <g class="dg-node">
+            <rect x="235" y="240" width="195" height="92" rx="14"/>
+            <text class="dg-t-sm ko" x="255" y="281.3">Apache Flink</text>
+            <text class="dg-t-sm en" x="255" y="281.3">Apache Flink</text>
+            <text class="dg-s ko" x="255" y="302.6">가공</text>
+            <text class="dg-s en" x="255" y="302.6">Processing</text>
+          </g>
+          <g class="dg-node">
+            <rect x="470" y="240" width="195" height="92" rx="14"/>
+            <text class="dg-t-sm ko" x="490" y="292.3">MinIO + Paimon</text>
+            <text class="dg-t-sm en" x="490" y="292.3">MinIO + Paimon</text>
+          </g>
+          <g class="dg-node">
+            <rect x="705" y="240" width="195" height="92" rx="14"/>
+            <text class="dg-t-sm ko" x="725" y="281.3">Trino</text>
+            <text class="dg-t-sm en" x="725" y="281.3">Trino</text>
+            <text class="dg-s ko" x="725" y="302.6">조회</text>
+            <text class="dg-s en" x="725" y="302.6">Query</text>
+          </g>
+          <text class="dg-head" x="0" y="20">REAL-TIME LANE</text>
+          <text class="dg-head" x="0" y="226">BATCH &amp; ML LANE</text>
+          <text class="dg-s ko" x="0" y="376">컴포넌트를 연결해 동작을 확인한 수준의 개인 학습 기록입니다</text>
+          <text class="dg-s en" x="0" y="376">A personal build: components wired together and confirmed working</text>
+          <line class="dg-line" x1="212" y1="106" x2="225" y2="106"/>
+          <path class="dg-arrow" d="M225 100 L236 106 L225 112 Z"/>
+          <line class="dg-line" x1="456" y1="106" x2="469" y2="106"/>
+          <path class="dg-arrow" d="M469 100 L480 106 L469 112 Z"/>
+          <line class="dg-line" x1="700" y1="106" x2="713" y2="106"/>
+          <path class="dg-arrow" d="M713 100 L724 106 L713 112 Z"/>
+          <line class="dg-line" x1="944" y1="106" x2="957" y2="106"/>
+          <path class="dg-arrow" d="M957 100 L968 106 L957 112 Z"/>
+          <line class="dg-line" x1="203" y1="286" x2="216" y2="286"/>
+          <path class="dg-arrow" d="M216 280 L227 286 L216 292 Z"/>
+          <line class="dg-line" x1="438" y1="286" x2="451" y2="286"/>
+          <path class="dg-arrow" d="M451 280 L462 286 L451 292 Z"/>
+          <line class="dg-line" x1="673" y1="286" x2="686" y2="286"/>
+          <path class="dg-arrow" d="M686 280 L697 286 L686 292 Z"/>
+        </svg>
+      </div>
+      <figcaption>
+        <span class="ko">실시간 조회용과 배치·ML용 두 갈래로 나눠 구성했습니다.</span>
+        <span class="en">Two lanes: one for live querying, one for batch and ML.</span>
+      </figcaption>
+    </figure>
+
     <div class="detail__body">
       <ul class="qa qa--lg rv">
         <li><b><span class="ko">문제</span><span class="en">Problem</span></b><span><span class="ko">사내에서 실시간 스트리밍과 신규 오픈소스를 다뤄볼 기회가 없었습니다.</span><span class="en">There was no chance to work with real-time streaming or newer open-source at work.</span></span></li>
@@ -960,6 +1222,110 @@
         <span><b><span class="ko">역할</span><span class="en">Role</span></b> <span class="ko">폐쇄망에서 코드·내부 문서에 AI를 적용 가능하게 만든 플랫폼</span><span class="en">A platform bringing AI to code and internal documents on an air-gapped network</span></span>
       </div>
     </div>
+    <figure class="figurewrap rv">
+      <div class="diagram">
+        <svg viewBox="0 0 1180 500" role="img" aria-labelledby="llmTitle">
+          <title id="llmTitle">Offline indexing and two in-house LLM services</title>
+          <g class="dg-node">
+            <rect x="0" y="60" width="209" height="92" rx="14"/>
+            <text class="dg-t-sm ko" x="20" y="101.3">사내 PDF</text>
+            <text class="dg-t-sm en" x="20" y="101.3">Internal PDFs</text>
+            <text class="dg-s ko" x="20" y="122.6">취업규칙 · AML · 정산</text>
+            <text class="dg-s en" x="20" y="122.6">HR · AML · settlement</text>
+          </g>
+          <g class="dg-node">
+            <rect x="243" y="60" width="209" height="92" rx="14"/>
+            <text class="dg-t-sm ko" x="263" y="101.3">PDF → HTML</text>
+            <text class="dg-t-sm en" x="263" y="101.3">PDF to HTML</text>
+            <text class="dg-s ko" x="263" y="122.6">semantic h1/h2</text>
+            <text class="dg-s en" x="263" y="122.6">semantic h1/h2</text>
+          </g>
+          <g class="dg-node">
+            <rect x="486" y="60" width="209" height="92" rx="14"/>
+            <text class="dg-t-sm ko" x="506" y="101.3">Chunker</text>
+            <text class="dg-t-sm en" x="506" y="101.3">Chunker</text>
+            <text class="dg-s ko" x="506" y="122.6">h1/h2 + token cap</text>
+            <text class="dg-s en" x="506" y="122.6">h1/h2 + token cap</text>
+          </g>
+          <g class="dg-node">
+            <rect x="729" y="60" width="209" height="92" rx="14"/>
+            <text class="dg-t-sm ko" x="749" y="101.3">bge-m3</text>
+            <text class="dg-t-sm en" x="749" y="101.3">bge-m3</text>
+            <text class="dg-s ko" x="749" y="122.6">임베딩</text>
+            <text class="dg-s en" x="749" y="122.6">Embedding</text>
+          </g>
+          <g class="dg-node">
+            <rect x="972" y="60" width="209" height="92" rx="14"/>
+            <text class="dg-t-sm ko" x="992" y="101.3">Milvus</text>
+            <text class="dg-t-sm en" x="992" y="101.3">Milvus</text>
+            <text class="dg-s ko" x="992" y="122.6">dense + sparse</text>
+            <text class="dg-s en" x="992" y="122.6">dense + sparse</text>
+          </g>
+          <g class="dg-node">
+            <rect x="0" y="240" width="273" height="92" rx="14"/>
+            <text class="dg-t-sm ko" x="20" y="281.3">IDE ProxyAI</text>
+            <text class="dg-t-sm en" x="20" y="281.3">IDE ProxyAI</text>
+            <text class="dg-s ko" x="20" y="302.6">개발자</text>
+            <text class="dg-s en" x="20" y="302.6">Developer</text>
+          </g>
+          <g class="dg-node">
+            <rect x="313" y="240" width="273" height="92" rx="14"/>
+            <text class="dg-t-sm ko" x="333" y="281.3">FastAPI</text>
+            <text class="dg-t-sm en" x="333" y="281.3">FastAPI</text>
+            <text class="dg-s ko" x="333" y="302.6">OpenAI 호환</text>
+            <text class="dg-s en" x="333" y="302.6">OpenAI compatible</text>
+          </g>
+          <g class="dg-node">
+            <rect x="626" y="240" width="273" height="92" rx="14"/>
+            <text class="dg-t-sm ko" x="646" y="281.3">Ollama + Qwen3</text>
+            <text class="dg-t-sm en" x="646" y="281.3">Ollama + Qwen3</text>
+            <text class="dg-s ko" x="646" y="302.6">튜닝된 파라미터</text>
+            <text class="dg-s en" x="646" y="302.6">Tuned parameters</text>
+          </g>
+          <g class="dg-node">
+            <rect x="0" y="372" width="273" height="92" rx="14"/>
+            <text class="dg-t-sm ko" x="20" y="413.3">Open WebUI</text>
+            <text class="dg-t-sm en" x="20" y="413.3">Open WebUI</text>
+            <text class="dg-s ko" x="20" y="434.6">임직원</text>
+            <text class="dg-s en" x="20" y="434.6">Employee</text>
+          </g>
+          <g class="dg-node">
+            <rect x="313" y="372" width="273" height="92" rx="14"/>
+            <text class="dg-t-sm ko" x="333" y="424.3">Hybrid Retriever</text>
+            <text class="dg-t-sm en" x="333" y="424.3">Hybrid Retriever</text>
+          </g>
+          <g class="dg-node">
+            <rect x="626" y="372" width="273" height="92" rx="14"/>
+            <text class="dg-t-sm ko" x="646" y="424.3">Ollama + Qwen3</text>
+            <text class="dg-t-sm en" x="646" y="424.3">Ollama + Qwen3</text>
+          </g>
+          <text class="dg-head" x="0" y="20">1  INDEXING  ·  OFFLINE</text>
+          <text class="dg-head" x="0" y="226">2  SERVICE A  ·  DEVELOPER PROXY</text>
+          <text class="dg-head" x="0" y="358">3  SERVICE B  ·  DOCUMENT RAG</text>
+          <line class="dg-line" x1="217" y1="106" x2="224" y2="106"/>
+          <path class="dg-arrow" d="M224 100 L235 106 L224 112 Z"/>
+          <line class="dg-line" x1="460" y1="106" x2="467" y2="106"/>
+          <path class="dg-arrow" d="M467 100 L478 106 L467 112 Z"/>
+          <line class="dg-line" x1="703" y1="106" x2="710" y2="106"/>
+          <path class="dg-arrow" d="M710 100 L721 106 L710 112 Z"/>
+          <line class="dg-line" x1="946" y1="106" x2="953" y2="106"/>
+          <path class="dg-arrow" d="M953 100 L964 106 L953 112 Z"/>
+          <line class="dg-line" x1="281" y1="286" x2="294" y2="286"/>
+          <path class="dg-arrow" d="M294 280 L305 286 L294 292 Z"/>
+          <line class="dg-line" x1="594" y1="286" x2="607" y2="286"/>
+          <path class="dg-arrow" d="M607 280 L618 286 L607 292 Z"/>
+          <line class="dg-line" x1="281" y1="418" x2="294" y2="418"/>
+          <path class="dg-arrow" d="M294 412 L305 418 L294 424 Z"/>
+          <line class="dg-line" x1="594" y1="418" x2="607" y2="418"/>
+          <path class="dg-arrow" d="M607 412 L618 418 L607 424 Z"/>
+        </svg>
+      </div>
+      <figcaption>
+        <span class="ko">문서를 미리 인덱싱해 두고, 개발자용과 임직원용 두 서비스가 같은 모델을 씁니다.</span>
+        <span class="en">Documents are indexed offline, and two services share the same served model.</span>
+      </figcaption>
+    </figure>
+
     <div class="detail__body">
       <ul class="qa qa--lg rv">
         <li><b><span class="ko">문제</span><span class="en">Problem</span></b><span><span class="ko">보안 정책상 코드와 내부 정보의 외부 반출이 금지되어 외부 LLM을 쓸 수 없었고, 개발자들은 AI 도움 없이 폐쇄망에서 작업해야 했습니다.</span><span class="en">Security policy banned sending code or internal information outside, so external LLMs were unusable and developers had to work on the air-gapped network without AI.</span></span></li>
@@ -1040,6 +1406,59 @@
         <span><b><span class="ko">역할</span><span class="en">Role</span></b> <span class="ko">실시간 수요 대응 과정에서 생긴 병목 제거</span><span class="en">Removing the bottleneck that came with near-real-time demand</span></span>
       </div>
     </div>
+    <figure class="figurewrap rv">
+      <div class="diagram">
+        <svg viewBox="0 0 1180 420" role="img" aria-labelledby="nrtTitle">
+          <title id="nrtTitle">Queue isolation for the near real time batch</title>
+          <g class="dg-node">
+            <rect x="0" y="56" width="420" height="96" rx="14"/>
+            <text class="dg-t-sm ko" x="24" y="99.3">일 1회 배치</text>
+            <text class="dg-t-sm en" x="24" y="99.3">Once a day</text>
+            <text class="dg-s ko" x="24" y="120.6">실시간 수요를 감당 못 함</text>
+            <text class="dg-s en" x="24" y="120.6">Could not meet the demand</text>
+          </g>
+          <g class="dg-node">
+            <rect x="520" y="56" width="420" height="96" rx="14"/>
+            <text class="dg-t-sm ko" x="544" y="99.3">30분 주기</text>
+            <text class="dg-t-sm en" x="544" y="99.3">Every 30 minutes</text>
+            <text class="dg-s ko" x="544" y="120.6">태스크 급증, DAG 간 자원 경합</text>
+            <text class="dg-s en" x="544" y="120.6">Task count jumped, DAGs contended</text>
+          </g>
+          <g class="dg-node">
+            <rect x="0" y="236" width="363" height="100" rx="14"/>
+            <text class="dg-t-sm ko" x="20" y="281.3">일 배치 큐</text>
+            <text class="dg-t-sm en" x="20" y="281.3">Daily batch queue</text>
+            <text class="dg-s ko" x="20" y="302.6">기존 대량 적재</text>
+            <text class="dg-s en" x="20" y="302.6">The existing bulk loads</text>
+          </g>
+          <g class="dg-node">
+            <rect x="409" y="236" width="363" height="100" rx="14"/>
+            <text class="dg-t-sm ko" x="429" y="281.3">준실시간 큐</text>
+            <text class="dg-t-sm en" x="429" y="281.3">Near-real-time queue</text>
+            <text class="dg-s ko" x="429" y="302.6">30분 주기 전용</text>
+            <text class="dg-s en" x="429" y="302.6">Dedicated to the 30-minute cycle</text>
+          </g>
+          <g class="dg-node">
+            <rect x="818" y="236" width="363" height="100" rx="14"/>
+            <text class="dg-t-sm ko" x="838" y="281.3">분석 큐</text>
+            <text class="dg-t-sm en" x="838" y="281.3">Analytics queue</text>
+            <text class="dg-s ko" x="838" y="302.6">사용자 조회</text>
+            <text class="dg-s en" x="838" y="302.6">User queries</text>
+          </g>
+          <text class="dg-head" x="0" y="20">CYCLE</text>
+          <text class="dg-head" x="0" y="222">YARN QUEUE 분할  ·  ISOLATION PER DAG</text>
+          <text class="dg-s ko" x="0" y="396">한 파이프라인의 지연이 다른 파이프라인을 밀지 않게 막았습니다</text>
+          <text class="dg-s en" x="0" y="396">One pipeline's delay no longer pushes the others</text>
+          <line class="dg-line" x1="430" y1="104" x2="501" y2="104"/>
+          <path class="dg-arrow" d="M501 98 L512 104 L501 110 Z"/>
+        </svg>
+      </div>
+      <figcaption>
+        <span class="ko">주기를 줄이면서 생긴 경합을 큐 분할로 끊었습니다.</span>
+        <span class="en">Shortening the cycle created contention; splitting queues cut it.</span>
+      </figcaption>
+    </figure>
+
     <div class="detail__body">
       <ul class="qa qa--lg rv">
         <li><b><span class="ko">문제</span><span class="en">Problem</span></b><span><span class="ko">일 1회 배치로는 실시간에 가까운 데이터 수요를 감당할 수 없었습니다. 주기를 30분으로 바꾸자 태스크 수가 크게 늘면서 DAG 간 자원 경합으로 병목이 생겼습니다.</span><span class="en">A once-a-day batch could not meet demand for near-real-time data. Moving to a 30-minute cycle multiplied the task count until DAGs began contending for resources.</span></span></li>
@@ -1076,6 +1495,76 @@
         <span><b><span class="ko">역할</span><span class="en">Role</span></b> <span class="ko">직접 설계·운영한 파이프라인을 측정하며 구간별로 병목 제거</span><span class="en">Measuring pipelines I built myself and clearing bottlenecks one section at a time</span></span>
       </div>
     </div>
+    <figure class="figurewrap rv">
+      <div class="diagram">
+        <svg viewBox="0 0 1180 508" role="img" aria-labelledby="perfTitle">
+          <title id="perfTitle">Bottlenecks measured before and after</title>
+          <g class="dg-node">
+            <rect x="280" y="44" width="400" height="92" rx="14"/>
+            <text class="dg-t-sm ko" x="304" y="96.3">테이블 단위 순차 실행</text>
+            <text class="dg-t-sm en" x="304" y="96.3">Tables processed one at a time</text>
+          </g>
+          <g class="dg-node">
+            <rect x="740" y="44" width="440" height="92" rx="14"/>
+            <text class="dg-t-sm ko" x="764" y="96.3">76개 테이블 주말 무인 병렬</text>
+            <text class="dg-t-sm en" x="764" y="96.3">76 tables, unattended in parallel</text>
+          </g>
+          <g class="dg-node">
+            <rect x="280" y="160" width="400" height="92" rx="14"/>
+            <text class="dg-t-sm ko" x="304" y="212.3">하루치 전체로 중앙값 계산</text>
+            <text class="dg-t-sm en" x="304" y="212.3">Median over a full day of rows</text>
+          </g>
+          <g class="dg-node">
+            <rect x="740" y="160" width="440" height="92" rx="14"/>
+            <text class="dg-t-sm ko" x="764" y="212.3">중복 제거 후 계산</text>
+            <text class="dg-t-sm en" x="764" y="212.3">De-duplicated first, then computed</text>
+          </g>
+          <g class="dg-node">
+            <rect x="280" y="276" width="400" height="92" rx="14"/>
+            <text class="dg-t-sm ko" x="304" y="328.3">76%</text>
+            <text class="dg-t-sm en" x="304" y="328.3">76%</text>
+          </g>
+          <g class="dg-node">
+            <rect x="740" y="276" width="440" height="92" rx="14"/>
+            <text class="dg-t-sm ko" x="764" y="328.3">약 57%  ·  노드당 471GB 회수</text>
+            <text class="dg-t-sm en" x="764" y="328.3">About 57%, 471 GB reclaimed per node</text>
+          </g>
+          <g class="dg-node">
+            <rect x="280" y="392" width="400" height="92" rx="14"/>
+            <text class="dg-t-sm ko" x="304" y="444.3">잔여 6GB 시스템 폴더</text>
+            <text class="dg-t-sm en" x="304" y="444.3">A system folder with 6 GB left</text>
+          </g>
+          <g class="dg-node">
+            <rect x="740" y="392" width="440" height="92" rx="14"/>
+            <text class="dg-t-sm ko" x="764" y="444.3">여유 800GB 데이터 볼륨</text>
+            <text class="dg-t-sm en" x="764" y="444.3">A data volume with 800 GB free</text>
+          </g>
+          <text class="dg-head" x="300" y="20">BEFORE</text>
+          <text class="dg-head" x="760" y="20">AFTER</text>
+          <text class="dg-t-sm ko" x="0" y="98">동시성</text>
+          <text class="dg-t-sm en" x="0" y="98">Concurrency</text>
+          <text class="dg-t-sm ko" x="0" y="214">실행 계획</text>
+          <text class="dg-t-sm en" x="0" y="214">Query plan</text>
+          <text class="dg-t-sm ko" x="0" y="330">데이터 디스크</text>
+          <text class="dg-t-sm en" x="0" y="330">Data disk</text>
+          <text class="dg-t-sm ko" x="0" y="446">임시 파일 경로</text>
+          <text class="dg-t-sm en" x="0" y="446">Temp path</text>
+          <line class="dg-line" x1="690" y1="90" x2="721" y2="90"/>
+          <path class="dg-arrow" d="M721 84 L732 90 L721 96 Z"/>
+          <line class="dg-line" x1="690" y1="206" x2="721" y2="206"/>
+          <path class="dg-arrow" d="M721 200 L732 206 L721 212 Z"/>
+          <line class="dg-line" x1="690" y1="322" x2="721" y2="322"/>
+          <path class="dg-arrow" d="M721 316 L732 322 L721 328 Z"/>
+          <line class="dg-line" x1="690" y1="438" x2="721" y2="438"/>
+          <path class="dg-arrow" d="M721 432 L732 438 L721 444 Z"/>
+        </svg>
+      </div>
+      <figcaption>
+        <span class="ko">병목을 한 덩어리로 보지 않고 네 구간으로 나눠 각각 측정했습니다.</span>
+        <span class="en">Rather than treat the bottleneck as one thing, it was split into four and each measured.</span>
+      </figcaption>
+    </figure>
+
     <div class="detail__body">
       <ul class="qa qa--lg rv">
         <li><b><span class="ko">문제</span><span class="en">Problem</span></b><span><span class="ko">직접 만든 Hive에서 Iceberg로의 마이그레이션이 테이블을 하나씩 순서대로 처리해서, 한 테이블이 저장·집계되는 동안 나머지 클러스터가 놀고 있었습니다. 매출 예측 입력 쿼리는 하루치 데이터 전부를 대상으로 중앙값을 계산했고, 이벤트 로그 누적과 잘못 지정된 임시 파일 경로로 디스크가 포화 상태였습니다.</span><span class="en">A Hive to Iceberg migration I had written processed tables one at a time, so the rest of the cluster sat idle while one table committed and aggregated. The revenue forecast input query computed a median over a full day of rows, and disks were saturating from accumulated event logs and a badly placed temp path.</span></span></li>
