@@ -306,10 +306,10 @@ h3{ font-size:22px; line-height:1.3 }
 .projcard:hover .projcard__arrow{ opacity:1 }
 .projcard__arrow svg{ width:17px; height:17px }
 .projcard__cat{ display:block; font-size:10px; font-weight:800; letter-spacing:.2em; text-transform:uppercase; color:var(--rose-deep); margin-bottom:11px }
-.projcard h3{ font-size:20px; margin-bottom:12px; transition:color .25s var(--ease) }
+.projcard h3{ font-size:20px; line-height:1.32; min-height:calc(20px * 1.32 * 2); margin-bottom:12px; transition:color .25s var(--ease) }
 .projcard:hover h3{ color:var(--rose-deep) }
-.projcard p{ margin:0 0 18px; font-size:14px; font-weight:300; line-height:1.7; color:var(--mute) }
-.projcard__date{ font-size:11.5px; font-weight:600; letter-spacing:.08em; color:var(--faint) }
+.projcard p{ margin:0 0 18px; font-size:14px; font-weight:300; line-height:1.7; color:var(--mute); flex:1 1 auto }
+.projcard__date{ font-size:11.5px; font-weight:600; letter-spacing:.08em; color:var(--faint); margin-top:auto }
 
 /* ---------- role meter ---------- */
 .tracks{ display:flex; gap:14px; margin-top:18px; flex-wrap:wrap }
