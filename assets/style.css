@@ -538,3 +538,36 @@ h3{ font-size:22px; line-height:1.3 }
 .subwork h2{ font-size:clamp(24px,2.6vw,30px); margin-bottom:8px }
 .subwork .figurewrap{ margin-top:32px }
 .subwork .detail__body{ margin-top:36px }
+
+/* ============================================================
+   METRICS  ·  the numbers pulled out of prose
+   ============================================================ */
+:root{ --mono:"IBM Plex Mono","SFMono-Regular",Consolas,monospace }
+
+.band--metrics{ background:var(--white); padding:64px 0 }
+@media (min-width:768px){ .band--metrics{ padding:76px 0 } }
+
+.metrics{
+  display:grid; gap:36px 24px;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+}
+@media (min-width:820px){ .metrics{ grid-template-columns:repeat(4,minmax(0,1fr)); gap:32px } }
+
+.metric{ padding-left:18px; border-left:2px solid var(--rose-soft) }
+.metric__n{
+  display:block;
+  font-family:var(--mono);
+  font-size:clamp(30px,4.2vw,46px);
+  font-weight:600; letter-spacing:-.02em; line-height:1.05;
+  color:var(--ink);
+  font-feature-settings:"tnum" 1;
+}
+.metric__l{
+  display:block; margin-top:10px;
+  font-size:13px; font-weight:400; color:var(--mute); line-height:1.5;
+}
+
+/* monospace where it reads as machine output, not prose */
+.tag{ font-family:var(--mono); font-size:11px; letter-spacing:0 }
+.projcard__date{ font-family:var(--mono); letter-spacing:.02em }
+.detail__meta{ font-feature-settings:"tnum" 1 }
