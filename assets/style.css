@@ -502,11 +502,11 @@ h3{ font-size:22px; line-height:1.3 }
 .dg-arrow{ fill:var(--rose) }
 .dg-dot{ fill:var(--rose) }
 
-.dg-head{ fill:var(--rose-deep); font-size:13px; font-weight:700; letter-spacing:.18em }
-.dg-t{ fill:var(--ink); font-size:19px; font-weight:600 }
-.dg-t-sm{ fill:var(--ink); font-size:16px; font-weight:600 }
-.dg-s{ fill:var(--mute); font-size:13.5px; font-weight:400 }
-.dg-s-xs{ fill:var(--faint); font-size:12.5px; font-weight:500 }
+.dg-head{ fill:var(--rose-deep); font-size:18px; font-weight:700; letter-spacing:.16em }
+.dg-t{ fill:var(--ink); font-size:26px; font-weight:600 }
+.dg-t-sm{ fill:var(--ink); font-size:22px; font-weight:600 }
+.dg-s{ fill:var(--mute); font-size:20px; font-weight:400 }
+.dg-s-xs{ fill:var(--faint); font-size:18px; font-weight:500 }
 
 @media (prefers-reduced-motion:reduce){
   .dg-node rect,.dg-node .dg-t,.dg-node .dg-t-sm{ transition:none }
@@ -517,4 +517,14 @@ h3{ font-size:22px; line-height:1.3 }
 .tracks--card .stage{ width:54px }
 .tracks--card .lbl{ font-size:9px; letter-spacing:.04em; margin-bottom:4px }
 .tracks--card .bar{ height:3px }
-.diagram--narrow svg{ min-width:700px }
+
+/* the WAP flow renders near 1:1, so it carries its own smaller type scale */
+.diagram--wap svg{ min-width:720px }
+.diagram--wap .dg-head{ font-size:13px }
+.diagram--wap .dg-t{ font-size:20px }
+.diagram--wap .dg-t-sm{ font-size:19px }
+.diagram--wap .dg-s{ font-size:15.5px }
+.diagram--wap .dg-s-xs{ font-size:14px }
+
+/* full width row under the two column block */
+.opsfig{ margin-top:64px }

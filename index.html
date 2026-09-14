@@ -194,119 +194,117 @@
       </div>
       <figure class="figurewrap rv" id="arch-hadoop">
         <div class="diagram">
-        <svg viewBox="0 0 1700 590" role="img" aria-labelledby="archTitle">
+        <svg viewBox="0 0 1700 620" role="img" aria-labelledby="archTitle">
           <title id="archTitle">On-prem Hadoop data pipeline architecture</title>
-          <text class="dg-head" x="0" y="18">EXTERNAL SOURCES</text>
           <g class="dg-node">
-            <rect x="0" y="33" width="360" height="112" rx="12"/>
-            <rect class="dg-pill" x="22" y="81" width="86" height="28" rx="14"/>
-            <text class="dg-t ko" x="26" y="73">정산 시스템</text>
-            <text class="dg-t en" x="26" y="73">Settlement system</text>
-            <text class="dg-s-xs ko" x="34" y="99">FTP · CSV</text>
-            <text class="dg-s-xs en" x="34" y="99">FTP · CSV</text>
-            <text class="dg-s ko" x="26" y="130">일별 CSV 파일 송신</text>
-            <text class="dg-s en" x="26" y="130">Daily CSV delivery</text>
+            <rect x="0" y="33" width="400" height="126" rx="14"/>
+            <rect class="dg-pill" x="22" y="95" width="110" height="30" rx="15"/>
+            <text class="dg-s-xs ko" x="32" y="115">FTP · CSV</text>
+            <text class="dg-s-xs en" x="32" y="115">FTP · CSV</text>
+            <text class="dg-t ko" x="26" y="81">정산 시스템</text>
+            <text class="dg-t en" x="26" y="81">Settlement system</text>
+            <text class="dg-s ko" x="26" y="145">일별 CSV 파일 송신</text>
+            <text class="dg-s en" x="26" y="145">Daily CSV delivery</text>
           </g>
           <g class="dg-node">
-            <rect x="0" y="157" width="360" height="112" rx="12"/>
-            <rect class="dg-pill" x="22" y="205" width="92" height="28" rx="14"/>
-            <text class="dg-t ko" x="26" y="197">운영 PostgreSQL</text>
-            <text class="dg-t en" x="26" y="197">Production PostgreSQL</text>
-            <text class="dg-s-xs ko" x="34" y="223">service_db</text>
-            <text class="dg-s-xs en" x="34" y="223">service_db</text>
-            <text class="dg-s ko" x="26" y="254">운영 DB 연동 적재</text>
-            <text class="dg-s en" x="26" y="254">Direct DB ingestion</text>
+            <rect x="0" y="175" width="400" height="126" rx="14"/>
+            <rect class="dg-pill" x="22" y="237" width="122" height="30" rx="15"/>
+            <text class="dg-s-xs ko" x="32" y="257">service_db</text>
+            <text class="dg-s-xs en" x="32" y="257">service_db</text>
+            <text class="dg-t ko" x="26" y="223">운영 PostgreSQL</text>
+            <text class="dg-t en" x="26" y="223">Production PostgreSQL</text>
+            <text class="dg-s ko" x="26" y="287">운영 DB 연동 적재</text>
+            <text class="dg-s en" x="26" y="287">Direct DB ingestion</text>
           </g>
           <g class="dg-node">
-            <rect x="0" y="281" width="360" height="112" rx="12"/>
-            <rect class="dg-pill" x="22" y="329" width="62" height="28" rx="14"/>
-            <text class="dg-t ko" x="26" y="321">Oracle DBs</text>
-            <text class="dg-t en" x="26" y="321">Oracle DBs</text>
-            <text class="dg-s-xs ko" x="34" y="347">4종</text>
-            <text class="dg-s-xs en" x="34" y="347">4 DBs</text>
-            <text class="dg-s ko" x="26" y="378">결제 · 정산 · 통계 · 관리</text>
-            <text class="dg-s en" x="26" y="378">Payment · settlement · stats · admin</text>
-          </g>
-          <line class="dg-line" x1="366" y1="249" x2="434" y2="249"/>
-          <path class="dg-arrow" d="M434 244 L444 249 L434 254 Z"/>
-          <text class="dg-t ko" x="486" y="90">HadoopCluster</text>
-          <text class="dg-t en" x="486" y="90">HadoopCluster</text>
-          <text class="dg-s ko" x="486" y="123">HDFS · YARN · Hive · Trino · Spark</text>
-          <text class="dg-s en" x="486" y="123">HDFS · YARN · Hive · Trino · Spark</text>
-          <text class="dg-head" x="486" y="158">MASTER</text>
-          <g class="dg-node">
-            <rect x="486" y="172" width="300" height="86" rx="12"/>
-            <text class="dg-t-sm ko" x="512" y="210">Master Node</text>
-            <text class="dg-t-sm en" x="512" y="210">Master Node</text>
-            <text class="dg-s ko" x="512" y="239">Standby</text>
-            <text class="dg-s en" x="512" y="239">Standby</text>
+            <rect x="0" y="317" width="400" height="126" rx="14"/>
+            <rect class="dg-pill" x="22" y="379" width="84" height="30" rx="15"/>
+            <text class="dg-s-xs ko" x="32" y="399">4종</text>
+            <text class="dg-s-xs en" x="32" y="399">4 DBs</text>
+            <text class="dg-t ko" x="26" y="365">Oracle DBs</text>
+            <text class="dg-t en" x="26" y="365">Oracle DBs</text>
+            <text class="dg-s ko" x="26" y="429">결제 · 정산 · 통계 · 관리</text>
+            <text class="dg-s en" x="26" y="429">Payment · settlement · stats</text>
           </g>
           <g class="dg-node">
-            <rect x="816" y="172" width="300" height="86" rx="12"/>
-            <text class="dg-t-sm ko" x="842" y="210">Master Node</text>
-            <text class="dg-t-sm en" x="842" y="210">Master Node</text>
-            <text class="dg-s ko" x="842" y="239">Active</text>
-            <text class="dg-s en" x="842" y="239">Active</text>
-            <circle class="dg-dot" cx="1088" cy="203" r="4"/>
-          </g>
-          <text class="dg-head" x="486" y="300">DATA NODE</text>
-          <g class="dg-node">
-            <rect x="486" y="314" width="194" height="78" rx="12"/>
-            <text class="dg-t-sm ko" x="512" y="361">Data Node</text>
-            <text class="dg-t-sm en" x="512" y="361">Data Node</text>
+            <rect x="492" y="180" width="310" height="96" rx="14"/>
+            <text class="dg-t-sm ko" x="518" y="222">Master Node</text>
+            <text class="dg-t-sm en" x="518" y="222">Master Node</text>
+            <text class="dg-s ko" x="518" y="254">Standby</text>
+            <text class="dg-s en" x="518" y="254">Standby</text>
           </g>
           <g class="dg-node">
-            <rect x="700" y="314" width="194" height="78" rx="12"/>
-            <text class="dg-t-sm ko" x="726" y="361">Data Node</text>
-            <text class="dg-t-sm en" x="726" y="361">Data Node</text>
+            <rect x="822" y="180" width="310" height="96" rx="14"/>
+            <text class="dg-t-sm ko" x="848" y="222">Master Node</text>
+            <text class="dg-t-sm en" x="848" y="222">Master Node</text>
+            <text class="dg-s ko" x="848" y="254">Active</text>
+            <text class="dg-s en" x="848" y="254">Active</text>
+            <circle class="dg-dot" cx="1104" cy="212" r="5"/>
           </g>
           <g class="dg-node">
-            <rect x="914" y="314" width="194" height="78" rx="12"/>
-            <text class="dg-t-sm ko" x="940" y="361">Data Node</text>
-            <text class="dg-t-sm en" x="940" y="361">Data Node</text>
-          </g>
-          <text class="dg-s ko" x="486" y="428">Master 2 (HA) · Data Node 3</text>
-          <text class="dg-s en" x="486" y="428">Master 2 (HA) · Data Node 3</text>
-          <line class="dg-line" x1="1152" y1="249" x2="1230" y2="249"/>
-          <path class="dg-arrow" d="M1230 244 L1240 249 L1230 254 Z"/>
-          <g class="dg-node">
-            <rect x="1244" y="33" width="456" height="104" rx="12"/>
-            <text class="dg-t ko" x="1270" y="79">Airflow</text>
-            <text class="dg-t en" x="1270" y="79">Airflow</text>
-            <text class="dg-s ko" x="1270" y="108">클러스터 작업 스케줄링</text>
-            <text class="dg-s en" x="1270" y="108">Cluster job scheduling</text>
+            <rect x="492" y="330" width="200" height="86" rx="14"/>
+            <text class="dg-t-sm ko" x="518" y="382">Data Node</text>
+            <text class="dg-t-sm en" x="518" y="382">Data Node</text>
           </g>
           <g class="dg-node">
-            <rect x="1244" y="151" width="456" height="104" rx="12"/>
-            <text class="dg-t ko" x="1270" y="197">Storage</text>
-            <text class="dg-t en" x="1270" y="197">Storage</text>
-            <text class="dg-s ko" x="1270" y="226">PostgreSQL + Nessie (Iceberg 카탈로그)</text>
-            <text class="dg-s en" x="1270" y="226">PostgreSQL + Nessie (Iceberg catalog)</text>
+            <rect x="712" y="330" width="200" height="86" rx="14"/>
+            <text class="dg-t-sm ko" x="738" y="382">Data Node</text>
+            <text class="dg-t-sm en" x="738" y="382">Data Node</text>
           </g>
           <g class="dg-node">
-            <rect x="1244" y="269" width="456" height="104" rx="12"/>
-            <text class="dg-t ko" x="1270" y="315">Monitoring</text>
-            <text class="dg-t en" x="1270" y="315">Monitoring</text>
-            <text class="dg-s ko" x="1270" y="344">Grafana · Prometheus · SMS</text>
-            <text class="dg-s en" x="1270" y="344">Grafana · Prometheus · SMS</text>
-          </g>
-          <text class="dg-head" x="1244" y="420">USER</text>
-          <text class="dg-s ko" x="1310" y="420">외부 데이터 소비자</text>
-          <text class="dg-s en" x="1310" y="420">External data consumers</text>
-          <g class="dg-node">
-            <rect x="1244" y="440" width="216" height="82" rx="12"/>
-            <text class="dg-t-sm ko" x="1264" y="474">사업부서 A</text>
-            <text class="dg-t-sm en" x="1264" y="474">Business unit A</text>
-            <text class="dg-s ko" x="1264" y="499">HiveServer2 로 조회</text>
-            <text class="dg-s en" x="1264" y="499">Queries via HiveServer2</text>
+            <rect x="932" y="330" width="200" height="86" rx="14"/>
+            <text class="dg-t-sm ko" x="958" y="382">Data Node</text>
+            <text class="dg-t-sm en" x="958" y="382">Data Node</text>
           </g>
           <g class="dg-node">
-            <rect x="1484" y="440" width="216" height="82" rx="12"/>
-            <text class="dg-t-sm ko" x="1504" y="474">사업부서 B</text>
-            <text class="dg-t-sm en" x="1504" y="474">Business unit B</text>
-            <text class="dg-s ko" x="1504" y="499">Trino Coordinator 로 조회</text>
-            <text class="dg-s en" x="1504" y="499">Queries via Trino Coordinator</text>
+            <rect x="1224" y="33" width="476" height="112" rx="14"/>
+            <text class="dg-t ko" x="1250" y="83">Airflow</text>
+            <text class="dg-t en" x="1250" y="83">Airflow</text>
+            <text class="dg-s ko" x="1250" y="119">클러스터 작업 스케줄링</text>
+            <text class="dg-s en" x="1250" y="119">Cluster job scheduling</text>
           </g>
+          <g class="dg-node">
+            <rect x="1224" y="161" width="476" height="112" rx="14"/>
+            <text class="dg-t ko" x="1250" y="211">Storage</text>
+            <text class="dg-t en" x="1250" y="211">Storage</text>
+            <text class="dg-s ko" x="1250" y="247">PostgreSQL + Nessie (Iceberg 카탈로그)</text>
+            <text class="dg-s en" x="1250" y="247">PostgreSQL + Nessie (Iceberg catalog)</text>
+          </g>
+          <g class="dg-node">
+            <rect x="1224" y="289" width="476" height="112" rx="14"/>
+            <text class="dg-t ko" x="1250" y="339">Monitoring</text>
+            <text class="dg-t en" x="1250" y="339">Monitoring</text>
+            <text class="dg-s ko" x="1250" y="375">Grafana · Prometheus · SMS</text>
+            <text class="dg-s en" x="1250" y="375">Grafana · Prometheus · SMS</text>
+          </g>
+          <g class="dg-node">
+            <rect x="1224" y="456" width="476" height="76" rx="14"/>
+            <text class="dg-t-sm ko" x="1248" y="490">사업부서 A</text>
+            <text class="dg-t-sm en" x="1248" y="490">Business unit A</text>
+            <text class="dg-s ko" x="1248" y="518">HiveServer2 로 조회</text>
+            <text class="dg-s en" x="1248" y="518">Queries via HiveServer2</text>
+          </g>
+          <g class="dg-node">
+            <rect x="1224" y="544" width="476" height="76" rx="14"/>
+            <text class="dg-t-sm ko" x="1248" y="578">사업부서 B</text>
+            <text class="dg-t-sm en" x="1248" y="578">Business unit B</text>
+            <text class="dg-s ko" x="1248" y="606">Trino Coordinator 로 조회</text>
+            <text class="dg-s en" x="1248" y="606">Queries via Trino Coordinator</text>
+          </g>
+          <text class="dg-head" x="0" y="20">EXTERNAL SOURCES</text>
+          <text class="dg-t ko" x="492" y="96">HadoopCluster</text>
+          <text class="dg-t en" x="492" y="96">HadoopCluster</text>
+          <text class="dg-s ko" x="492" y="132">HDFS · YARN · Hive · Trino · Spark</text>
+          <text class="dg-s en" x="492" y="132">HDFS · YARN · Hive · Trino · Spark</text>
+          <text class="dg-head" x="492" y="164">MASTER</text>
+          <text class="dg-head" x="492" y="314">DATA NODE</text>
+          <text class="dg-s ko" x="492" y="452">Master 2 (HA) · Data Node 3</text>
+          <text class="dg-s en" x="492" y="452">Master 2 (HA) · Data Node 3</text>
+          <text class="dg-head" x="1224" y="438">USER</text>
+          <line class="dg-line" x1="410" y1="290" x2="472" y2="290"/>
+          <path class="dg-arrow" d="M472 284 L484 290 L472 296 Z"/>
+          <line class="dg-line" x1="1140" y1="290" x2="1204" y2="290"/>
+          <path class="dg-arrow" d="M1204 284 L1216 290 L1204 296 Z"/>
         </svg>
         </div>
         <figcaption>
@@ -524,117 +522,6 @@
       </div>
 
       <div>
-      <figure class="figurewrap rv">
-        <div class="diagram diagram--narrow">
-        <svg viewBox="0 0 1180 620" role="img" aria-labelledby="wapTitle">
-          <title id="wapTitle">Write, audit and publish flow for load validation</title>
-          <text class="dg-head" x="0" y="18">1  WRITE</text>
-          <g class="dg-node">
-            <rect x="0" y="33" width="470" height="96" rx="12"/>
-            <text class="dg-t-sm ko" x="22" y="71">원천 Oracle · CSV</text>
-            <text class="dg-t-sm en" x="22" y="71">Source Oracle · CSV</text>
-            <text class="dg-s ko" x="22" y="99">Nessie 브랜치에 write (main 아님)</text>
-            <text class="dg-s en" x="22" y="99">Written to a Nessie branch, not main</text>
-          </g>
-          <line class="dg-line" x1="235" y1="129" x2="235" y2="165"/>
-          <path class="dg-arrow" d="M230 165 L235 175 L240 165 Z"/>
-          <text class="dg-head" x="0" y="166">2  AUDIT</text>
-          <text class="dg-s ko" x="150" y="166">검증 깊이 2단계</text>
-          <text class="dg-s en" x="150" y="166">Two levels of checking</text>
-          <g class="dg-node">
-            <rect x="0" y="181" width="228" height="150" rx="12"/>
-            <text class="dg-t-sm ko" x="22" y="217">count 티어</text>
-            <text class="dg-t-sm en" x="22" y="217">count tier</text>
-            <text class="dg-s ko" x="22" y="245">건수 검증</text>
-            <text class="dg-s en" x="22" y="245">Row-count check</text>
-            <text class="dg-s ko" x="22" y="267">모든 테이블 기본</text>
-            <text class="dg-s en" x="22" y="267">Default for every table</text>
-            <text class="dg-s ko" x="22" y="289">Oracle 재조회 0회</text>
-            <text class="dg-s en" x="22" y="289">Zero Oracle re-reads</text>
-            <text class="dg-s ko" x="22" y="311">$partitions 로 스캔 0</text>
-            <text class="dg-s en" x="22" y="311">No scan, read from $partitions</text>
-          </g>
-          <g class="dg-node">
-            <rect x="242" y="181" width="228" height="150" rx="12"/>
-            <text class="dg-t-sm ko" x="264" y="217">full 티어</text>
-            <text class="dg-t-sm en" x="264" y="217">full tier</text>
-            <text class="dg-s ko" x="264" y="245">값 검증</text>
-            <text class="dg-s en" x="264" y="245">Value check</text>
-            <text class="dg-s ko" x="264" y="267">값 대조가 필요한 테이블만</text>
-            <text class="dg-s en" x="264" y="267">Only tables that need it</text>
-            <text class="dg-s ko" x="264" y="289">컬럼별 해시 합계 대조</text>
-            <text class="dg-s en" x="264" y="289">Per-column hash sums</text>
-            <text class="dg-s ko" x="264" y="311">중복은 full-row hash</text>
-            <text class="dg-s en" x="264" y="311">Duplicates by full-row hash</text>
-          </g>
-          <line class="dg-line" x1="235" y1="331" x2="235" y2="367"/>
-          <path class="dg-arrow" d="M230 367 L235 377 L240 367 Z"/>
-          <text class="dg-head" x="0" y="368">3  PUBLISH</text>
-          <g class="dg-node">
-            <rect x="0" y="383" width="228" height="132" rx="12"/>
-            <text class="dg-t-sm ko" x="22" y="419">PASS</text>
-            <text class="dg-t-sm en" x="22" y="419">PASS</text>
-            <text class="dg-s ko" x="22" y="447">main 에 머지</text>
-            <text class="dg-s en" x="22" y="447">Merged into main</text>
-            <text class="dg-s ko" x="22" y="469">이 시점부터 조회 가능</text>
-            <text class="dg-s en" x="22" y="469">Queryable from here on</text>
-          </g>
-          <g class="dg-node">
-            <rect x="242" y="383" width="228" height="132" rx="12"/>
-            <text class="dg-t-sm ko" x="264" y="419">FAIL</text>
-            <text class="dg-t-sm en" x="264" y="419">FAIL</text>
-            <text class="dg-s ko" x="264" y="447">브랜치에 격리 유지</text>
-            <text class="dg-s en" x="264" y="447">Kept isolated on the branch</text>
-            <text class="dg-s ko" x="264" y="469">main 미노출</text>
-            <text class="dg-s en" x="264" y="469">Never reaches main</text>
-            <text class="dg-s ko" x="264" y="491">태스크 실패로 승격, SMS 발송</text>
-            <text class="dg-s en" x="264" y="491">Promoted to a task failure, paged</text>
-          </g>
-          <line class="dg-line" x1="490" y1="249" x2="630" y2="249"/>
-          <path class="dg-arrow" d="M630 244 L640 249 L630 254 Z"/>
-          <text class="dg-head" x="660" y="18">WHY IT MATTERS</text>
-          <g class="dg-node">
-            <rect x="660" y="33" width="520" height="132" rx="12"/>
-            <text class="dg-t-sm ko" x="682" y="71">검증이 형태만 있었음</text>
-            <text class="dg-t-sm en" x="682" y="71">The check existed in shape only</text>
-            <text class="dg-s ko" x="682" y="99">원천 건수를 대상 건수 칸에 복사만 함</text>
-            <text class="dg-s en" x="682" y="99">The source count was copied into the target field</text>
-            <text class="dg-s ko" x="682" y="121">비교하는 값이 실제로 없었음</text>
-            <text class="dg-s en" x="682" y="121">so no value was ever compared</text>
-            <text class="dg-s ko" x="682" y="143">main 에 바로 써서 잘못 적재돼도 조회 가능</text>
-            <text class="dg-s en" x="682" y="143">and writes went straight to main</text>
-          </g>
-          <g class="dg-node">
-            <rect x="660" y="181" width="520" height="150" rx="12"/>
-            <text class="dg-t-sm ko" x="682" y="219">파싱과 정밀도에서 새던 곳</text>
-            <text class="dg-t-sm en" x="682" y="219">Where it leaked before</text>
-            <text class="dg-s ko" x="682" y="247">개행·특수문자가 Hive 컬럼을 밀어냄</text>
-            <text class="dg-s en" x="682" y="247">Line breaks shifted Hive columns</text>
-            <text class="dg-s ko" x="682" y="269">신규 컬럼 소수점 스펙이 공유되지 않음</text>
-            <text class="dg-s en" x="682" y="269">A new decimal spec was never shared</text>
-            <text class="dg-s ko" x="682" y="291">값이 잘린 채 그대로 적재됨</text>
-            <text class="dg-s en" x="682" y="291">so values loaded truncated</text>
-            <text class="dg-s ko" x="682" y="313">적재 전 이스케이프와 정밀도 검사 추가</text>
-            <text class="dg-s en" x="682" y="313">Escaping and a precision check now run first</text>
-          </g>
-          <g class="dg-node">
-            <rect x="660" y="383" width="520" height="132" rx="12"/>
-            <text class="dg-t-sm ko" x="682" y="421">지금은</text>
-            <text class="dg-t-sm en" x="682" y="421">Now</text>
-            <text class="dg-s ko" x="682" y="449">검증 실패분이 main 에 닿지 않음</text>
-            <text class="dg-s en" x="682" y="449">Failed loads never reach main</text>
-            <text class="dg-s ko" x="682" y="471">확인이 SSH 에서 대시보드로 이동</text>
-            <text class="dg-s en" x="682" y="471">Checking moved from SSH to a dashboard</text>
-            <text class="dg-s ko" x="682" y="493">공유가 없어도 소수점이 버려지지 않음</text>
-            <text class="dg-s en" x="682" y="493">Decimals survive even with no hand-off</text>
-          </g>
-        </svg>
-        </div>
-        <figcaption>
-          <span class="ko">검증을 통과한 데이터만 main 에 병합됩니다. 실패분은 브랜치에 남고 태스크 실패로 승격되어 알림이 나갑니다.</span>
-          <span class="en">Only data that passes the audit is merged into main. What fails stays on the branch and is promoted to a task failure with an alert.</span>
-        </figcaption>
-      </figure>
 
         <div class="notecard rv">
           <span class="when">2023.08 <span class="ko">~ </span><span class="en">- </span><span class="ko">현재</span><span class="en">Present</span></span>
@@ -665,6 +552,115 @@
           </ul>
         </div>
       </div>
+    </div>
+    <div class="wrap opsfig">
+        <figure class="figurewrap rv">
+          <div class="diagram diagram--wap">
+          <svg viewBox="0 0 1180 580" role="img" aria-labelledby="wapTitle">
+            <title id="wapTitle">Write, audit and publish flow for load validation</title>
+            <g class="dg-node">
+              <rect x="0" y="34" width="490" height="104" rx="14"/>
+              <text class="dg-t-sm ko" x="24" y="78">원천 Oracle · CSV</text>
+              <text class="dg-t-sm en" x="24" y="78">Source Oracle · CSV</text>
+              <text class="dg-s ko" x="24" y="112">Nessie 브랜치에 write (main 아님)</text>
+              <text class="dg-s en" x="24" y="112">Written to a Nessie branch, not main</text>
+            </g>
+            <g class="dg-node">
+              <rect x="0" y="190" width="236" height="166" rx="14"/>
+              <text class="dg-t-sm ko" x="22" y="232">count 티어</text>
+              <text class="dg-t-sm en" x="22" y="232">count tier</text>
+              <text class="dg-s ko" x="22" y="268">건수 검증</text>
+              <text class="dg-s en" x="22" y="268">Row-count check</text>
+              <text class="dg-s ko" x="22" y="291">모든 테이블 기본</text>
+              <text class="dg-s en" x="22" y="291">Every table by default</text>
+              <text class="dg-s ko" x="22" y="314">Oracle 재조회 0회</text>
+              <text class="dg-s en" x="22" y="314">Zero Oracle re-reads</text>
+              <text class="dg-s ko" x="22" y="337">$partitions 로 스캔 0</text>
+              <text class="dg-s en" x="22" y="337">Read from $partitions</text>
+            </g>
+            <g class="dg-node">
+              <rect x="254" y="190" width="236" height="166" rx="14"/>
+              <text class="dg-t-sm ko" x="276" y="232">full 티어</text>
+              <text class="dg-t-sm en" x="276" y="232">full tier</text>
+              <text class="dg-s ko" x="276" y="268">값 검증</text>
+              <text class="dg-s en" x="276" y="268">Value check</text>
+              <text class="dg-s ko" x="276" y="291">필요한 테이블만</text>
+              <text class="dg-s en" x="276" y="291">Only where needed</text>
+              <text class="dg-s ko" x="276" y="314">컬럼별 해시 대조</text>
+              <text class="dg-s en" x="276" y="314">Per-column hash sums</text>
+              <text class="dg-s ko" x="276" y="337">중복은 full-row hash</text>
+              <text class="dg-s en" x="276" y="337">Dupes by full-row hash</text>
+            </g>
+            <g class="dg-node">
+              <rect x="0" y="408" width="236" height="140" rx="14"/>
+              <text class="dg-t-sm ko" x="22" y="450">PASS</text>
+              <text class="dg-t-sm en" x="22" y="450">PASS</text>
+              <text class="dg-s ko" x="22" y="486">main 에 머지</text>
+              <text class="dg-s en" x="22" y="486">Merged into main</text>
+              <text class="dg-s ko" x="22" y="509">이 시점부터 조회 가능</text>
+              <text class="dg-s en" x="22" y="509">Queryable from here</text>
+            </g>
+            <g class="dg-node">
+              <rect x="254" y="408" width="236" height="140" rx="14"/>
+              <text class="dg-t-sm ko" x="276" y="450">FAIL</text>
+              <text class="dg-t-sm en" x="276" y="450">FAIL</text>
+              <text class="dg-s ko" x="276" y="486">브랜치에 격리 유지</text>
+              <text class="dg-s en" x="276" y="486">Isolated on the branch</text>
+              <text class="dg-s ko" x="276" y="509">main 미노출</text>
+              <text class="dg-s en" x="276" y="509">Never reaches main</text>
+              <text class="dg-s ko" x="276" y="532">태스크 실패로 승격</text>
+              <text class="dg-s en" x="276" y="532">Promoted to a failure</text>
+            </g>
+            <g class="dg-node">
+              <rect x="640" y="34" width="540" height="140" rx="14"/>
+              <text class="dg-t-sm ko" x="666" y="78">검증이 형태만 있었음</text>
+              <text class="dg-t-sm en" x="666" y="78">The check existed in shape only</text>
+              <text class="dg-s ko" x="666" y="114">원천 건수를 대상 건수 칸에 복사만 함</text>
+              <text class="dg-s en" x="666" y="114">The source count was copied across</text>
+              <text class="dg-s ko" x="666" y="137">비교하는 값이 실제로 없었음</text>
+              <text class="dg-s en" x="666" y="137">so no value was ever compared</text>
+              <text class="dg-s ko" x="666" y="160">main 에 바로 써서 바로 노출됨</text>
+              <text class="dg-s en" x="666" y="160">and writes went straight to main</text>
+            </g>
+            <g class="dg-node">
+              <rect x="640" y="190" width="540" height="166" rx="14"/>
+              <text class="dg-t-sm ko" x="666" y="234">새던 곳</text>
+              <text class="dg-t-sm en" x="666" y="234">Where it leaked</text>
+              <text class="dg-s ko" x="666" y="270">개행·특수문자가 Hive 컬럼을 밀어냄</text>
+              <text class="dg-s en" x="666" y="270">Line breaks shifted Hive columns</text>
+              <text class="dg-s ko" x="666" y="293">신규 컬럼 소수점 스펙 미공유</text>
+              <text class="dg-s en" x="666" y="293">A new decimal spec was never shared</text>
+              <text class="dg-s ko" x="666" y="316">값이 잘린 채 적재됨</text>
+              <text class="dg-s en" x="666" y="316">so values loaded truncated</text>
+              <text class="dg-s ko" x="666" y="339">이스케이프와 정밀도 검사 추가</text>
+              <text class="dg-s en" x="666" y="339">Escaping and precision checks added</text>
+            </g>
+            <g class="dg-node">
+              <rect x="640" y="408" width="540" height="140" rx="14"/>
+              <text class="dg-t-sm ko" x="666" y="452">지금은</text>
+              <text class="dg-t-sm en" x="666" y="452">Now</text>
+              <text class="dg-s ko" x="666" y="488">검증 실패분이 main 에 닿지 않음</text>
+              <text class="dg-s en" x="666" y="488">Failed loads never reach main</text>
+              <text class="dg-s ko" x="666" y="511">확인이 SSH 에서 대시보드로</text>
+              <text class="dg-s en" x="666" y="511">Checking moved from SSH to a dashboard</text>
+              <text class="dg-s ko" x="666" y="534">공유가 없어도 소수점 보존</text>
+              <text class="dg-s en" x="666" y="534">Decimals survive with no hand-off</text>
+            </g>
+            <text class="dg-head" x="0" y="20">1  WRITE</text>
+            <text class="dg-head" x="0" y="176">2  AUDIT</text>
+            <text class="dg-head" x="0" y="394">3  PUBLISH</text>
+            <text class="dg-head" x="640" y="20">WHY IT MATTERS</text>
+            <line class="dg-line" x1="245" y1="138" x2="245" y2="172"/>
+            <path class="dg-arrow" d="M239 172 L245 184 L251 172 Z"/>
+            <line class="dg-line" x1="245" y1="356" x2="245" y2="390"/>
+            <path class="dg-arrow" d="M239 390 L245 402 L251 390 Z"/>
+          </svg>
+          </div>
+          <figcaption>
+            <span class="ko">검증을 통과한 데이터만 main 에 병합됩니다. 실패분은 브랜치에 남고 태스크 실패로 승격되어 알림이 나갑니다.</span>
+            <span class="en">Only data that passes the audit is merged into main. What fails stays on the branch and is promoted to a task failure with an alert.</span>
+          </figcaption>
+        </figure>
     </div>
   </section>
 
