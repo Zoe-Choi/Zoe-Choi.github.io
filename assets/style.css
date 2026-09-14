@@ -498,7 +498,7 @@ h3{ font-size:22px; line-height:1.3 }
 .dg-node .dg-t-sm{ transition:fill .2s var(--ease) }
 
 .dg-pill{ fill:none; stroke:var(--line-2); stroke-width:1 }
-.dg-line{ stroke:var(--rose); stroke-width:1.2 }
+.dg-line{ fill:none; stroke:var(--rose); stroke-width:1.2 }
 .dg-arrow{ fill:var(--rose) }
 .dg-dot{ fill:var(--rose) }
 
