@@ -353,11 +353,11 @@
           <span class="projcard__cover">
             <span class="projcard__num">01</span>
             <span class="projcard__arrow"><svg viewBox="0 0 24 24"><use href="#i-arrow-up-right"/></svg></span>
-            <span class="projcard__stack"><span>GitHub Actions</span><span>Gradle</span><span>Nexus</span><span>sha256</span></span>
+            <span class="projcard__stack"><span>GitHub Actions</span><span>Nexus</span><span>SeaweedFS</span></span>
           </span>
           <span class="projcard__cat">CI/CD · <span class="ko">망 분리</span><span class="en">Air-gapped</span></span>
           <h3><span class="ko">망 분리 CI/CD 파이프라인</span><span class="en">Air-Gapped CI/CD Pipeline</span></h3>
-          <p><span class="ko">산출물을 옮기지 않고 코드만 승격하면서, 재빌드 결과가 검증본과 같음을 해시로 증명.</span><span class="en">Promote code, never artifacts, and prove the rebuild matches what was tested, by hash.</span></p>
+          <p><span class="ko">산출물을 옮기지 않고 코드만 승격합니다. 사람이 파일을 골라 옮기던 과정을 없앴습니다.</span><span class="en">Code is promoted instead of artifacts, so nobody hand-picks files to copy across.</span></p>
           <span class="projcard__date">2026.07 <span class="ko">~ </span><span class="en">- </span><span class="ko">현재</span><span class="en">Present</span></span>
           <div class="tracks tracks--card">
             <span class="stage" data-level="full"><span class="lbl"><span class="ko">설계</span><span class="en">Design</span></span><span class="bar"></span></span>
@@ -389,7 +389,7 @@
           <span class="projcard__cover">
             <span class="projcard__num">03</span>
             <span class="projcard__arrow"><svg viewBox="0 0 24 24"><use href="#i-arrow-up-right"/></svg></span>
-            <span class="projcard__stack"><span>Iceberg</span><span>Trino</span><span>Nessie</span><span>xxhash64</span></span>
+            <span class="projcard__stack"><span>Iceberg</span><span>Trino</span><span>Nessie</span></span>
           </span>
           <span class="projcard__cat">Lakehouse</span>
           <h3><span class="ko">Iceberg-Trino 데이터 마트</span><span class="en">Iceberg-Trino Data Mart</span></h3>
@@ -443,7 +443,7 @@
           <span class="projcard__cover">
             <span class="projcard__num">06</span>
             <span class="projcard__arrow"><svg viewBox="0 0 24 24"><use href="#i-arrow-up-right"/></svg></span>
-            <span class="projcard__stack"><span>Qwen3</span><span>Milvus</span><span>Ollama</span><span>RAG</span></span>
+            <span class="projcard__stack"><span>Qwen3</span><span>Milvus</span><span>Ollama</span><span>FastAPI</span></span>
           </span>
           <span class="projcard__cat">LLM Platform</span>
           <h3><span class="ko">사내 LLM 서빙 및 RAG</span><span class="en">In-house LLM Serving &amp; RAG</span></h3>
@@ -763,7 +763,7 @@
       <h1><span class="ko">망 분리 CI/CD, 산출물 없이 코드만 승격</span><span class="en">Air-Gapped CI/CD, Promote Code, Never Artifacts</span></h1>
       <div class="detail__meta">
         <span><b><span class="ko">기간</span><span class="en">Period</span></b> 2026.07 <span class="ko">~ </span><span class="en">- </span><span class="ko">현재</span><span class="en">Present</span></span>
-        <span><b><span class="ko">역할</span><span class="en">Role</span></b> <span class="ko">산출물을 옮기는 대신 동일성을 증명하는 구조 설계</span><span class="en">Designing a structure that proves equality instead of moving the artifact</span></span>
+        <span><b><span class="ko">역할</span><span class="en">Role</span></b> <span class="ko">수작업 파일 배포를 워크플로로 전환</span><span class="en">Designing a structure that proves equality instead of moving the artifact</span></span>
       </div>
     </div>
     <figure class="figurewrap rv">
@@ -774,8 +774,8 @@
             <rect x="0" y="34" width="359" height="92" rx="14"/>
             <text class="dg-t-sm ko" x="20" y="75.3">빌드</text>
             <text class="dg-t-sm en" x="20" y="75.3">Build</text>
-            <text class="dg-s ko" x="20" y="96.6">Gradle</text>
-            <text class="dg-s en" x="20" y="96.6">Gradle</text>
+            <text class="dg-s ko" x="20" y="96.6">파이썬 · 자바 플로우</text>
+            <text class="dg-s en" x="20" y="96.6">Python and Java flows</text>
           </g>
           <g class="dg-node">
             <rect x="411" y="34" width="359" height="92" rx="14"/>
@@ -827,9 +827,9 @@
 
     <div class="detail__body">
       <ul class="qa qa--lg rv">
-        <li><b><span class="ko">문제</span><span class="en">Problem</span></b><span><span class="ko">연구개발망과 전산센터망은 통신이 불가하고 빌드 산출물을 직접 전달할 수 없어 코드만 승격 가능한 환경이었습니다. SVN과 셸 스크립트로 배포하던 구조라 개발에서 운영으로 옮길 때 변경된 파일을 손으로 골라 복사해야 했고, 그 과정에서 변경분이 자주 누락됐습니다. 무엇보다 운영에서 다시 빌드한 산출물이 개발에서 검증한 것과 같은지 보장할 방법이 없었습니다.</span><span class="en">The R&amp;D and data-center networks cannot talk to each other and artifacts cannot be handed across, so only code may be promoted. Deploys ran on SVN and shell scripts, which meant picking changed files by hand on the way to production, and changes were regularly missed. Above all, there was no way to guarantee the production rebuild matched what had been verified in development.</span></span></li>
-        <li><b><span class="ko">접근</span><span class="en">Approach</span></b><span><span class="ko">산출물을 옮기는 대신 동일성을 증명하기로 했습니다. Gradle을 재현 가능 빌드로 전환해 빌드 시각과 호스트명을 산출물에서 제외하고, 개발망 빌드의 sha256을 승격 태그 메시지에 기록해 운영망 재빌드 해시와 대조합니다. 워크플로는 빌드 · 검증 · 코드 승격 · 재빌드 · 배치 5단계로 나누고, 승격 대상 트리에 jar·war·zip이 섞이면 중단하는 가드를 넣었습니다. 배포 경로에 필요한 Nexus 저장소와 SeaweedFS 오브젝트 스토리지도 함께 구축하고 권한을 설정했습니다.</span><span class="en">Rather than moving the artifact, prove the two are identical. Gradle was converted to a reproducible build so build time and hostname stay out of the output, and the dev-network sha256 is recorded in the promotion tag to compare against the production rebuild. The workflow splits into five stages, build, verify, promote code, rebuild, deploy, with a guard that aborts if the promoted tree contains a jar, war or zip. I also built the Nexus repository and SeaweedFS object storage the deployment path relies on, and set up permissions.</span></span></li>
-        <li><b><span class="ko">결과</span><span class="en">Result</span></b><span><span class="ko">3단계까지 완주해 운영 저장소에 코드와 태그가 반영됐고 4단계 빌드까지 통과했습니다. 설계 과정에서 초기안의 자동 해시 대조 게이트와 거기서 파생된 복잡도(자동 태그 생성, 잡 분리, 우회 변수)를 전부 걷어냈습니다. 메인테이너가 태그를 다는 행위 자체가 이미 승인 신호였고, 복잡도가 전부 그 게이트 하나에서 나오고 있었기 때문입니다.</span><span class="en">Stage 3 ran through to land code and tags in the production repository, with stage 4 building successfully. Along the way I dropped the original automatic hash-comparison gate and everything it dragged along, auto tag creation, a separate job, override variables. A maintainer applying a tag was already the approval signal, and all that complexity was coming from that one gate.</span></span></li>
+        <li><b><span class="ko">문제</span><span class="en">Problem</span></b><span><span class="ko">연구개발망과 전산센터망은 통신이 불가하고 빌드 산출물을 직접 전달할 수 없어 코드만 승격 가능한 환경이었습니다. SVN과 셸 스크립트로 배포하던 구조라 개발에서 운영으로 옮길 때 변경된 파일을 손으로 골라 복사해야 했고, 그 과정에서 변경분이 자주 누락됐습니다.</span><span class="en">The R&amp;D and data-center networks cannot talk to each other and build artifacts cannot be handed across, so only code can be promoted. Deploys ran on SVN and shell scripts, which meant hand-picking changed files to copy from development to production, and changes were regularly missed.</span></span></li>
+        <li><b><span class="ko">접근</span><span class="en">Approach</span></b><span><span class="ko">형상관리를 SVN에서 GitHub Enterprise로 옮기는 시점에 배포 자동화를 함께 제안했습니다. 파이썬과 자바 배포 플로우를 GitHub Actions 워크플로로 작성하고 테스트를 수행했으며, 워크플로를 빌드 · 검증 · 코드 승격 · 재빌드 · 배치 5단계로 나눴습니다. 배포 경로에 쓰이는 Nexus 저장소와 SeaweedFS 오브젝트 스토리지를 구축하고 권한을 설정했습니다. 승격 대상 트리에 빌드 산출물이 섞이면 중단하는 가드를 넣었습니다.</span><span class="en">When source control moved from SVN to GitHub Enterprise I proposed automating deployment at the same time. The Python and Java deployment flows became GitHub Actions workflows with tests, split into five stages: build, verify, promote code, rebuild and deploy. I built and permissioned the Nexus repository and the SeaweedFS object storage the deployment path runs through, and added a guard that aborts if a build artifact slips into the promoted tree.</span></span></li>
+        <li><b><span class="ko">결과</span><span class="en">Result</span></b><span><span class="ko">사람이 파일을 골라 옮기던 과정이 사라져 누락이 발생하지 않습니다. 3단계까지 완주해 운영 저장소에 코드와 태그가 반영됐고 4단계 빌드까지 통과했으며, 5단계는 서버 키 등록 대기로 멈춰 있습니다.</span><span class="en">Stage 3 ran through to land code and tags in the production repository, with stage 4 building successfully. Along the way I dropped the original automatic hash-comparison gate and everything it dragged along, auto tag creation, a separate job, override variables. A maintainer applying a tag was already the approval signal, and all that complexity was coming from that one gate.</span></span></li>
       </ul>
       <aside>
         <div class="detail__aside rv">
@@ -843,7 +843,7 @@
         </div>
         <div class="detail__aside rv">
           <h4>Stack</h4>
-          <div><span class="tag">GitHub Actions</span><span class="tag">Gradle</span><span class="tag">Nexus</span><span class="tag">SeaweedFS</span><span class="tag">sha256</span></div>
+          <div><span class="tag">GitHub Actions</span><span class="tag">Nexus</span><span class="tag">SeaweedFS</span></div>
         </div>
       </aside>
     </div>
@@ -935,7 +935,7 @@
     <div class="detail__body">
       <ul class="qa qa--lg rv">
         <li><b><span class="ko">문제</span><span class="en">Problem</span></b><span><span class="ko">데이터마트는 있었지만 컬럼과 테이블 description 대부분이 비어 있어, 데이터를 봐도 의미·단위·코드값을 알 수 없었습니다. 어떤 데이터가 어느 업무에 속하는지 정리된 문서도 없어 그룹핑을 저희 팀이 임의로 판단할 수 없었고, 스키마 변경과 신규 테이블은 사람이 따라다니며 문서화하고 있었습니다. 다른 부서 인터뷰에서 가장 많이 나온 요구는 “반복되는 데이터 추출을 직접 하고 싶다”였습니다.</span><span class="en">The mart existed, but most column and table descriptions were empty, so the data gave away no meaning, unit or code value. No document said which data belonged to which business area, so we could not group it on our own authority, and schema changes and new tables were documented by hand after the fact. In interviews with other teams, the top ask was to run their own repeated extractions.</span></span></li>
-        <li><b><span class="ko">접근</span><span class="en">Approach</span></b><span><span class="ko">먼저 데이터가 그럴 준비가 됐는지 확인했습니다. Trino / Hive / Oracle 서비스를 등록해 메타데이터를 수집하고 리니지·도메인·레이어 태그 스크립트를 작성했습니다. 폐쇄망이라 PII 자동 분류용 spaCy 모델을 오프라인으로 설치하고 ingestion 커스텀 이미지를 빌드했습니다. 전사 배포 대신 한 부서와 가장 잦은 요청 두 건으로 범위를 좁히고, 메타데이터 작성 가이드를 직접 설계해 회수했습니다. 스키마·리니지는 카탈로그에서 읽고 실행은 read-only Trino MCP로 분리했습니다.</span><span class="en">First I checked whether the data was ready for that. Registering Trino, Hive and Oracle services, I ingested metadata and scripted lineage, domain and layer tagging. On an air-gapped network the spaCy model for PII classification had to be installed offline with a custom ingestion image. Instead of a company-wide rollout I scoped to one team and its two most frequent requests, wrote the metadata guide myself and collected the results. Schema and lineage are read from the catalog while execution is isolated behind a read-only Trino MCP.</span></span></li>
+        <li><b><span class="ko">접근</span><span class="en">Approach</span></b><span><span class="ko">먼저 데이터가 그럴 준비가 됐는지 확인했습니다. Trino / Hive / Oracle 서비스를 등록해 메타데이터를 수집하고 리니지·도메인·레이어 태그 스크립트를 작성했습니다. 전사 배포 대신 한 부서와 가장 잦은 요청 두 건으로 범위를 좁히고, 메타데이터 작성 가이드를 직접 설계해 회수했습니다. 스키마·리니지는 카탈로그에서 읽고 실행은 read-only Trino MCP로 분리했습니다.</span><span class="en">First I checked whether the data was ready for that. Registering Trino, Hive and Oracle services, I ingested metadata and scripted lineage, domain and layer tagging. Instead of a company-wide rollout I scoped to one team and its two most frequent requests, wrote the metadata guide myself and collected the results. Schema and lineage are read from the catalog while execution is isolated behind a read-only Trino MCP.</span></span></li>
         <li><b><span class="ko">결과</span><span class="en">Result</span></b><span><span class="ko">정산개발팀의 실제 업무 요청(미수금 회수 대상 추출)으로 사람 쿼리와 대조했고 경계가 뚜렷했습니다. 스키마·코드값·조인 관계로 풀리는 영역에서는 대상 가맹점 선정이 완전히 일치했고 이월금액 합계도 맞았습니다. 반면 집계 구간 정의, 산출 항목 구성, 매출 판정 기준처럼 문서화되지 않은 업무 규칙이 필요한 영역은 전부 틀렸습니다. 이 경계를 실측으로 확정한 것이 결과물이고, 마감 테이블 4종에 정산 연결키 설명을 추가하고 요청서 가이드와 프롬프팅 규칙으로 환원했습니다.</span><span class="en">A real request from the settlement dev team, targeting receivables for recovery, let me compare AI output against a human query, and the boundary was sharp. Where schema, code values and joins are enough, site selection matched exactly and carried-over totals agreed. Where undocumented business rules are required, the aggregation window, output composition, the revenue determination rule, it was wrong every time. Establishing that boundary by measurement was the deliverable, fed back as settlement join-key descriptions on four closing tables, a request-writing guide and prompting rules.</span></span></li>
       </ul>
       <aside>
@@ -950,7 +950,7 @@
         </div>
         <div class="detail__aside rv">
           <h4>Stack</h4>
-          <div><span class="tag">OpenMetadata</span><span class="tag">Trino</span><span class="tag">Hive</span><span class="tag">Oracle</span><span class="tag">spaCy</span><span class="tag">MCP</span></div>
+          <div><span class="tag">OpenMetadata</span><span class="tag">Trino</span><span class="tag">Hive</span><span class="tag">Oracle</span><span class="tag">MCP</span></div>
         </div>
       </aside>
     </div>
@@ -973,7 +973,7 @@
     <div class="detail__body">
       <ul class="qa qa--lg rv">
         <li><b><span class="ko">문제</span><span class="en">Problem</span></b><span><span class="ko">Hive 마트는 스냅샷과 트랜잭션이 없어 파티션이 없으면 행 단위 삭제조차 되지 않았고, managed/external 구분이 계속 관리 부담으로 남았습니다. 적재 검증은 원천 건수를 대상 건수 칸에 복사만 해 형태만 검증이고 실제로 비교하는 값이 없었으며, main에 바로 쓰고 확인하는 구조라 잘못 적재돼도 이미 조회가 가능했습니다.</span><span class="en">The Hive mart had no snapshots and no real transactions, so an unpartitioned table could not even be deleted from row by row, and the managed/external split stayed a maintenance cost. Load validation copied the source count into the target-count field, a check in shape only, with no value ever compared, and writes went straight to main, so a bad load was already queryable.</span></span></li>
-        <li><b><span class="ko">접근</span><span class="en">Approach</span></b><span><span class="ko">마트를 Trino 위 Iceberg로 전환해 스냅샷, 행 단위 수정, 시점 복구를 확보했습니다. 검증은 건수 비교를 넘어 값 지문 대조로 올렸습니다. 공통 컬럼을 대상 스키마 타입으로 캐스팅하고 공백·NULL을 정규화한 뒤 컬럼별 xxhash64 합계를 원천과 대조하며, 중복 판정은 full-row hash로 합니다. 검증 비용은 3티어로 나눠 count 티어는 적재 시 기록한 건수를 소비해 Oracle 재조회를 없애고, 대상 건수는 Iceberg $partitions 메타에서 읽어 데이터 스캔을 제거했습니다. 그리고 Nessie 브랜치에 먼저 쓰고 audit을 통과한 것만 main에 병합하는 WAP로 전환했습니다.</span><span class="en">The mart moved to Iceberg on Trino for snapshots, row-level updates and point-in-time recovery. Validation went beyond counting: common columns are cast to the target schema type, whitespace and NULLs normalised, then per-column xxhash64 sums are matched against the source, with duplicates judged by full-row hash. Cost is tiered, the count tier consumes the row count recorded at load time so Oracle is never re-read, and target counts come from Iceberg $partitions metadata instead of a data scan. Writes then stage on a Nessie branch under Write-Audit-Publish, and only what passes the audit is merged into main.</span></span></li>
+        <li><b><span class="ko">접근</span><span class="en">Approach</span></b><span><span class="ko">마트를 Trino 위 Iceberg로 전환해 스냅샷, 행 단위 수정, 시점 복구를 확보했습니다. 검증은 건수 비교를 넘어 값 지문 대조로 올렸습니다. 공통 컬럼을 대상 스키마 타입으로 캐스팅하고 공백·NULL을 정규화한 뒤 컬럼별 해시 합계를 원천과 대조하며, 중복 판정은 full-row hash로 합니다. 검증 비용은 3티어로 나눠 count 티어는 적재 시 기록한 건수를 소비해 Oracle 재조회를 없애고, 대상 건수는 Iceberg $partitions 메타에서 읽어 데이터 스캔을 제거했습니다. 그리고 Nessie 브랜치에 먼저 쓰고 audit을 통과한 것만 main에 병합하는 WAP로 전환했습니다.</span><span class="en">The mart moved to Iceberg on Trino for snapshots, row-level updates and point-in-time recovery. Validation went beyond counting: common columns are cast to the target schema type, whitespace and NULLs normalised, then per-column hash sums are matched against the source, with duplicates judged by full-row hash. Cost is tiered, the count tier consumes the row count recorded at load time so Oracle is never re-read, and target counts come from Iceberg $partitions metadata instead of a data scan. Writes then stage on a Nessie branch under Write-Audit-Publish, and only what passes the audit is merged into main.</span></span></li>
         <li><b><span class="ko">결과</span><span class="en">Result</span></b><span><span class="ko">검증에 실패한 데이터가 main에 노출되지 않고, 실패는 태스크 실패로 승격되어 알림이 나갑니다. 결과 확인도 서버 SSH에서 대시보드로 옮겼습니다. 추측 PK 기반 중복 오탐도 해소했는데, 원천에 ‘7’과 뒤 공백이 붙은 값이 별도 행으로 존재해 ETL trim 이후 충돌하던 것을 full-row hash로 교체해 잡았습니다.</span><span class="en">Data that fails validation never reaches main, and a failed check is promoted to a task failure with an alert. Checking results also moved from SSH-ing into a server to a dashboard. It fixed false duplicate hits from guessed primary keys too: a source value ‘7’ and its trailing-whitespace twin existed as separate rows and collided after ETL trim, which the full-row hash resolved.</span></span></li>
       </ul>
       <aside>
@@ -988,7 +988,7 @@
         </div>
         <div class="detail__aside rv">
           <h4>Stack</h4>
-          <div><span class="tag">Iceberg</span><span class="tag">Trino</span><span class="tag">Nessie</span><span class="tag">Airflow</span><span class="tag">PostgreSQL</span><span class="tag">xxhash64</span></div>
+          <div><span class="tag">Iceberg</span><span class="tag">Nessie</span><span class="tag">Trino</span><span class="tag">Airflow</span><span class="tag">PostgreSQL</span></div>
         </div>
       </aside>
     </div>
@@ -1475,7 +1475,7 @@
         </div>
         <div class="detail__aside rv">
           <h4>Stack</h4>
-          <div><span class="tag">Hadoop</span><span class="tag">Spark</span><span class="tag">Hive</span><span class="tag">Trino</span><span class="tag">Iceberg</span><span class="tag">Airflow</span><span class="tag">Oracle</span><span class="tag">Grafana</span></div>
+          <div><span class="tag">Hadoop</span><span class="tag">Spark</span><span class="tag">Hive</span><span class="tag">Trino</span><span class="tag">Iceberg</span><span class="tag">Airflow</span><span class="tag">Nessie</span><span class="tag">PostgreSQL</span><span class="tag">Grafana</span></div>
         </div>
       </aside>
     </div>
