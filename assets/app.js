@@ -145,19 +145,17 @@
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 })();
 
-  /* ---------------- reuse the architecture diagram inside the detail view ---------------- */
+  /* ---------------- reuse a figure in another place without duplicating markup ---------------- */
   (function () {
-    var source = document.getElementById("arch-hadoop");
-    var targets = document.querySelectorAll("[data-arch-clone]");
-    if (!source || !targets.length) return;
-    targets.forEach(function (t) {
+    document.querySelectorAll("[data-clone-of]").forEach(function (target) {
+      var source = document.getElementById(target.getAttribute("data-clone-of"));
+      if (!source) return;
       var copy = source.cloneNode(true);
       copy.removeAttribute("id");
       copy.classList.add("in");
-      var title = copy.querySelector("title[id]");
-      if (title) title.removeAttribute("id");
+      copy.querySelectorAll("[id]").forEach(function (n) { n.removeAttribute("id"); });
       var svg = copy.querySelector("svg");
       if (svg) svg.removeAttribute("aria-labelledby");
-      t.appendChild(copy);
+      target.appendChild(copy);
     });
   })();

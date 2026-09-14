@@ -554,7 +554,7 @@
       </div>
     </div>
     <div class="wrap opsfig">
-        <figure class="figurewrap rv">
+        <figure class="figurewrap rv" id="fig-wap">
           <div class="diagram">
         <svg viewBox="0 0 1180 566" role="img" aria-labelledby="wapTitle">
           <title id="wapTitle">Write, audit and publish flow for load validation</title>
@@ -978,6 +978,8 @@
         <span><b><span class="ko">역할</span><span class="en">Role</span></b> <span class="ko">사후 확인이던 검증을 노출 차단 구조로 전환</span><span class="en">Turning after-the-fact checks into an exposure gate</span></span>
       </div>
     </div>
+    <div class="figurewrap rv" data-clone-of="fig-wap"></div>
+
     <div class="detail__body">
       <ul class="qa qa--lg rv">
         <li><b><span class="ko">문제</span><span class="en">Problem</span></b><span><span class="ko">Hive 마트는 스냅샷과 트랜잭션이 없어 파티션이 없으면 행 단위 삭제조차 되지 않았고, managed/external 구분이 계속 관리 부담으로 남았습니다. 적재 검증은 원천 건수를 대상 건수 칸에 복사만 해 형태만 검증이고 실제로 비교하는 값이 없었으며, main에 바로 쓰고 확인하는 구조라 잘못 적재돼도 이미 조회가 가능했습니다.</span><span class="en">The Hive mart had no snapshots and no real transactions, so an unpartitioned table could not even be deleted from row by row, and the managed/external split stayed a maintenance cost. Load validation copied the source count into the target-count field, a check in shape only, with no value ever compared, and writes went straight to main, so a bad load was already queryable.</span></span></li>
@@ -1363,7 +1365,7 @@
       </div>
     </div>
 
-    <div class="figurewrap rv" data-arch-clone></div>
+    <div class="figurewrap rv" data-clone-of="arch-hadoop"></div>
 
 
     <div class="detail__body">
