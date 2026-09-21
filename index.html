@@ -347,131 +347,146 @@
         <p class="lead"><span class="ko">각 카드를 누르면 문제 · 접근 · 결과와 담당 범위를 볼 수 있습니다.</span><span class="en">Open a card for the problem, the approach, the result and exactly which part was mine.</span></p>
       </div>
 
+      <div class="stagekey rv">
+        <span class="stagekey__label"><span class="ko">담당 단계</span><span class="en">Stages</span></span>
+        <span class="stagekey__item"><i></i><span class="ko">설계</span><span class="en">Design</span></span>
+        <span class="stagekey__item"><i></i><span class="ko">구축</span><span class="en">Build</span></span>
+        <span class="stagekey__item"><i></i><span class="ko">튜닝</span><span class="en">Tune</span></span>
+        <span class="stagekey__item"><i></i><span class="ko">운영</span><span class="en">Operate</span></span>
+      </div>
+
       <div class="projgrid">
 
         <div class="projcard rv" role="button" tabindex="0" data-open="cicd">
-          <span class="projcard__cover">
+          <div class="projcard__top">
+            <span class="projcard__cat">CI/CD · <span class="ko">망 분리</span><span class="en">Air-gapped</span></span>
             <span class="projcard__num">01</span>
-            <span class="projcard__arrow"><svg viewBox="0 0 24 24"><use href="#i-arrow-up-right"/></svg></span>
-            <span class="projcard__stack"><span>GitHub Actions</span><span>Nexus</span><span>SeaweedFS</span></span>
-          </span>
-          <span class="projcard__cat">CI/CD · <span class="ko">망 분리</span><span class="en">Air-gapped</span></span>
+          </div>
           <h3><span class="ko">망 분리 CI/CD 파이프라인</span><span class="en">Air-Gapped CI/CD Pipeline</span></h3>
           <p><span class="ko">산출물을 옮기지 않고 코드만 승격합니다. 사람이 파일을 골라 옮기던 과정을 없앴습니다.</span><span class="en">Code is promoted instead of artifacts, so nobody hand-picks files to copy across.</span></p>
-          <span class="projcard__date">2026.07 <span class="ko">~ </span><span class="en">- </span><span class="ko">현재</span><span class="en">Present</span></span>
-          <div class="tracks tracks--card">
-            <span class="stage" data-level="full"><span class="lbl"><span class="ko">설계</span><span class="en">Design</span></span><span class="bar"></span></span>
-            <span class="stage" data-level="half"><span class="lbl"><span class="ko">구축</span><span class="en">Build</span></span><span class="bar"></span></span>
-            <span class="stage" data-level="half"><span class="lbl"><span class="ko">튜닝</span><span class="en">Tune</span></span><span class="bar"></span></span>
-            <span class="stage" data-level="half"><span class="lbl"><span class="ko">운영</span><span class="en">Operate</span></span><span class="bar"></span></span>
+          <div class="projcard__stack">GitHub Actions / Nexus / SeaweedFS</div>
+          <div class="projcard__foot">
+            <span class="projcard__date">2026.07 <span class="ko">~ </span><span class="en">- </span><span class="ko">현재</span><span class="en">Present</span></span>
+            <div class="tracks tracks--mini">
+              <span class="stage" data-level="full"><span class="bar"></span></span>
+              <span class="stage" data-level="half"><span class="bar"></span></span>
+              <span class="stage" data-level="half"><span class="bar"></span></span>
+              <span class="stage" data-level="half"><span class="bar"></span></span>
+            </div>
           </div>
         </div>
 
         <div class="projcard rv" role="button" tabindex="0" data-open="catalog">
-          <span class="projcard__cover">
+          <div class="projcard__top">
+            <span class="projcard__cat">Metadata · Text-to-SQL</span>
             <span class="projcard__num">02</span>
-            <span class="projcard__arrow"><svg viewBox="0 0 24 24"><use href="#i-arrow-up-right"/></svg></span>
-            <span class="projcard__stack"><span>OpenMetadata</span><span>Trino</span><span>MCP</span></span>
-          </span>
-          <span class="projcard__cat">Metadata · Text-to-SQL</span>
+          </div>
           <h3><span class="ko">OpenMetadata 카탈로그 및 text-to-SQL 검증</span><span class="en">OpenMetadata Catalog &amp; Text-to-SQL</span></h3>
           <p><span class="ko">도입 성공이 아니라 “어디까지 쓸 수 있는가”를 실제 업무 요청으로 갈라냄.</span><span class="en">The deliverable was not a rollout but a measured boundary of where it works.</span></p>
-          <span class="projcard__date">2026.06 <span class="ko">~ </span><span class="en">- </span><span class="ko">현재</span><span class="en">Present</span></span>
-          <div class="tracks tracks--card">
-            <span class="stage" data-level="full"><span class="lbl"><span class="ko">설계</span><span class="en">Design</span></span><span class="bar"></span></span>
-            <span class="stage" data-level="full"><span class="lbl"><span class="ko">구축</span><span class="en">Build</span></span><span class="bar"></span></span>
-            <span class="stage" data-level="full"><span class="lbl"><span class="ko">튜닝</span><span class="en">Tune</span></span><span class="bar"></span></span>
-            <span class="stage" data-level="full"><span class="lbl"><span class="ko">운영</span><span class="en">Operate</span></span><span class="bar"></span></span>
+          <div class="projcard__stack">OpenMetadata / Trino / MCP</div>
+          <div class="projcard__foot">
+            <span class="projcard__date">2026.06 <span class="ko">~ </span><span class="en">- </span><span class="ko">현재</span><span class="en">Present</span></span>
+            <div class="tracks tracks--mini">
+              <span class="stage" data-level="full"><span class="bar"></span></span>
+              <span class="stage" data-level="full"><span class="bar"></span></span>
+              <span class="stage" data-level="full"><span class="bar"></span></span>
+              <span class="stage" data-level="full"><span class="bar"></span></span>
+            </div>
           </div>
         </div>
 
         <div class="projcard rv" role="button" tabindex="0" data-open="iceberg">
-          <span class="projcard__cover">
+          <div class="projcard__top">
+            <span class="projcard__cat">Lakehouse</span>
             <span class="projcard__num">03</span>
-            <span class="projcard__arrow"><svg viewBox="0 0 24 24"><use href="#i-arrow-up-right"/></svg></span>
-            <span class="projcard__stack"><span>Iceberg</span><span>Trino</span><span>Nessie</span></span>
-          </span>
-          <span class="projcard__cat">Lakehouse</span>
+          </div>
           <h3><span class="ko">Iceberg-Trino 데이터 마트</span><span class="en">Iceberg-Trino Data Mart</span></h3>
           <p><span class="ko">건수 비교를 컬럼 해시 대조로 올리고, 검증 통과분만 main에 병합되도록 브랜치로 격리.</span><span class="en">Row counts became column-hash comparison, and only what passes the audit is merged into main.</span></p>
-          <span class="projcard__date">2026.03 <span class="ko">~ </span><span class="en">- </span><span class="ko">현재</span><span class="en">Present</span></span>
-          <div class="tracks tracks--card">
-            <span class="stage" data-level="full"><span class="lbl"><span class="ko">설계</span><span class="en">Design</span></span><span class="bar"></span></span>
-            <span class="stage" data-level="full"><span class="lbl"><span class="ko">구축</span><span class="en">Build</span></span><span class="bar"></span></span>
-            <span class="stage" data-level="full"><span class="lbl"><span class="ko">튜닝</span><span class="en">Tune</span></span><span class="bar"></span></span>
-            <span class="stage" data-level="full"><span class="lbl"><span class="ko">운영</span><span class="en">Operate</span></span><span class="bar"></span></span>
+          <div class="projcard__stack">Iceberg / Trino / Nessie</div>
+          <div class="projcard__foot">
+            <span class="projcard__date">2026.03 <span class="ko">~ </span><span class="en">- </span><span class="ko">현재</span><span class="en">Present</span></span>
+            <div class="tracks tracks--mini">
+              <span class="stage" data-level="full"><span class="bar"></span></span>
+              <span class="stage" data-level="full"><span class="bar"></span></span>
+              <span class="stage" data-level="full"><span class="bar"></span></span>
+              <span class="stage" data-level="full"><span class="bar"></span></span>
+            </div>
           </div>
         </div>
 
         <div class="projcard rv" role="button" tabindex="0" data-open="logstream">
-          <span class="projcard__cover">
+          <div class="projcard__top">
+            <span class="projcard__cat">Streaming · PoC</span>
             <span class="projcard__num">04</span>
-            <span class="projcard__arrow"><svg viewBox="0 0 24 24"><use href="#i-arrow-up-right"/></svg></span>
-            <span class="projcard__stack"><span>Spark Streaming</span><span>Kafka</span><span>Elasticsearch</span></span>
-          </span>
-          <span class="projcard__cat">Streaming · PoC</span>
+          </div>
           <h3><span class="ko">실시간 로그 스트리밍 파이프라인 PoC</span><span class="en">Real-Time Log Streaming PoC</span></h3>
           <p><span class="ko">운영 서버 접속 없이 로그를 볼 수 있게, 스트리밍 파싱과 적재 구간을 담당.</span><span class="en">Owned the streaming parse-and-load leg so logs could be read without touching production.</span></p>
-          <span class="projcard__date">2026.02 ~ 2026.03</span>
-          <div class="tracks tracks--card">
-            <span class="stage" data-level="none"><span class="lbl"><span class="ko">설계</span><span class="en">Design</span></span><span class="bar"></span></span>
-            <span class="stage" data-level="half"><span class="lbl"><span class="ko">구축</span><span class="en">Build</span></span><span class="bar"></span></span>
-            <span class="stage" data-level="full"><span class="lbl"><span class="ko">튜닝</span><span class="en">Tune</span></span><span class="bar"></span></span>
-            <span class="stage" data-level="none"><span class="lbl"><span class="ko">운영</span><span class="en">Operate</span></span><span class="bar"></span></span>
+          <div class="projcard__stack">Spark Streaming / Kafka / Elasticsearch</div>
+          <div class="projcard__foot">
+            <span class="projcard__date">2026.02 ~ 2026.03</span>
+            <div class="tracks tracks--mini">
+              <span class="stage" data-level="none"><span class="bar"></span></span>
+              <span class="stage" data-level="half"><span class="bar"></span></span>
+              <span class="stage" data-level="full"><span class="bar"></span></span>
+              <span class="stage" data-level="none"><span class="bar"></span></span>
+            </div>
           </div>
         </div>
 
         <div class="projcard rv" role="button" tabindex="0" data-open="crypto">
-          <span class="projcard__cover">
+          <div class="projcard__top">
+            <span class="projcard__cat"><span class="ko">개인 프로젝트</span><span class="en">Personal</span></span>
             <span class="projcard__num">05</span>
-            <span class="projcard__arrow"><svg viewBox="0 0 24 24"><use href="#i-arrow-up-right"/></svg></span>
-            <span class="projcard__stack"><span>Kafka</span><span>Flink</span><span>Paimon</span><span>ClickHouse</span></span>
-          </span>
-          <span class="projcard__cat"><span class="ko">개인 프로젝트</span><span class="en">Personal</span></span>
+          </div>
           <h3><span class="ko">실시간 암호화폐 시세 파이프라인</span><span class="en">Real-Time Crypto Market Pipeline</span></h3>
           <p><span class="ko">사내에서 다뤄볼 기회가 없던 스트리밍 스택을 개인 학습용으로 end-to-end 구성.</span><span class="en">A personal build to get hands on the streaming stack I had no chance to touch at work.</span></p>
-          <span class="projcard__date">2025.11 ~ 2026.01</span>
-          <div class="tracks tracks--card">
-            <span class="stage" data-level="full"><span class="lbl"><span class="ko">설계</span><span class="en">Design</span></span><span class="bar"></span></span>
-            <span class="stage" data-level="full"><span class="lbl"><span class="ko">구축</span><span class="en">Build</span></span><span class="bar"></span></span>
-            <span class="stage" data-level="full"><span class="lbl"><span class="ko">튜닝</span><span class="en">Tune</span></span><span class="bar"></span></span>
-            <span class="stage" data-level="full"><span class="lbl"><span class="ko">운영</span><span class="en">Operate</span></span><span class="bar"></span></span>
+          <div class="projcard__stack">Kafka / Flink / Paimon / ClickHouse</div>
+          <div class="projcard__foot">
+            <span class="projcard__date">2025.11 ~ 2026.01</span>
+            <div class="tracks tracks--mini">
+              <span class="stage" data-level="full"><span class="bar"></span></span>
+              <span class="stage" data-level="full"><span class="bar"></span></span>
+              <span class="stage" data-level="full"><span class="bar"></span></span>
+              <span class="stage" data-level="full"><span class="bar"></span></span>
+            </div>
           </div>
         </div>
 
         <div class="projcard rv" role="button" tabindex="0" data-open="llm">
-          <span class="projcard__cover">
+          <div class="projcard__top">
+            <span class="projcard__cat">LLM Platform</span>
             <span class="projcard__num">06</span>
-            <span class="projcard__arrow"><svg viewBox="0 0 24 24"><use href="#i-arrow-up-right"/></svg></span>
-            <span class="projcard__stack"><span>Qwen3</span><span>Milvus</span><span>Ollama</span><span>RAG</span></span>
-          </span>
-          <span class="projcard__cat">LLM Platform</span>
+          </div>
           <h3><span class="ko">사내 LLM 서빙 및 RAG</span><span class="en">In-house LLM Serving &amp; RAG</span></h3>
           <p><span class="ko">폐쇄망에서 쓸 AI가 없어 직접 구축. 수요는 확인했지만 GPU 부족으로 종료를 택함.</span><span class="en">Built because an air-gapped network had no usable AI. Demand was proven; capacity was not.</span></p>
-          <span class="projcard__date">2025.04 ~ 2025.08</span>
-          <div class="tracks tracks--card">
-            <span class="stage" data-level="full"><span class="lbl"><span class="ko">설계</span><span class="en">Design</span></span><span class="bar"></span></span>
-            <span class="stage" data-level="full"><span class="lbl"><span class="ko">구축</span><span class="en">Build</span></span><span class="bar"></span></span>
-            <span class="stage" data-level="full"><span class="lbl"><span class="ko">튜닝</span><span class="en">Tune</span></span><span class="bar"></span></span>
-            <span class="stage" data-level="full"><span class="lbl"><span class="ko">운영</span><span class="en">Operate</span></span><span class="bar"></span></span>
+          <div class="projcard__stack">Qwen3 / Milvus / Ollama / RAG</div>
+          <div class="projcard__foot">
+            <span class="projcard__date">2025.04 ~ 2025.08</span>
+            <div class="tracks tracks--mini">
+              <span class="stage" data-level="full"><span class="bar"></span></span>
+              <span class="stage" data-level="full"><span class="bar"></span></span>
+              <span class="stage" data-level="full"><span class="bar"></span></span>
+              <span class="stage" data-level="full"><span class="bar"></span></span>
+            </div>
           </div>
         </div>
 
         <div class="projcard rv" role="button" tabindex="0" data-open="hadoop">
-          <span class="projcard__cover">
+          <div class="projcard__top">
+            <span class="projcard__cat">Data Platform</span>
             <span class="projcard__num">07</span>
-            <span class="projcard__arrow"><svg viewBox="0 0 24 24"><use href="#i-arrow-up-right"/></svg></span>
-            <span class="projcard__stack"><span>Hadoop</span><span>Spark</span><span>Hive</span><span>Airflow</span></span>
-          </span>
-          <span class="projcard__cat">Data Platform</span>
+          </div>
           <h3><span class="ko">온프레미스 Hadoop 파이프라인 및 마트</span><span class="en">On-Prem Hadoop Pipeline &amp; Mart</span></h3>
           <p><span class="ko">일 300만 건, 누적 5TB, DAG 20개. 운영 DB에 직접 붙던 분석 쿼리를 마트로 옮겼습니다.</span><span class="en">3M rows a day, 5 TB accumulated, 20 DAGs. Analytical queries moved off the operational DB and onto the mart.</span></p>
-          <span class="projcard__date">2023.08 ~ 2025.08</span>
-          <div class="tracks tracks--card">
-            <span class="stage" data-level="none"><span class="lbl"><span class="ko">설계</span><span class="en">Design</span></span><span class="bar"></span></span>
-            <span class="stage" data-level="full"><span class="lbl"><span class="ko">구축</span><span class="en">Build</span></span><span class="bar"></span></span>
-            <span class="stage" data-level="full"><span class="lbl"><span class="ko">튜닝</span><span class="en">Tune</span></span><span class="bar"></span></span>
-            <span class="stage" data-level="full"><span class="lbl"><span class="ko">운영</span><span class="en">Operate</span></span><span class="bar"></span></span>
+          <div class="projcard__stack">Hadoop / Spark / Hive / Airflow</div>
+          <div class="projcard__foot">
+            <span class="projcard__date">2023.08 ~ 2025.08</span>
+            <div class="tracks tracks--mini">
+              <span class="stage" data-level="none"><span class="bar"></span></span>
+              <span class="stage" data-level="full"><span class="bar"></span></span>
+              <span class="stage" data-level="full"><span class="bar"></span></span>
+              <span class="stage" data-level="full"><span class="bar"></span></span>
+            </div>
           </div>
         </div>
 

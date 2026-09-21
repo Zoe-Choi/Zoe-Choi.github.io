@@ -266,50 +266,34 @@ h3{ font-size:22px; line-height:1.3 }
 /* ============================================================
    PROJECTS
    ============================================================ */
-.sec-head{ display:flex; flex-direction:column; gap:18px; margin-bottom:64px; max-width:620px }
+.sec-head{ display:flex; flex-direction:column; gap:18px; margin-bottom:36px; max-width:620px }
 
-.projgrid{ display:grid; gap:38px; grid-template-columns:1fr }
+.stagekey{ display:flex; flex-wrap:wrap; gap:18px; align-items:center; margin:0 0 32px; font-size:11px; color:var(--faint) }
+.stagekey__label{ font-weight:800; letter-spacing:.16em; text-transform:uppercase; font-size:10px; color:var(--rose-deep) }
+.stagekey__item{ display:flex; align-items:center; gap:7px }
+.stagekey__item i{ display:block; width:14px; height:3px; border-radius:2px; background:var(--rose-deep) }
+
+.projgrid{ display:grid; gap:24px; grid-template-columns:1fr }
 @media (min-width:760px){ .projgrid{ grid-template-columns:1fr 1fr } }
 @media (min-width:1100px){ .projgrid{ grid-template-columns:repeat(3,1fr) } }
 
 .projcard{
   display:flex; flex-direction:column; text-align:left;
-  background:none; border:0; padding:0; cursor:pointer;
+  background:rgba(230,213,213,.12); border:1px solid rgba(230,213,213,.4); border-radius:var(--r-md);
+  padding:30px 28px; cursor:pointer;
   font-family:inherit; color:inherit;
+  transition:box-shadow .3s var(--ease), transform .3s var(--ease), border-color .3s var(--ease), background .3s var(--ease);
 }
-.projcard__cover{
-  position:relative; aspect-ratio:4/3; border-radius:var(--r-md);
-  border:1px solid var(--line); overflow:hidden; margin-bottom:26px;
-  background:linear-gradient(140deg,#FAF7F4 0%,#F3EBEB 58%,#E9DADA 100%);
-  display:flex; align-items:flex-end; padding:26px;
-  transition:transform .6s var(--ease), box-shadow .6s var(--ease);
-}
-.projcard:hover .projcard__cover{ transform:translateY(-4px); box-shadow:0 30px 60px -40px rgba(193,142,142,.65) }
-.projcard__num{
-  position:absolute; top:22px; left:26px;
-  font-size:46px; font-weight:700; letter-spacing:-.04em;
-  color:rgba(193,142,142,.34); line-height:1;
-}
-.projcard__stack{ position:relative; display:flex; flex-wrap:wrap; gap:6px; max-width:100% }
-.projcard__stack span{
-  padding:5px 10px; border-radius:999px;
-  background:rgba(255,255,255,.72); border:1px solid rgba(255,255,255,.9);
-  color:var(--rose-deep); font-size:10.5px; font-weight:600; letter-spacing:.03em;
-}
-.projcard__arrow{
-  position:absolute; top:20px; right:20px;
-  width:42px; height:42px; border-radius:999px;
-  background:rgba(255,255,255,.92); border:1px solid var(--line);
-  display:flex; align-items:center; justify-content:center; color:var(--ink);
-  opacity:0; transition:opacity .3s var(--ease);
-}
-.projcard:hover .projcard__arrow{ opacity:1 }
-.projcard__arrow svg{ width:17px; height:17px }
-.projcard__cat{ display:block; font-size:10px; font-weight:800; letter-spacing:.2em; text-transform:uppercase; color:var(--rose-deep); margin-bottom:11px }
-.projcard h3{ font-size:20px; line-height:1.32; min-height:calc(20px * 1.32 * 2); margin-bottom:12px; transition:color .25s var(--ease) }
+.projcard:hover{ background:rgba(230,213,213,.2); border-color:var(--rose); box-shadow:0 24px 46px -34px rgba(193,142,142,.5); transform:translateY(-3px) }
+.projcard__top{ display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:16px }
+.projcard__num{ font-family:var(--mono); font-size:11px; color:var(--faint); letter-spacing:.05em; flex:0 0 auto }
+.projcard__cat{ display:block; font-size:10px; font-weight:800; letter-spacing:.2em; text-transform:uppercase; color:var(--rose-deep) }
+.projcard h3{ font-size:19px; line-height:1.32; min-height:calc(19px * 1.32 * 2); margin-bottom:12px; transition:color .25s var(--ease) }
 .projcard:hover h3{ color:var(--rose-deep) }
 .projcard p{ margin:0 0 18px; font-size:14px; font-weight:300; line-height:1.7; color:var(--mute); flex:1 1 auto }
-.projcard__date{ font-size:11.5px; font-weight:600; letter-spacing:.08em; color:var(--faint); margin-top:auto }
+.projcard__stack{ font-family:var(--mono); font-size:11.5px; color:var(--rose-deep); margin:0 0 20px; letter-spacing:.01em }
+.projcard__foot{ display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:auto; padding-top:16px; border-top:1px solid var(--line-2) }
+.projcard__date{ font-size:11px; font-weight:600; letter-spacing:.06em; color:var(--faint) }
 
 /* ---------- role meter ---------- */
 .tracks{ display:flex; gap:14px; margin-top:18px; flex-wrap:wrap }
@@ -517,6 +501,11 @@ h3{ font-size:22px; line-height:1.3 }
 .tracks--card .stage{ width:54px }
 .tracks--card .lbl{ font-size:9px; letter-spacing:.04em; margin-bottom:4px }
 .tracks--card .bar{ height:3px }
+
+.tracks--mini{ display:flex; gap:5px; margin:0 }
+.tracks--mini .stage{ width:14px; min-width:14px; max-width:14px; flex:0 0 14px; gap:0 }
+.tracks--mini .lbl{ display:none }
+.tracks--mini .bar{ height:3px }
 
 
 /* full width row under the two column block */
