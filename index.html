@@ -541,6 +541,16 @@
             <li><b><span class="ko">코드</span><span class="en">Code</span></b><span><span class="ko">참조 0건을 확인한 죽은 코드 약 1,403줄을 제거. 리스크가 큰 대형 함수 분해는 pytest 하네스와 CI 유닛 테스트 job을 먼저 갖춘 뒤로 미룸</span><span class="en">Deleted ~1,403 lines of dead code after confirming zero references, and deferred splitting a risky large function until a pytest harness and a CI unit-test job were in place</span></span></li>
           </ul>
         </div>
+
+        <div class="notecard rv">
+          <span class="when">2026.09</span>
+          <h3><span class="ko">증설한 메모리가 반영되지 않은 이유, YARN 설정에서 CPU 병목까지</span><span class="en">Why the Added Memory Wasn't Reflected, From a Stale YARN Setting to a CPU Bottleneck</span></h3>
+          <ul class="qa">
+            <li><b><span class="ko">문제</span><span class="en">Problem</span></b><span><span class="ko">워커 노드에 물리 메모리 256GB를 증설했지만 배치 속도는 그대로였습니다. 증설분이 YARN에 전혀 반영되지 않고 있었습니다.</span><span class="en">256GB of physical RAM was added to the worker nodes, but batch speed didn't move. The new capacity was not visible to YARN at all.</span></span></li>
+            <li><b><span class="ko">접근</span><span class="en">Approach</span></b><span><span class="ko">5개 노드 전체의 실제 힙 설정, YARN 용량, 앱별 실사용량을 측정 스크립트로 실측했습니다. YARN이 물리 메모리의 19%(48GB)만 보고 있는 낡은 설정을 찾아 무중단 rolling restart로 3.3배(160GB) 확장했습니다. 재측정에서 병목이 CPU로 이동한 것을 vCore 사용률로 추적했고, 고정 30-executor 프로파일이 코어를 과요청하고 있음을 확인했습니다. 앱마다 실사용량이 최대 250배 차이 나는 것을 근거로, 고정값 대신 Spark dynamic allocation으로 전환했습니다.</span><span class="en">Measured actual heap settings, YARN capacity and per-app usage across all five nodes instead of guessing. Found YARN could see only 19% (48GB) of physical RAM due to a stale setting and raised it 3.3x (160GB) with a zero-downtime rolling restart. Re-measuring traced the bottleneck to CPU: vCore utilization showed a fixed 30-executor profile overbooking cores. Per-app usage varied up to 250x, so fixed executor counts were replaced with Spark dynamic allocation.</span></span></li>
+            <li><b><span class="ko">결과</span><span class="en">Result</span></b><span><span class="ko">배치 작업 처리 시간이 최대 3.2배 단축(928초 → 294초)됐고, 무거운 작업은 오히려 더 많은 자원을 받으면서 가벼운 작업은 자원을 반납해 전체가 빨라졌습니다. Iceberg 유지보수 작업은 654초에서 212초로, Hive on Tez 실패는 2건에서 0건으로 줄었습니다. 전 과정 무중단으로 진행했고 롤백은 변수 하나만 되돌리면 됩니다.</span><span class="en">Batch runtimes dropped up to 3.2x (928s to 294s), with heavy jobs getting more resources while light jobs gave theirs back, speeding up the whole system. Iceberg maintenance went from 654s to 212s, and Hive-on-Tez failures dropped from 2 to 0. All of it shipped with zero downtime, with rollback a single variable.</span></span></li>
+          </ul>
+        </div>
       </div>
     </div>
     <div class="wrap opsfig">
