@@ -157,8 +157,8 @@
             <span class="en">I build and run the on-prem platform that carries <strong>payment and settlement data</strong>. Owning a load of roughly 3M rows a day pulled my focus toward one thing: <span class="mark">making sure wrong data never becomes queryable</span>.</span>
           </p>
           <p>
-            <span class="ko">제가 한 일의 대부분은 새 기능이 아니라 <span class="mark">이미 잘못 돌고 있던 것</span>에서 시작했습니다. 건수만 세던 검증을 컬럼별 해시 대조로 바꾸고, 초록불로 보이던 태스크가 사실 매일 실패하고 있었다는 걸 드러냈고, 실패가 실패로 보이게 만든 다음에야 진짜 결함들을 찾을 수 있었습니다.</span>
-            <span class="en">Most of what I have shipped began with <span class="mark">something already running wrong</span>. I replaced row-count checks with per-column hash comparison, exposed tasks that reported green while failing every day, and only after failures looked like failures could the real defects be found.</span>
+            <span class="ko">제가 한 일의 대부분은 새 기능이 아니라 <span class="mark">이미 잘못 돌고 있던 것</span>에서 시작했습니다. 건수만 세던 검증을 행 단위 해시 대조로 바꾸고, 초록불로 보이던 태스크가 사실 매일 실패하고 있었다는 걸 드러냈고, 실패가 실패로 보이게 만든 다음에야 진짜 결함들을 찾을 수 있었습니다.</span>
+            <span class="en">Most of what I have shipped began with <span class="mark">something already running wrong</span>. I replaced row-count checks with row-level hash comparison, exposed tasks that reported green while failing every day, and only after failures looked like failures could the real defects be found.</span>
           </p>
           <p>
             <span class="ko">일 300만 건, 누적 5TB 규모를 DAG 20개로 돌리고 있습니다. 민감도가 높은 금융 데이터라, 장애가 났을 때 어디를 봐야 하는지를 정리해 두는 쪽에 시간을 많이 씁니다.</span>
@@ -369,9 +369,9 @@
             <span class="projcard__date">2026.07 <span class="ko">~ </span><span class="en">- </span><span class="ko">현재</span><span class="en">Present</span></span>
             <div class="tracks tracks--mini">
               <span class="stage" data-level="full"><span class="bar"></span></span>
-              <span class="stage" data-level="half"><span class="bar"></span></span>
-              <span class="stage" data-level="half"><span class="bar"></span></span>
-              <span class="stage" data-level="half"><span class="bar"></span></span>
+              <span class="stage" data-level="full"><span class="bar"></span></span>
+              <span class="stage" data-level="full"><span class="bar"></span></span>
+              <span class="stage" data-level="full"><span class="bar"></span></span>
             </div>
           </div>
         </div>
@@ -401,7 +401,7 @@
             <span class="projcard__num">03</span>
           </div>
           <h3><span class="ko">Iceberg-Trino 데이터 마트</span><span class="en">Iceberg-Trino Data Mart</span></h3>
-          <p><span class="ko">건수 비교를 컬럼 해시 대조로 올리고, 검증 통과분만 main에 병합되도록 브랜치로 격리.</span><span class="en">Row counts became column-hash comparison, and only what passes the audit is merged into main.</span></p>
+          <p><span class="ko">건수 비교를 행 단위 해시 대조로 올리고, 검증 통과분만 main에 병합되도록 브랜치로 격리.</span><span class="en">Row counts became row-level hash comparison, and only what passes the audit is merged into main.</span></p>
           <div class="projcard__stack">Iceberg / Trino / Nessie</div>
           <div class="projcard__foot">
             <span class="projcard__date">2026.03 <span class="ko">~ </span><span class="en">- </span><span class="ko">현재</span><span class="en">Present</span></span>
@@ -426,7 +426,7 @@
             <span class="projcard__date">2026.02 ~ 2026.03</span>
             <div class="tracks tracks--mini">
               <span class="stage" data-level="none"><span class="bar"></span></span>
-              <span class="stage" data-level="half"><span class="bar"></span></span>
+              <span class="stage" data-level="full"><span class="bar"></span></span>
               <span class="stage" data-level="full"><span class="bar"></span></span>
               <span class="stage" data-level="none"><span class="bar"></span></span>
             </div>
@@ -530,10 +530,10 @@
 
         <div class="notecard rv">
           <span class="when">2023.08 <span class="ko">~ </span><span class="en">- </span><span class="ko">현재</span><span class="en">Present</span></span>
-          <h3><span class="ko">적재 데이터 검증, 컬럼 지문 대조와 WAP 브랜치 격리</span><span class="en">Load Validation: Column Fingerprints &amp; WAP Branch Isolation</span></h3>
+          <h3><span class="ko">적재 데이터 검증, 해시 지문 대조와 WAP 브랜치 격리</span><span class="en">Load Validation: Hash Fingerprints &amp; WAP Branch Isolation</span></h3>
           <ul class="qa">
             <li><b><span class="ko">문제</span><span class="en">Problem</span></b><span><span class="ko">검증기가 원천 건수를 대상 건수 칸에 복사만 해 비교하는 값이 없었고, main에 바로 쓰는 구조라 잘못 적재돼도 이미 조회 가능. 개행·특수문자는 Hive 파싱을 깨뜨렸고, 신규 컬럼의 소수점 스펙이 공유되지 않아 값이 잘린 채 적재</span><span class="en">The validator copied the source count into the target-count field, so no value was ever compared. Writes went straight to main, line breaks shifted Hive columns, and an unshared decimal spec truncated values</span></span></li>
-            <li><b><span class="ko">접근</span><span class="en">Approach</span></b><span><span class="ko">컬럼별 해시 합계를 원천과 대조하고 중복은 full-row hash로 판정, Nessie 브랜치에 먼저 쓰고 검증을 통과한 것만 main에 병합. 적재 전 이스케이프 처리와 원천 타입·정밀도 검사를 추가</span><span class="en">Per-column hash sums matched against the source with full-row hash for duplicates, writes staged on a Nessie branch and merged only on pass, plus escaping before load and a source type and precision check</span></span></li>
+            <li><b><span class="ko">접근</span><span class="en">Approach</span></b><span><span class="ko">건수 검증 뒤 모든 행의 full-row hash를 원천과 전수 대조하고, 불일치가 나오면 컬럼별 해시 합계 비교를 실행해 어느 컬럼이 틀렸는지 좁힘. 중복 판정도 full-row hash. 적재 결과가 0건이면 통과시키지 않고 적재 시 기록한 원천 건수와 대조해 실제 0건인지 파이프라인 오류로 생긴 0건인지 판별. Nessie 브랜치에 먼저 쓰고 검증을 통과한 것만 main에 병합. 적재 전 이스케이프 처리와 원천 타입·정밀도 검사를 추가</span><span class="en">After the count check, every row's full-row hash is matched against the source, and on a mismatch per-column hash sums run to narrow down which column is wrong; duplicates are judged by full-row hash too. A zero-row load is not passed through: it is checked against the source count recorded at load time to tell a real zero from one caused by a pipeline fault. Writes stage on a Nessie branch and merge only on pass, plus escaping before load and a source type and precision check</span></span></li>
             <li><b><span class="ko">결과</span><span class="en">Result</span></b><span><span class="ko">검증 실패 데이터가 main에 노출되지 않고 태스크 실패로 승격되어 알림 발송. 사람이 놓친 스펙 변경도 조용한 값 손실 대신 적재 실패로 노출</span><span class="en">Failed data never reaches main and is promoted to a task failure with an alert. A spec change missed by people now fails the load instead of silently truncating</span></span></li>
           </ul>
         </div>
@@ -542,9 +542,9 @@
           <span class="when">2026.06 <span class="ko">~ </span><span class="en">- </span><span class="ko">현재</span><span class="en">Present</span></span>
           <h3><span class="ko">초록불 뒤에 숨어 있던 실패</span><span class="en">Failures Hiding Behind a Green Light</span></h3>
           <ul class="qa">
-            <li><b><span class="ko">문제</span><span class="en">Problem</span></b><span><span class="ko">Iceberg 유지보수 연산이 예외를 잡아 출력만 하고, 호출부가 success를 검사하지 않아 매일 전부 실패해도 태스크는 성공 표시</span><span class="en">Iceberg maintenance operations caught their exceptions and printed them, and the caller never checked success, so everything could fail daily while the task reported green</span></span></li>
-            <li><b><span class="ko">접근</span><span class="en">Approach</span></b><span><span class="ko">실패를 태스크 실패로 승격하되, 승격 전에 오탐부터 제거. 조치 불가능한 건은 skip으로 분류하고 그 목록을 경고 로그에 남겨 이 조치가 또 하나의 조용한 무동작이 되지 않게 함</span><span class="en">Promoted failures to task failures, but removed false positives first: unactionable cases are classified as skipped and logged by name so the fix would not become another silent no-op</span></span></li>
-            <li><b><span class="ko">결과</span><span class="en">Result</span></b><span><span class="ko">실패가 드러나자 진짜 결함 3건 발견. 컴팩션이 전 테이블에서 미실행이었고, 범위 조건이 배포 이후 한 번도 동작하지 않았으며, 스냅샷 수는 조회 상한에 포화돼 3.9배 과소보고 중이었음</span><span class="en">Once failures were visible, three real defects surfaced: compaction had never run on any table, the range condition had been inert since release, and snapshot counts saturated at the query limit, under-reporting by 3.9×</span></span></li>
+            <li><b><span class="ko">문제</span><span class="en">Problem</span></b><span><span class="ko">Iceberg 유지보수 4개 연산이 예외를 잡아 출력만 하고 실패 표시 dict를 반환했는데, 호출부가 success를 검사하지 않아 매일 전부 실패해도 태스크는 성공 표시</span><span class="en">Four Iceberg maintenance operations caught their exceptions, printed them and returned a dict marked failed, but the caller never checked success, so everything could fail daily while the task reported green</span></span></li>
+            <li><b><span class="ko">접근</span><span class="en">Approach</span></b><span><span class="ko">실패 연산을 집계해 태스크 실패로 승격하고 기존 SMS 알림 경로에 연결하되, 승격 전에 오탐부터 제거. 조치 불가능한 건은 skip으로 분류하고 그 목록을 경고 로그에 남겨 이 조치가 또 하나의 조용한 무동작이 되지 않게 함. 삭제를 동반하는 정리는 같은 팀 입수·백필 DAG 실행 중이면 skip하는 게이트 추가</span><span class="en">Failed operations are counted and promoted to a task failure wired to the existing SMS alert path, but false positives were removed first: unactionable cases are classified as skipped and logged by name so the fix would not become another silent no-op. Cleanups that delete are gated to skip while the team's ingest or backfill DAGs are running</span></span></li>
+            <li><b><span class="ko">결과</span><span class="en">Result</span></b><span><span class="ko">실패가 드러나자 진짜 결함 3건 발견. 컴팩션은 max-file-size-bytes와 target이 같은 값으로 계산돼 rewrite_data_files 호출이 파싱 단계에서 거부되어 전 테이블 100% 미실행이었고, where 조건의 따옴표 소실로 범위 컴팩션이 배포 이후 한 번도 동작하지 않았으며, 스냅샷 수는 조회 상한 1000에 포화돼 실측 3,910건을 3.9배 과소보고 중이었음. 수정 전 코드로 되돌려 새 테스트가 실패하는지 확인한 뒤 커밋해 컴팩션 실행률 0%에서 정상 실행으로 회복</span><span class="en">Once failures were visible, three real defects surfaced: max-file-size-bytes and target computed to the same value so the rewrite_data_files call was rejected at parse time and compaction ran on 0% of tables, lost quoting in the where clause meant ranged compaction had never run since release, and snapshot counts saturated at the query limit of 1000 while the real figure was 3,910, a 3.9× under-report. Each fix was committed only after reverting to confirm the new test failed, and compaction recovered from 0% to running normally</span></span></li>
           </ul>
         </div>
 
@@ -552,8 +552,8 @@
           <span class="when">2026.06 <span class="ko">~ </span><span class="en">- </span><span class="ko">현재</span><span class="en">Present</span></span>
           <h3><span class="ko">운영 안정성, 죽어 있던 신호 되살리기</span><span class="en">Operational Hygiene, Bringing Dead Signals Back</span></h3>
           <ul class="qa">
-            <li><b><span class="ko">알림</span><span class="en">Alerting</span></b><span><span class="ko">태스크마다 발송되던 장애 문자를 DAG run당 1건으로 집계하고 root와 cascade를 구분, 알림이 아예 없던 DAG 6개의 사각지대 해소 (16개 DAG)</span><span class="en">Collapsed per-task failure pages into one message per DAG run, separating root from cascade, and closed the gap on six DAGs that paged no one (16 DAGs)</span></span></li>
-            <li><b><span class="ko">코드</span><span class="en">Code</span></b><span><span class="ko">참조 0건을 확인한 죽은 코드 약 1,403줄을 제거. 리스크가 큰 대형 함수 분해는 pytest 하네스와 CI 유닛 테스트 job을 먼저 갖춘 뒤로 미룸</span><span class="en">Deleted ~1,403 lines of dead code after confirming zero references, and deferred splitting a risky large function until a pytest harness and a CI unit-test job were in place</span></span></li>
+            <li><b><span class="ko">알림</span><span class="en">Alerting</span></b><span><span class="ko">default_args에 있던 실패 콜백이 모든 태스크에 상속돼 앞단 1건 실패 시 upstream_failed 태스크까지 각각 발송되던 것을 DAG 단위로 재배치(16개 DAG). 한 run 안의 태스크 상태를 조회해 root와 cascade를 구분하고 run당 1건으로 요약, 본문에 root/cascade 건수·root 태스크 목록·첫 실패 log_url 포함. 알림이 아예 없던 DAG 6개의 사각지대를 해소하고, DAG 단위 음소거 Variable을 추가해 테스트 DAG가 운영 알림을 내지 않게 함</span><span class="en">The failure callback sat in default_args and was inherited by every task, so one upstream failure paged again for each upstream_failed task; it moved to DAG level (16 DAGs). Task states within a run now separate root from cascade and collapse into one message per run, carrying root/cascade counts, the root task list and the first failure log_url. Six DAGs that paged no one were closed, and a per-DAG mute Variable keeps test DAGs from triggering production alerts</span></span></li>
+            <li><b><span class="ko">코드</span><span class="en">Code</span></b><span><span class="ko">참조 0건을 확인한 죽은 코드 약 1,403줄을 제거하고 커넥션 스캐폴딩 790줄을 556줄로, CLI 진입점 207줄을 55줄로 줄임. 390줄짜리 write 함수 분해는 테스트 없이 쪼개면 파티션 검증과 스키마 진화 로직이 조용히 오염될 위험이 실익보다 커서 보류하고, pytest 하네스를 먼저 만든 뒤 CI에 유닛 테스트 job(순수 유닛 88개)을 추가</span><span class="en">Deleted ~1,403 lines of dead code after confirming zero references, and cut connection scaffolding from 790 to 556 lines and the CLI entry point from 207 to 55. Splitting a 390-line write function was deferred, since without tests the risk of quietly corrupting partition validation and schema evolution outweighed the gain; a pytest harness came first, then a CI unit-test job (88 pure unit tests)</span></span></li>
           </ul>
         </div>
 
@@ -588,21 +588,21 @@
             <text class="dg-s en" x="20" y="248.6">Row-count check</text>
             <text class="dg-s ko" x="20" y="270.6">모든 테이블 기본</text>
             <text class="dg-s en" x="20" y="270.6">Every table by default</text>
-            <text class="dg-s ko" x="20" y="292.6">Oracle 재조회 0회</text>
-            <text class="dg-s en" x="20" y="292.6">Zero Oracle re-reads</text>
-            <text class="dg-s ko" x="20" y="314.6">$partitions 로 스캔 0</text>
-            <text class="dg-s en" x="20" y="314.6">Read from $partitions</text>
+            <text class="dg-s ko" x="20" y="292.6">재조회 0회 · 스캔 0</text>
+            <text class="dg-s en" x="20" y="292.6">No re-reads, no scans</text>
+            <text class="dg-s ko" x="20" y="314.6">0건은 오탐 여부 판별</text>
+            <text class="dg-s en" x="20" y="314.6">Zero rows: real or false</text>
           </g>
           <g class="dg-node">
             <rect x="254" y="186" width="236" height="158" rx="14"/>
             <text class="dg-t-sm ko" x="274" y="227.3">full 티어</text>
             <text class="dg-t-sm en" x="274" y="227.3">full tier</text>
-            <text class="dg-s ko" x="274" y="248.6">값 검증</text>
-            <text class="dg-s en" x="274" y="248.6">Value check</text>
-            <text class="dg-s ko" x="274" y="270.6">필요한 테이블만</text>
-            <text class="dg-s en" x="274" y="270.6">Only where needed</text>
-            <text class="dg-s ko" x="274" y="292.6">컬럼별 해시 대조</text>
-            <text class="dg-s en" x="274" y="292.6">Per-column hash sums</text>
+            <text class="dg-s ko" x="274" y="248.6">값 검증 · 필요한 테이블만</text>
+            <text class="dg-s en" x="274" y="248.6">Values · only where needed</text>
+            <text class="dg-s ko" x="274" y="270.6">행별 해시 전수 대조</text>
+            <text class="dg-s en" x="274" y="270.6">Every row hashed, matched</text>
+            <text class="dg-s ko" x="274" y="292.6">불일치 시 컬럼 합계 비교</text>
+            <text class="dg-s en" x="274" y="292.6">Column sums on mismatch</text>
             <text class="dg-s ko" x="274" y="314.6">중복은 full-row hash</text>
             <text class="dg-s en" x="274" y="314.6">Dupes by full-row hash</text>
           </g>
@@ -788,7 +788,7 @@
       <h1><span class="ko">망 분리 CI/CD, 산출물 없이 코드만 승격</span><span class="en">Air-Gapped CI/CD, Promote Code, Never Artifacts</span></h1>
       <div class="detail__meta">
         <span><b><span class="ko">기간</span><span class="en">Period</span></b> 2026.07 <span class="ko">~ </span><span class="en">- </span><span class="ko">현재</span><span class="en">Present</span></span>
-        <span><b><span class="ko">역할</span><span class="en">Role</span></b> <span class="ko">수작업 파일 배포를 워크플로로 전환</span><span class="en">Designing a structure that proves equality instead of moving the artifact</span></span>
+        <span><b><span class="ko">역할</span><span class="en">Role</span></b> <span class="ko">수작업 파일 배포를 워크플로로 전환</span><span class="en">Replacing a hand-copied release with a GitHub Actions workflow</span></span>
       </div>
     </div>
     <figure class="figurewrap rv">
@@ -854,16 +854,16 @@
       <ul class="qa qa--lg rv">
         <li><b><span class="ko">문제</span><span class="en">Problem</span></b><span><span class="ko">연구개발망과 전산센터망은 통신이 불가하고 빌드 산출물을 직접 전달할 수 없어 코드만 승격 가능한 환경이었습니다. SVN과 셸 스크립트로 배포하던 구조라 개발에서 운영으로 옮길 때 변경된 파일을 손으로 골라 복사해야 했고, 그 과정에서 변경분이 자주 누락됐습니다.</span><span class="en">The R&amp;D and data-center networks cannot talk to each other and build artifacts cannot be handed across, so only code can be promoted. Deploys ran on SVN and shell scripts, which meant hand-picking changed files to copy from development to production, and changes were regularly missed.</span></span></li>
         <li><b><span class="ko">접근</span><span class="en">Approach</span></b><span><span class="ko">형상관리를 SVN에서 GitHub Enterprise로 옮기는 시점에 배포 자동화를 함께 제안했습니다. 파이썬과 자바 배포 플로우를 GitHub Actions 워크플로로 작성하고 테스트를 수행했으며, 워크플로를 빌드 · 검증 · 코드 승격 · 재빌드 · 배치 5단계로 나눴습니다. 배포 경로에 쓰이는 Nexus 저장소와 SeaweedFS 오브젝트 스토리지를 구축하고 권한을 설정했습니다. 승격 대상 트리에 빌드 산출물이 섞이면 중단하는 가드를 넣었습니다.</span><span class="en">When source control moved from SVN to GitHub Enterprise I proposed automating deployment at the same time. The Python and Java deployment flows became GitHub Actions workflows with tests, split into five stages: build, verify, promote code, rebuild and deploy. I built and permissioned the Nexus repository and the SeaweedFS object storage the deployment path runs through, and added a guard that aborts if a build artifact slips into the promoted tree.</span></span></li>
-        <li><b><span class="ko">결과</span><span class="en">Result</span></b><span><span class="ko">사람이 파일을 골라 옮기던 과정이 사라져 누락이 발생하지 않습니다. 3단계까지 완주해 운영 저장소에 코드와 태그가 반영됐고 4단계 빌드까지 통과했으며, 5단계는 서버 키 등록 대기로 멈춰 있습니다.</span><span class="en">Stage 3 ran through to land code and tags in the production repository, with stage 4 building successfully. Along the way I dropped the original automatic hash-comparison gate and everything it dragged along, auto tag creation, a separate job, override variables. A maintainer applying a tag was already the approval signal, and all that complexity was coming from that one gate.</span></span></li>
+        <li><b><span class="ko">결과</span><span class="en">Result</span></b><span><span class="ko">사람이 파일을 골라 옮기던 과정이 사라져 누락이 발생하지 않습니다.</span><span class="en">Nobody picks and copies files any more, so nothing gets missed.</span></span></li>
       </ul>
       <aside>
         <div class="detail__aside rv">
           <h4><span class="ko">담당 범위</span><span class="en">My role</span></h4>
           <div class="tracks">
             <span class="stage" data-level="full"><span class="lbl"><span class="ko">설계</span><span class="en">Design</span></span><span class="bar"></span></span>
-            <span class="stage" data-level="half"><span class="lbl"><span class="ko">구축</span><span class="en">Build</span></span><span class="bar"></span></span>
-            <span class="stage" data-level="half"><span class="lbl"><span class="ko">튜닝</span><span class="en">Tune</span></span><span class="bar"></span></span>
-            <span class="stage" data-level="half"><span class="lbl"><span class="ko">운영</span><span class="en">Operate</span></span><span class="bar"></span></span>
+            <span class="stage" data-level="full"><span class="lbl"><span class="ko">구축</span><span class="en">Build</span></span><span class="bar"></span></span>
+            <span class="stage" data-level="full"><span class="lbl"><span class="ko">튜닝</span><span class="en">Tune</span></span><span class="bar"></span></span>
+            <span class="stage" data-level="full"><span class="lbl"><span class="ko">운영</span><span class="en">Operate</span></span><span class="bar"></span></span>
           </div>
         </div>
         <div class="detail__aside rv">
@@ -961,7 +961,7 @@
       <ul class="qa qa--lg rv">
         <li><b><span class="ko">문제</span><span class="en">Problem</span></b><span><span class="ko">데이터마트는 있었지만 컬럼과 테이블 description 대부분이 비어 있어, 데이터를 봐도 의미·단위·코드값을 알 수 없었습니다. 어떤 데이터가 어느 업무에 속하는지 정리된 문서도 없어 그룹핑을 저희 팀이 임의로 판단할 수 없었고, 스키마 변경과 신규 테이블은 사람이 따라다니며 문서화하고 있었습니다. 다른 부서 인터뷰에서 가장 많이 나온 요구는 “반복되는 데이터 추출을 직접 하고 싶다”였습니다.</span><span class="en">The mart existed, but most column and table descriptions were empty, so the data gave away no meaning, unit or code value. No document said which data belonged to which business area, so we could not group it on our own authority, and schema changes and new tables were documented by hand after the fact. In interviews with other teams, the top ask was to run their own repeated extractions.</span></span></li>
         <li><b><span class="ko">접근</span><span class="en">Approach</span></b><span><span class="ko">먼저 데이터가 그럴 준비가 됐는지 확인했습니다. Trino / Hive / Oracle 서비스를 등록해 메타데이터를 수집하고 리니지·도메인·레이어 태그 스크립트를 작성했습니다. 전사 배포 대신 한 부서와 가장 잦은 요청 두 건으로 범위를 좁히고, 메타데이터 작성 가이드를 직접 설계해 회수했습니다. 스키마·리니지는 카탈로그에서 읽고 실행은 read-only Trino MCP로 분리했습니다.</span><span class="en">First I checked whether the data was ready for that. Registering Trino, Hive and Oracle services, I ingested metadata and scripted lineage, domain and layer tagging. Instead of a company-wide rollout I scoped to one team and its two most frequent requests, wrote the metadata guide myself and collected the results. Schema and lineage are read from the catalog while execution is isolated behind a read-only Trino MCP.</span></span></li>
-        <li><b><span class="ko">결과</span><span class="en">Result</span></b><span><span class="ko">정산개발팀의 실제 업무 요청(미수금 회수 대상 추출)으로 사람 쿼리와 대조했고 경계가 뚜렷했습니다. 스키마·코드값·조인 관계로 풀리는 영역에서는 대상 가맹점 선정이 완전히 일치했고 이월금액 합계도 맞았습니다. 반면 집계 구간 정의, 산출 항목 구성, 매출 판정 기준처럼 문서화되지 않은 업무 규칙이 필요한 영역은 전부 틀렸습니다. 이 경계를 실측으로 확정한 것이 결과물이고, 마감 테이블 4종에 정산 연결키 설명을 추가하고 요청서 가이드와 프롬프팅 규칙으로 환원했습니다.</span><span class="en">A real request from the settlement dev team, targeting receivables for recovery, let me compare AI output against a human query, and the boundary was sharp. Where schema, code values and joins are enough, site selection matched exactly and carried-over totals agreed. Where undocumented business rules are required, the aggregation window, output composition, the revenue determination rule, it was wrong every time. Establishing that boundary by measurement was the deliverable, fed back as settlement join-key descriptions on four closing tables, a request-writing guide and prompting rules.</span></span></li>
+        <li><b><span class="ko">결과</span><span class="en">Result</span></b><span><span class="ko">결제 DB 테이블 2,759개·컬럼 4만여 개를 OpenMetadata에 등재했고, 코드값 규칙을 5개에서 2,249개로 확장했습니다(정답 176건 중 175건 일치). 정산개발팀의 실제 업무 요청(미수금 회수 대상 추출)으로 사람 쿼리와 대조했고 경계가 뚜렷했습니다. 스키마·코드값·조인 관계로 풀리는 영역에서는 대상 가맹점 선정이 완전히 일치했고 이월금액 합계도 맞았습니다. 반면 집계 구간 정의, 산출 항목 구성, 매출 판정 기준처럼 문서화되지 않은 업무 규칙이 필요한 영역은 전부 틀렸습니다. 이 경계를 실측으로 확정한 것이 결과물이고, 마감 테이블 4종에 정산 연결키 설명을 추가하고 요청서 가이드와 프롬프팅 규칙으로 환원했습니다.</span><span class="en">2,759 payment-DB tables (40K+ columns) were registered in OpenMetadata, and code-value rules grew from 5 to 2,249 (175 of 176 verified). A real request from the settlement dev team, targeting receivables for recovery, let me compare AI output against a human query, and the boundary was sharp. Where schema, code values and joins are enough, site selection matched exactly and carried-over totals agreed. Where undocumented business rules are required, the aggregation window, output composition, the revenue determination rule, it was wrong every time. Establishing that boundary by measurement was the deliverable, fed back as settlement join-key descriptions on four closing tables, a request-writing guide and prompting rules.</span></span></li>
       </ul>
       <aside>
         <div class="detail__aside rv">
@@ -998,7 +998,7 @@
     <div class="detail__body">
       <ul class="qa qa--lg rv">
         <li><b><span class="ko">문제</span><span class="en">Problem</span></b><span><span class="ko">Hive 마트는 스냅샷과 트랜잭션이 없어 파티션이 없으면 행 단위 삭제조차 되지 않았고, managed/external 구분이 계속 관리 부담으로 남았습니다. 적재 검증은 원천 건수를 대상 건수 칸에 복사만 해 형태만 검증이고 실제로 비교하는 값이 없었으며, main에 바로 쓰고 확인하는 구조라 잘못 적재돼도 이미 조회가 가능했습니다.</span><span class="en">The Hive mart had no snapshots and no real transactions, so an unpartitioned table could not even be deleted from row by row, and the managed/external split stayed a maintenance cost. Load validation copied the source count into the target-count field, a check in shape only, with no value ever compared, and writes went straight to main, so a bad load was already queryable.</span></span></li>
-        <li><b><span class="ko">접근</span><span class="en">Approach</span></b><span><span class="ko">마트를 Trino 위 Iceberg로 전환해 스냅샷, 행 단위 수정, 시점 복구를 확보했습니다. 검증은 건수 비교를 넘어 값 지문 대조로 올렸습니다. 공통 컬럼을 대상 스키마 타입으로 캐스팅하고 공백·NULL을 정규화한 뒤 컬럼별 해시 합계를 원천과 대조하며, 중복 판정은 full-row hash로 합니다. 검증 비용은 3티어로 나눠 count 티어는 적재 시 기록한 건수를 소비해 Oracle 재조회를 없애고, 대상 건수는 Iceberg $partitions 메타에서 읽어 데이터 스캔을 제거했습니다. 그리고 Nessie 브랜치에 먼저 쓰고 audit을 통과한 것만 main에 병합하는 WAP로 전환했습니다.</span><span class="en">The mart moved to Iceberg on Trino for snapshots, row-level updates and point-in-time recovery. Validation went beyond counting: common columns are cast to the target schema type, whitespace and NULLs normalised, then per-column hash sums are matched against the source, with duplicates judged by full-row hash. Cost is tiered, the count tier consumes the row count recorded at load time so Oracle is never re-read, and target counts come from Iceberg $partitions metadata instead of a data scan. Writes then stage on a Nessie branch under Write-Audit-Publish, and only what passes the audit is merged into main.</span></span></li>
+        <li><b><span class="ko">접근</span><span class="en">Approach</span></b><span><span class="ko">마트를 Trino 위 Iceberg로 전환해 스냅샷, 행 단위 수정, 시점 복구를 확보했습니다. 검증은 건수 비교를 넘어 값 지문 대조로 올렸습니다. 공통 컬럼을 대상 스키마 타입으로 캐스팅하고 공백·NULL을 정규화한 뒤 모든 행의 full-row hash를 원천과 전수 대조하고, 불일치가 나오면 컬럼별 해시 합계 비교를 실행해 어느 컬럼에서 틀렸는지 좁힙니다. 중복 판정도 full-row hash로 합니다. count 검증은 적재 시 기록한 건수를 소비해 Oracle 재조회를 없애고, 대상 건수는 Iceberg $partitions 메타에서 읽어 데이터 스캔을 제거했습니다. 적재 결과가 0건이면 그대로 통과시키지 않고, 적재 시 기록한 원천 건수와 대조해 실제 0건인지 파이프라인 오류로 생긴 0건인지 판별합니다. 그리고 Nessie 브랜치에 먼저 쓰고 audit을 통과한 것만 main에 병합하는 WAP로 전환했습니다.</span><span class="en">The mart moved to Iceberg on Trino for snapshots, row-level updates and point-in-time recovery. Validation went beyond counting: common columns are cast to the target schema type, whitespace and NULLs normalised, then every row's full-row hash is matched against the source, and on a mismatch per-column hash sums run to narrow down which column is wrong. Duplicates are judged by full-row hash as well. The count check consumes the row count recorded at load time so Oracle is never re-read, and target counts come from Iceberg $partitions metadata instead of a data scan. A zero-row load is not passed through: it is checked against the source count recorded at load time to tell a real zero from one caused by a pipeline fault. Writes then stage on a Nessie branch under Write-Audit-Publish, and only what passes the audit is merged into main.</span></span></li>
         <li><b><span class="ko">결과</span><span class="en">Result</span></b><span><span class="ko">검증에 실패한 데이터가 main에 노출되지 않고, 실패는 태스크 실패로 승격되어 알림이 나갑니다. 결과 확인도 서버 SSH에서 대시보드로 옮겼습니다. 추측 PK 기반 중복 오탐도 해소했는데, 원천에 ‘7’과 뒤 공백이 붙은 값이 별도 행으로 존재해 ETL trim 이후 충돌하던 것을 full-row hash로 교체해 잡았습니다.</span><span class="en">Data that fails validation never reaches main, and a failed check is promoted to a task failure with an alert. Checking results also moved from SSH-ing into a server to a dashboard. It fixed false duplicate hits from guessed primary keys too: a source value ‘7’ and its trailing-whitespace twin existed as separate rows and collided after ETL trim, which the full-row hash resolved.</span></span></li>
       </ul>
       <aside>
@@ -1186,7 +1186,7 @@
           <h4><span class="ko">담당 범위</span><span class="en">My role</span></h4>
           <div class="tracks">
             <span class="stage" data-level="none"><span class="lbl"><span class="ko">설계</span><span class="en">Design</span></span><span class="bar"></span></span>
-            <span class="stage" data-level="half"><span class="lbl"><span class="ko">구축</span><span class="en">Build</span></span><span class="bar"></span></span>
+            <span class="stage" data-level="full"><span class="lbl"><span class="ko">구축</span><span class="en">Build</span></span><span class="bar"></span></span>
             <span class="stage" data-level="full"><span class="lbl"><span class="ko">튜닝</span><span class="en">Tune</span></span><span class="bar"></span></span>
             <span class="stage" data-level="none"><span class="lbl"><span class="ko">운영</span><span class="en">Operate</span></span><span class="bar"></span></span>
           </div>
@@ -1555,15 +1555,15 @@
             </svg>
           </div>
           <figcaption>
-            <span class="ko">주기를 줄이면서 생긴 경합을 큐 분할로 끊었습니다.</span>
-            <span class="en">Shortening the cycle created contention; splitting queues cut it.</span>
+            <span class="ko">주기를 줄이면서 생긴 경합을 큐 분할로 끊었습니다. 현재는 운영하지 않는 파이프라인입니다.</span>
+            <span class="en">Shortening the cycle created contention; splitting queues cut it. This pipeline is no longer in operation.</span>
           </figcaption>
         </figure>
       <div class="detail__body">
         <ul class="qa qa--lg rv">
                 <li><b><span class="ko">문제</span><span class="en">Problem</span></b><span><span class="ko">일 1회 배치로는 실시간에 가까운 데이터 수요를 감당할 수 없었습니다. 주기를 30분으로 바꾸자 태스크 수가 크게 늘면서 DAG 간 자원 경합으로 병목이 생겼습니다.</span><span class="en">A once-a-day batch could not meet demand for near-real-time data. Moving to a 30-minute cycle multiplied the task count until DAGs began contending for resources.</span></span></li>
                 <li><b><span class="ko">접근</span><span class="en">Approach</span></b><span><span class="ko">30분 단위 준실시간 배치 파이프라인을 Airflow로 개발하고, YARN queue를 분할해 DAG별로 자원을 격리했습니다. Spark 로그에서 stage·task 편차를 읽어 불필요한 셔플과 데이터 SKEW 여부를 판별하고, 실제로 자주 실행되는 쿼리 패턴을 기준으로 파티셔닝 키를 결정했습니다. Spark 리소스 설정을 바꿔가며 실행 시간과 자원 사용량을 수십 회 측정·비교했습니다.</span><span class="en">I built the 30-minute near-real-time pipeline on Airflow and split YARN queues so resources are isolated per DAG. Reading stage and task variance in Spark logs identified needless shuffles and data skew, partition keys were chosen from the query patterns that actually run, and Spark resource settings were changed and measured against runtime and usage across dozens of iterations.</span></span></li>
-                <li><b><span class="ko">결과</span><span class="en">Result</span></b><span><span class="ko">30분 주기 준실시간 적재를 병목 없이 운영했습니다. 자원 격리 덕분에 한 파이프라인의 지연이 다른 파이프라인으로 번지지 않아 장애 전파 범위가 DAG 단위로 한정되고 대응 시간도 짧아졌습니다.</span><span class="en">The 30-minute near-real-time load ran without a bottleneck. Because resources are isolated, one pipeline's delay no longer pushes the others, the blast radius of a failure stays inside a single DAG and response time dropped with it.</span></span></li>
+                <li><b><span class="ko">결과</span><span class="en">Result</span></b><span><span class="ko">30분 주기 준실시간 적재를 병목 없이 운영했습니다. 자원 격리 덕분에 한 파이프라인의 지연이 다른 파이프라인으로 번지지 않아 장애 전파 범위가 DAG 단위로 한정되고 대응 시간도 짧아졌습니다. 이 준실시간 적재는 현재 운영하지 않습니다.</span><span class="en">The 30-minute near-real-time load ran without a bottleneck. Because resources are isolated, one pipeline's delay no longer pushes the others, the blast radius of a failure stays inside a single DAG and response time dropped with it. This near-real-time load is no longer in operation.</span></span></li>
               </ul>
         <aside>
                 <div class="detail__aside rv">
