@@ -7,6 +7,7 @@ Usage:
 
 Rules:
   - Only notes whose frontmatter has `publish: true` are built. Everything else is ignored.
+  - Category: `카테고리:` (one of CATEGORY_ORDER) wins; otherwise mapped from the `분류:` prefix.
   - Only `개념/*.md` and `문서/개발/*.md` are scanned.
   - The build aborts if any publishable note matches the secret patterns below
     (IP addresses, internal hostnames, credentials). Fix the note, then rebuild.
@@ -180,6 +181,9 @@ def parse_frontmatter(raw):
 
 
 def category(meta):
+    explicit = meta.get('카테고리', '').strip()
+    if explicit in CATEGORY_ORDER:
+        return explicit
     cls = meta.get('분류', '')
     for prefix, cat in CATEGORY_RULES:
         if cls.startswith(prefix):
