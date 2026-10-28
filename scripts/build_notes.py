@@ -10,6 +10,7 @@ Rules:
   - Category: `카테고리:` (one of CATEGORY_ORDER) wins; otherwise mapped from the `분류:` prefix.
   - Only `개념/*.md` is scanned (guides under `문서/` stay unpublished).
   - The build aborts if any publishable note matches the secret patterns below
+    (credentials, hosts, and company identifiers such as table, queue or account names)
     (IP addresses, internal hostnames, credentials). Fix the note, then rebuild.
 Outputs:
   notes/index.html, notes/<slug>.html, and the teaser block in index.html
@@ -36,12 +37,19 @@ CATEGORY_RULES = [
 CATEGORY_ORDER = ['Spark · YARN', 'Iceberg · Lakehouse', '저장소 · 인프라', '운영 · 모니터링', 'Python · DB', '기타']
 
 SECRET_PATTERNS = [
-    (r'\b(?:\d{1,3}\.){3}\d{1,3}\b', 'IP address'),
+    (r'\b(?!0\.0\.0\.0\b|127\.0\.0\.1\b)(?:\d{1,3}\.){3}\d{1,3}\b', 'IP address'),
     (r'\b[\w-]+\.(?:kcp|nhn)[\w.-]*\b', 'internal hostname'),
     (r'\.co\.kr\b', 'company domain'),
     (r'(?i)\b(password|passwd|secret_key|access_key|api_key|token)\s*[:=]\s*\S+', 'credential assignment'),
     (r'AKIA[0-9A-Z]{16}', 'AWS access key id'),
     (r'(?i)-----BEGIN [A-Z ]*PRIVATE KEY-----', 'private key'),
+    # Company identifiers: internal system, queue, account, DB and table names.
+    (r'(?i)\b(kcp|nhn|kcpdevdb|newpg|argos|bigadm|strge|poc-github|history2|c2_local|sales_app|fim_survey)\b', 'company identifier'),
+    (r'(?i)\bR?kafkacluster\d*\b', 'company server name'),
+    (r'\b(?:TB|TBL)_?[A-Z][A-Z0-9_]+\b|\btbl[a-z0-9_]+\b', 'company table name'),
+    (r'(?i)\b(dooray|payco)\b', 'company or affiliate name'),
+    (r'(?i)\b[a-z_]+_mony\b|\biceberg\.mobile\b|\bmobile iceberg\b', 'company column or schema name'),
+    (r'면접', 'interview content'),
 ]
 
 
