@@ -67,12 +67,12 @@
     <div class="hero__inner wrap">
       <span class="pill">Data Engineer &nbsp;·&nbsp; <span class="ko">결제 · 정산 도메인</span><span class="en">Payments &amp; Settlement</span></span>
       <h1>
-        <span class="ko">믿고 쓸 수 있는 <em>데이터</em>를 만듭니다</span>
-        <span class="en">Building data people can <em>actually trust.</em></span>
+        <span class="ko">결제·정산 <em>데이터 플랫폼</em> 구축·운영</span>
+        <span class="en">Payments and settlement <em>data platform</em>, build and operations</span>
       </h1>
       <p class="hero__intro">
-        <span class="ko">온프레미스 환경에서 Hadoop, Spark, Airflow 데이터 파이프라인과 Trino / Iceberg / Hive 레이크하우스를 구축하고 운영합니다. 새 기능을 얹기보다, 이미 잘못 돌고 있던 것을 찾아내는 데서 일을 시작합니다.</span>
-        <span class="en">I build and operate on-prem data pipelines on Hadoop, Spark and Airflow, with Trino / Iceberg / Hive lakehouse layers. Most of my work starts not with a new feature, but with finding what has quietly been running wrong.</span>
+        <span class="ko">온프레미스 Hadoop, Spark, Airflow 파이프라인과 Trino / Iceberg / Hive 레이크하우스 구축·운영. 결제·정산 원천 적재, 마트 제공, 적재 검증 담당.</span>
+        <span class="en">On-prem Hadoop, Spark and Airflow pipelines with Trino / Iceberg / Hive lakehouse layers. Ingestion of payment and settlement sources, mart serving, load validation.</span>
       </p>
       <div class="hero__cta">
         <a class="btn btn--solid" href="#projects">
@@ -143,27 +143,27 @@
             <span class="about__icon"><svg viewBox="0 0 24 24"><use href="#i-book"/></svg></span>
             <div>
               <h3><span class="ko">하는 일</span><span class="en">What I do</span></h3>
-              <p><span class="ko">결제·정산 원천을 적재하고, 마트로 내보내고, 그 값이 맞는지 확인하는 구간까지 맡고 있습니다.</span><span class="en">I load payment and settlement sources, serve them as marts, and own the checks that say whether the values are right.</span></p>
+              <p><span class="ko">결제·정산 원천 적재, 마트 제공, 적재 검증 담당.</span><span class="en">Ingestion of payment and settlement sources, mart serving, load validation.</span></p>
             </div>
           </div>
         </div>
       </div>
 
       <div class="rv about__body">
-        <span class="eyebrow"><span class="ko">소개</span><span class="en">Personal Narrative</span></span>
-        <h2><span class="ko">틀린 데이터가 조회되지 않게 막는 일</span><span class="en">Keeping wrong data out of reach</span></h2>
+        <span class="eyebrow"><span class="ko">소개</span><span class="en">About</span></span>
+        <h2><span class="ko">담당 업무</span><span class="en">Responsibilities</span></h2>
         <div style="margin-top:28px">
           <p>
-            <span class="ko"><strong>결제·정산 데이터</strong>를 다루는 온프레미스 데이터 플랫폼을 만들고 운영합니다. 일 300만 건 규모의 적재를 책임지다 보니, 자연스럽게 <span class="mark">틀린 데이터가 조회되지 않게 막는 일</span>에 집중하게 됐습니다.</span>
-            <span class="en">I build and run the on-prem platform that carries <strong>payment and settlement data</strong>. Owning a load of roughly 3M rows a day pulled my focus toward one thing: <span class="mark">making sure wrong data never becomes queryable</span>.</span>
+            <span class="ko"><strong>결제·정산 데이터</strong> 온프레미스 플랫폼 구축·운영. 일 300만 건 적재, 적재 검증과 <span class="mark">오류 데이터 노출 차단</span> 담당.</span>
+            <span class="en">On-prem platform for <strong>payment and settlement data</strong>. About 3M rows loaded a day; load validation and <span class="mark">exposure gating of bad data</span>.</span>
           </p>
           <p>
-            <span class="ko">제가 한 일의 대부분은 새 기능이 아니라 <span class="mark">이미 잘못 돌고 있던 것</span>에서 시작했습니다. 건수만 세던 검증을 행 단위 해시 대조로 바꾸고, 초록불로 보이던 태스크가 사실 매일 실패하고 있었다는 걸 드러냈고, 실패가 실패로 보이게 만든 다음에야 진짜 결함들을 찾을 수 있었습니다.</span>
-            <span class="en">Most of what I have shipped began with <span class="mark">something already running wrong</span>. I replaced row-count checks with row-level hash comparison, exposed tasks that reported green while failing every day, and only after failures looked like failures could the real defects be found.</span>
+            <span class="ko">주요 작업: 건수 비교 검증을 <span class="mark">행 단위 해시 대조</span>로 교체, 성공으로 표시되던 Iceberg 유지보수 태스크의 실패 승격, 이후 드러난 결함 3건 수정.</span>
+            <span class="en">Main work: replaced row-count checks with <span class="mark">row-level hash comparison</span>, promoted silently failing Iceberg maintenance tasks to real failures, fixed the three defects that surfaced.</span>
           </p>
           <p>
-            <span class="ko">일 300만 건, 누적 5TB 규모를 DAG 20개로 돌리고 있습니다. 민감도가 높은 금융 데이터라, 장애가 났을 때 어디를 봐야 하는지를 정리해 두는 쪽에 시간을 많이 씁니다.</span>
-            <span class="en">Right now that is about 3M rows a day and 5 TB accumulated, across 20 DAGs. It is sensitive financial data, so a lot of my time goes into making it obvious where to look when something breaks.</span>
+            <span class="ko">일 300만 건, 누적 5TB, DAG 20개 운영. 금융 데이터라 장애 시 확인 지점과 절차를 문서화.</span>
+            <span class="en">3M rows a day, 5 TB accumulated, 20 DAGs. Financial data, so failure checkpoints and procedures are documented.</span>
           </p>
         </div>
       </div>
@@ -176,7 +176,7 @@
       <div class="center-head rv">
         <span class="eyebrow"><span class="ko">보유 기술</span><span class="en">Toolkit</span></span>
         <h2><span class="ko">다루는 기술</span><span class="en">Technical Foundations</span></h2>
-        <p><span class="ko">실제 운영 환경에서 구축하거나 운영해 본 것만 적었습니다.</span><span class="en">Only what I have actually built or operated in a running environment.</span></p>
+        <p><span class="ko">운영 환경에서 구축·운영한 것만 기재.</span><span class="en">Only what was built or operated in production.</span></p>
       </div>
 
       <div class="skillgrid">
@@ -215,7 +215,7 @@
       <div class="center-head rv">
         <span class="eyebrow"><span class="ko">구조</span><span class="en">Architecture</span></span>
         <h2><span class="ko">운영 중인 데이터 파이프라인</span><span class="en">The data pipeline in operation</span></h2>
-        <p><span class="ko">2년간 설계하고 운영한 온프레미스 Hadoop 클러스터입니다. 박스에 커서를 올리면 강조됩니다.</span><span class="en">The on-prem Hadoop cluster I designed and ran for two years. Hover a box to highlight it.</span></p>
+        <p><span class="ko">2년간 운영한 온프레미스 Hadoop 클러스터. 박스에 커서를 올리면 강조.</span><span class="en">On-prem Hadoop cluster, operated for two years. Hover a box to highlight.</span></p>
       </div>
       <figure class="figurewrap rv" id="arch-hadoop">
         <div class="diagram diagram--wide">
@@ -345,7 +345,7 @@
       <div class="sec-head rv">
         <span class="eyebrow"><span class="ko">선별 작업</span><span class="en">Selected Work</span></span>
         <h2><span class="ko">프로젝트</span><span class="en">Projects</span></h2>
-        <p class="lead"><span class="ko">각 카드를 누르면 문제 · 접근 · 결과와 담당 범위를 볼 수 있습니다.</span><span class="en">Open a card for the problem, the approach, the result and exactly which part was mine.</span></p>
+        <p class="lead"><span class="ko">카드를 누르면 문제 · 접근 · 결과와 담당 범위 표시.</span><span class="en">Open a card for problem, approach, result and scope.</span></p>
       </div>
 
       <div class="stagekey rv">
@@ -364,7 +364,7 @@
             <span class="projcard__num">01</span>
           </div>
           <h3><span class="ko">망 분리 CI/CD 파이프라인</span><span class="en">Air-Gapped CI/CD Pipeline</span></h3>
-          <p><span class="ko">산출물을 옮기지 않고 코드만 승격합니다. 사람이 파일을 골라 옮기던 과정을 없앴습니다.</span><span class="en">Code is promoted instead of artifacts, so nobody hand-picks files to copy across.</span></p>
+          <p><span class="ko">산출물 대신 코드만 승격. 수작업 파일 복사 제거.</span><span class="en">Code promoted instead of artifacts. Manual file copying removed.</span></p>
           <div class="projcard__stack">GitHub Actions / Nexus / SeaweedFS</div>
           <div class="projcard__foot">
             <span class="projcard__date">2026.07 <span class="ko">~ </span><span class="en">- </span><span class="ko">현재</span><span class="en">Present</span></span>
@@ -383,7 +383,7 @@
             <span class="projcard__num">02</span>
           </div>
           <h3><span class="ko">OpenMetadata 카탈로그 및 text-to-SQL 검증</span><span class="en">OpenMetadata Catalog &amp; Text-to-SQL</span></h3>
-          <p><span class="ko">도입 성공이 아니라 “어디까지 쓸 수 있는가”를 실제 업무 요청으로 갈라냄.</span><span class="en">The deliverable was not a rollout but a measured boundary of where it works.</span></p>
+          <p><span class="ko">실제 업무 요청으로 text-to-SQL 적용 범위와 한계 측정.</span><span class="en">Usable range and limits of text-to-SQL measured on a real business request.</span></p>
           <div class="projcard__stack">OpenMetadata / Trino / MCP</div>
           <div class="projcard__foot">
             <span class="projcard__date">2026.06 <span class="ko">~ </span><span class="en">- </span><span class="ko">현재</span><span class="en">Present</span></span>
@@ -402,7 +402,7 @@
             <span class="projcard__num">03</span>
           </div>
           <h3><span class="ko">Iceberg-Trino 데이터 마트</span><span class="en">Iceberg-Trino Data Mart</span></h3>
-          <p><span class="ko">건수 비교를 행 단위 해시 대조로 올리고, 검증 통과분만 main에 병합되도록 브랜치로 격리.</span><span class="en">Row counts became row-level hash comparison, and only what passes the audit is merged into main.</span></p>
+          <p><span class="ko">건수 비교를 행 단위 해시 대조로 교체, 검증 통과분만 main에 병합.</span><span class="en">Row counts replaced with row-level hash comparison; only validated data merges into main.</span></p>
           <div class="projcard__stack">Iceberg / Trino / Nessie</div>
           <div class="projcard__foot">
             <span class="projcard__date">2026.03 <span class="ko">~ </span><span class="en">- </span><span class="ko">현재</span><span class="en">Present</span></span>
@@ -421,7 +421,7 @@
             <span class="projcard__num">04</span>
           </div>
           <h3><span class="ko">실시간 로그 스트리밍 파이프라인 PoC</span><span class="en">Real-Time Log Streaming PoC</span></h3>
-          <p><span class="ko">운영 서버 접속 없이 로그를 볼 수 있게, 스트리밍 파싱과 적재 구간을 담당.</span><span class="en">Owned the streaming parse-and-load leg so logs could be read without touching production.</span></p>
+          <p><span class="ko">로그 조회 PoC에서 스트리밍 파싱·적재 구간 담당.</span><span class="en">Owned the streaming parse-and-load stage of a log viewing PoC.</span></p>
           <div class="projcard__stack">Spark Streaming / Kafka / Elasticsearch</div>
           <div class="projcard__foot">
             <span class="projcard__date">2026.02 ~ 2026.03</span>
@@ -440,7 +440,7 @@
             <span class="projcard__num">05</span>
           </div>
           <h3><span class="ko">실시간 암호화폐 시세 파이프라인</span><span class="en">Real-Time Crypto Market Pipeline</span></h3>
-          <p><span class="ko">사내에서 다뤄볼 기회가 없던 스트리밍 스택을 개인 학습용으로 end-to-end 구성.</span><span class="en">A personal build to get hands on the streaming stack I had no chance to touch at work.</span></p>
+          <p><span class="ko">스트리밍 스택 학습용 end-to-end 구성.</span><span class="en">End-to-end streaming stack built for learning.</span></p>
           <div class="projcard__stack">Kafka / Flink / Paimon / ClickHouse</div>
           <div class="projcard__foot">
             <span class="projcard__date">2025.11 ~ 2026.01</span>
@@ -459,7 +459,7 @@
             <span class="projcard__num">06</span>
           </div>
           <h3><span class="ko">사내 LLM 서빙 및 RAG</span><span class="en">In-house LLM Serving &amp; RAG</span></h3>
-          <p><span class="ko">폐쇄망에서 쓸 AI가 없어 직접 구축. 수요는 확인했지만 GPU 부족으로 종료를 택함.</span><span class="en">Built because an air-gapped network had no usable AI. Demand was proven; capacity was not.</span></p>
+          <p><span class="ko">폐쇄망용 LLM 서빙과 RAG 구축. GPU 부족으로 2025.08 종료.</span><span class="en">LLM serving and RAG for an air-gapped network. Ended 2025.08 for lack of GPU.</span></p>
           <div class="projcard__stack">Qwen3 / Milvus / Ollama / RAG</div>
           <div class="projcard__foot">
             <span class="projcard__date">2025.04 ~ 2025.08</span>
@@ -478,7 +478,7 @@
             <span class="projcard__num">07</span>
           </div>
           <h3><span class="ko">온프레미스 Hadoop 파이프라인 및 마트</span><span class="en">On-Prem Hadoop Pipeline &amp; Mart</span></h3>
-          <p><span class="ko">일 300만 건, 누적 5TB, DAG 20개. 운영 DB에 직접 붙던 분석 쿼리를 마트로 옮겼습니다.</span><span class="en">3M rows a day, 5 TB accumulated, 20 DAGs. Analytical queries moved off the operational DB and onto the mart.</span></p>
+          <p><span class="ko">일 300만 건, 누적 5TB, DAG 20개. 분석 쿼리를 운영 DB에서 마트로 이전.</span><span class="en">3M rows a day, 5 TB, 20 DAGs. Analytical queries moved from the operational DB to the mart.</span></p>
           <div class="projcard__stack">Hadoop / Spark / Hive / Airflow</div>
           <div class="projcard__foot">
             <span class="projcard__date">2023.08 ~ 2025.08</span>
@@ -511,13 +511,13 @@
         <span class="eyebrow"><span class="ko">운영 기록</span><span class="en">Operations</span></span>
         <h2><span class="ko">운영하면서 고친 것들</span><span class="en">Things I fixed while running it</span></h2>
         <p class="lead" style="margin-top:20px">
-          <span class="ko">새 기능을 더하는 일보다, 이미 잘못 돌고 있는데 아무도 모르던 것을 찾는 일이 많았습니다.</span>
-          <span class="en">More of the work was finding what had already been running wrong than adding anything new.</span>
+          <span class="ko">운영 중 발견해 수정한 결함과 개선 기록.</span>
+          <span class="en">Defects found and fixed in production, and the improvements that followed.</span>
         </p>
         <div class="sidecard" style="margin-top:34px">
           <span class="ic"><svg viewBox="0 0 24 24"><use href="#i-target"/></svg></span>
           <h4><span class="ko">일하는 방식</span><span class="en">How I work</span></h4>
-          <p class="sub"><span class="ko">반복해서 지키는 기준</span><span class="en">Standards I hold to</span></p>
+          <p class="sub"><span class="ko">작업 원칙</span><span class="en">Working rules</span></p>
           <ul>
             <li><svg viewBox="0 0 24 24"><use href="#i-chevron-right"/></svg><span class="ko">조용한 오작동보다 즉시 실패</span><span class="en">Fail immediately over misbehaving quietly</span></li>
             <li><svg viewBox="0 0 24 24"><use href="#i-chevron-right"/></svg><span class="ko">끄는 조치는 끈 사실을 로그에 남김</span><span class="en">If you silence something, log that you did</span></li>
@@ -531,11 +531,11 @@
 
         <div class="notecard rv">
           <span class="when">2023.08 <span class="ko">~ </span><span class="en">- </span><span class="ko">현재</span><span class="en">Present</span></span>
-          <h3><span class="ko">적재 데이터 검증, 해시 지문 대조와 WAP 브랜치 격리</span><span class="en">Load Validation: Hash Fingerprints &amp; WAP Branch Isolation</span></h3>
+          <h3><span class="ko">적재 검증: 행 단위 해시 대조와 WAP 브랜치 격리</span><span class="en">Load validation: row-level hash comparison and WAP branch isolation</span></h3>
           <ul class="qa">
             <li><b><span class="ko">문제</span><span class="en">Problem</span></b>
               <ul class="pts">
-                <li><span class="ko"><strong>검증 공백</strong> 검증기가 원천 건수를 대상 건수 칸에 복사만 해 실제로 비교하는 값이 없었음</span><span class="en"><strong>No real check</strong> The validator copied the source count into the target-count field, so no value was ever compared</span></li>
+                <li><span class="ko"><strong>검증 공백</strong> 검증기가 원천 건수를 대상 건수 칸에 복사만 해 실제로 비교하는 값이 없었음</span><span class="en"><strong>No real check</strong> The validator copied the source count into the target-count field, no value actually compared</span></li>
                 <li><span class="ko"><strong>즉시 노출</strong> main에 바로 쓰는 구조라 잘못 적재돼도 이미 조회 가능</span><span class="en"><strong>Instant exposure</strong> Writes went straight to main, so a bad load was already queryable</span></li>
                 <li><span class="ko"><strong>파싱·정밀도</strong> 개행·특수문자가 Hive 파싱을 깨고, 신규 컬럼의 소수점 스펙이 공유되지 않아 값이 잘린 채 적재</span><span class="en"><strong>Parsing and precision</strong> Line breaks shifted Hive columns, and an unshared decimal spec truncated values</span></li>
               </ul>
@@ -551,7 +551,7 @@
             <li><b><span class="ko">결과</span><span class="en">Result</span></b>
               <ul class="pts">
                 <li><span class="ko"><strong>main 미노출</strong> 검증 실패 데이터는 main에 닿지 않고 태스크 실패로 승격되어 알림 발송</span><span class="en"><strong>Never reaches main</strong> Failed data is promoted to a task failure with an alert</span></li>
-                <li><span class="ko"><strong>스펙 변경 감지</strong> 사람이 놓친 스펙 변경도 조용한 값 손실 대신 적재 실패로 노출</span><span class="en"><strong>Spec drift surfaces</strong> A spec change missed by people now fails the load instead of silently truncating</span></li>
+                <li><span class="ko"><strong>스펙 변경 감지</strong> 원천 스펙 변경이 값 손실 대신 적재 실패로 노출</span><span class="en"><strong>Spec drift surfaces</strong> A source spec change now fails the load instead of truncating values</span></li>
               </ul>
             </li>
           </ul>
@@ -559,7 +559,7 @@
 
         <div class="notecard rv">
           <span class="when">2026.06 <span class="ko">~ </span><span class="en">- </span><span class="ko">현재</span><span class="en">Present</span></span>
-          <h3><span class="ko">초록불 뒤에 숨어 있던 실패</span><span class="en">Failures Hiding Behind a Green Light</span></h3>
+          <h3><span class="ko">Iceberg 유지보수 태스크의 숨은 실패</span><span class="en">Silent failures in Iceberg maintenance tasks</span></h3>
           <ul class="qa">
             <li><b><span class="ko">문제</span><span class="en">Problem</span></b>
               <ul class="pts">
@@ -570,17 +570,17 @@
             <li><b><span class="ko">접근</span><span class="en">Approach</span></b>
               <ul class="pts">
                 <li><span class="ko"><strong>실패 승격</strong> 실패 연산을 집계해 태스크 실패로 승격하고 기존 SMS 알림 경로에 연결</span><span class="en"><strong>Promote failures</strong> Failed operations are counted, promoted to a task failure and wired to the existing SMS path</span></li>
-                <li><span class="ko"><strong>오탐 선제거</strong> 조치 불가능한 건은 skip으로 분류하고 목록을 경고 로그에 남겨 이 조치가 또 하나의 조용한 무동작이 되지 않게 함</span><span class="en"><strong>False positives first</strong> Unactionable cases are classified as skipped and logged by name so the fix does not become another silent no-op</span></li>
+                <li><span class="ko"><strong>오탐 선제거</strong> 조치 불가능한 건은 skip으로 분류하고 목록을 경고 로그에 기록</span><span class="en"><strong>False positives first</strong> Unactionable cases are classified as skipped and logged by name</span></li>
                 <li><span class="ko"><strong>삭제 게이트</strong> 삭제를 동반하는 정리는 같은 팀 입수·백필 DAG 실행 중이면 skip</span><span class="en"><strong>Delete gate</strong> Cleanups that delete skip while the team's ingest or backfill DAGs are running</span></li>
               </ul>
             </li>
             <li><b><span class="ko">결과</span><span class="en">Result</span></b>
               <ul class="pts">
-                <li><span class="ko"><strong>결함 3건 발견</strong> 실패가 드러나자 숨어 있던 진짜 결함이 드러남</span><span class="en"><strong>Three real defects</strong> Once failures were visible, the hidden defects surfaced</span></li>
+                <li><span class="ko"><strong>결함 3건 발견</strong> 실패 승격 후 아래 결함 3건 확인</span><span class="en"><strong>Three defects</strong> Found once failures were visible</span></li>
                 <li><span class="ko"><strong>컴팩션 100% 미실행</strong> max-file-size-bytes와 target이 같은 값으로 계산돼 rewrite_data_files 호출이 파싱 단계에서 거부</span><span class="en"><strong>Compaction at 0%</strong> max-file-size-bytes and target computed to the same value, so rewrite_data_files was rejected at parse time</span></li>
                 <li><span class="ko"><strong>범위 컴팩션 미동작</strong> where 조건의 따옴표 소실로 배포 이후 한 번도 동작하지 않음</span><span class="en"><strong>Ranged compaction inert</strong> Lost quoting in the where clause meant it had never run since release</span></li>
                 <li><span class="ko"><strong>스냅샷 3.9배 과소보고</strong> 조회 상한 1000에 포화돼 실측 3,910건을 1000으로 보고</span><span class="en"><strong>Snapshots under-reported 3.9×</strong> Counts saturated at the query limit of 1000 while the real figure was 3,910</span></li>
-                <li><span class="ko"><strong>회복</strong> 수정 전 코드로 되돌려 새 테스트가 실패하는지 확인한 뒤 커밋, 컴팩션 실행률 0%에서 정상 실행으로</span><span class="en"><strong>Recovered</strong> Each fix committed only after reverting to confirm the new test failed; compaction back from 0% to running normally</span></li>
+                <li><span class="ko"><strong>회복</strong> 수정 전 코드에서 새 테스트 실패를 확인한 뒤 커밋, 컴팩션 실행률 0% → 정상</span><span class="en"><strong>Recovered</strong> Each fix committed after confirming the new test failed on the old code; compaction from 0% to running</span></li>
               </ul>
             </li>
           </ul>
@@ -588,7 +588,7 @@
 
         <div class="notecard rv">
           <span class="when">2026.06 <span class="ko">~ </span><span class="en">- </span><span class="ko">현재</span><span class="en">Present</span></span>
-          <h3><span class="ko">운영 안정성, 죽어 있던 신호 되살리기</span><span class="en">Operational Hygiene, Bringing Dead Signals Back</span></h3>
+          <h3><span class="ko">알림 체계와 코드 정리</span><span class="en">Alerting and code cleanup</span></h3>
           <ul class="qa">
             <li><b><span class="ko">알림</span><span class="en">Alerting</span></b>
               <ul class="pts">
@@ -610,7 +610,7 @@
 
         <div class="notecard rv">
           <span class="when">2026.09</span>
-          <h3><span class="ko">증설한 메모리가 반영되지 않은 이유, YARN 설정에서 CPU 병목까지</span><span class="en">Why the Added Memory Wasn't Reflected, From a Stale YARN Setting to a CPU Bottleneck</span></h3>
+          <h3><span class="ko">YARN 메모리 설정 교정과 CPU 병목 해소</span><span class="en">YARN memory correction and CPU bottleneck</span></h3>
           <ul class="qa">
             <li><b><span class="ko">문제</span><span class="en">Problem</span></b>
               <ul class="pts">
@@ -628,7 +628,7 @@
             </li>
             <li><b><span class="ko">결과</span><span class="en">Result</span></b>
               <ul class="pts">
-                <li><span class="ko"><strong>최대 3.2배 단축</strong> 배치 처리 시간 928초 → 294초, 무거운 작업은 더 많은 자원을 받고 가벼운 작업은 반납해 전체가 빨라짐</span><span class="en"><strong>Up to 3.2x faster</strong> Batch runtime 928s to 294s, heavy jobs got more and light jobs gave theirs back</span></li>
+                <li><span class="ko"><strong>최대 3.2배 단축</strong> 배치 처리 시간 928초 → 294초, dynamic allocation으로 작업별 자원 배분</span><span class="en"><strong>Up to 3.2x faster</strong> Batch runtime 928s to 294s with per-job allocation</span></li>
                 <li><span class="ko"><strong>부수 효과</strong> Iceberg 유지보수 654초 → 212초, Hive on Tez 실패 2건 → 0건</span><span class="en"><strong>Side effects</strong> Iceberg maintenance 654s to 212s, Hive-on-Tez failures 2 to 0</span></li>
                 <li><span class="ko"><strong>무중단</strong> 전 과정 무중단, 롤백은 변수 하나만 되돌리면 됨</span><span class="en"><strong>Zero downtime</strong> Shipped without a stop, rollback is a single variable</span></li>
               </ul>
@@ -697,19 +697,19 @@
           </g>
           <g class="dg-node">
             <rect x="640" y="34" width="540" height="132" rx="14"/>
-            <text class="dg-t-sm ko" x="664" y="73.3">검증이 형태만 있었음</text>
-            <text class="dg-t-sm en" x="664" y="73.3">The check existed in shape only</text>
+            <text class="dg-t-sm ko" x="664" y="73.3">검증 미동작</text>
+            <text class="dg-t-sm en" x="664" y="73.3">Validation not working</text>
             <text class="dg-s ko" x="664" y="94.6">원천 건수를 대상 건수 칸에 복사만 함</text>
             <text class="dg-s en" x="664" y="94.6">The source count was copied across</text>
-            <text class="dg-s ko" x="664" y="116.6">비교하는 값이 실제로 없었음</text>
-            <text class="dg-s en" x="664" y="116.6">so no value was ever compared</text>
-            <text class="dg-s ko" x="664" y="138.6">main 에 바로 써서 바로 노출됨</text>
-            <text class="dg-s en" x="664" y="138.6">and writes went straight to main</text>
+            <text class="dg-s ko" x="664" y="116.6">실제 비교 값 없음</text>
+            <text class="dg-s en" x="664" y="116.6">no value actually compared</text>
+            <text class="dg-s ko" x="664" y="138.6">main 직접 기록, 즉시 노출</text>
+            <text class="dg-s en" x="664" y="138.6">written straight to main, exposed at once</text>
           </g>
           <g class="dg-node">
             <rect x="640" y="186" width="540" height="158" rx="14"/>
-            <text class="dg-t-sm ko" x="664" y="227.3">새던 곳</text>
-            <text class="dg-t-sm en" x="664" y="227.3">Where it leaked</text>
+            <text class="dg-t-sm ko" x="664" y="227.3">결함</text>
+            <text class="dg-t-sm en" x="664" y="227.3">Defects</text>
             <text class="dg-s ko" x="664" y="248.6">개행·특수문자가 Hive 컬럼을 밀어냄</text>
             <text class="dg-s en" x="664" y="248.6">Line breaks shifted Hive columns</text>
             <text class="dg-s ko" x="664" y="270.6">신규 컬럼 소수점 스펙 미공유</text>
@@ -721,8 +721,8 @@
           </g>
           <g class="dg-node">
             <rect x="640" y="400" width="540" height="132" rx="14"/>
-            <text class="dg-t-sm ko" x="664" y="439.3">지금은</text>
-            <text class="dg-t-sm en" x="664" y="439.3">Now</text>
+            <text class="dg-t-sm ko" x="664" y="439.3">수정 후</text>
+            <text class="dg-t-sm en" x="664" y="439.3">After</text>
             <text class="dg-s ko" x="664" y="460.6">검증 실패분이 main 에 닿지 않음</text>
             <text class="dg-s en" x="664" y="460.6">Failed loads never reach main</text>
             <text class="dg-s ko" x="664" y="482.6">확인이 SSH 에서 대시보드로</text>
@@ -741,8 +741,8 @@
         </svg>
           </div>
           <figcaption>
-            <span class="ko">검증을 통과한 데이터만 main 에 병합됩니다. 실패분은 브랜치에 남고 태스크 실패로 승격되어 알림이 나갑니다.</span>
-            <span class="en">Only data that passes the audit is merged into main. What fails stays on the branch and is promoted to a task failure with an alert.</span>
+            <span class="ko">검증 통과분만 main에 병합. 실패분은 브랜치에 격리, 태스크 실패로 승격 후 알림.</span>
+            <span class="en">Only validated data merges into main. Failures stay on the branch, become task failures and alert.</span>
           </figcaption>
         </figure>
     </div>
@@ -795,7 +795,7 @@
             <span class="tl__when">2023.07 <span class="ko">~ </span><span class="en">- </span><span class="ko">현재</span><span class="en">Present</span></span>
           </div>
           <h3><span class="ko">데이터 엔지니어 · 결제·정산 데이터 플랫폼</span><span class="en">Data Engineer · Payments &amp; Settlement Data Platform</span></h3>
-          <p><span class="ko">사내 온프레미스 데이터 플랫폼과 ML 업무를 받치는 데이터 인프라를 구축하고 운영합니다. 결제·정산 원천의 적재부터 마트 제공, 검증과 알림 체계까지 담당합니다.</span><span class="en">I build and run the on-prem data platform and the infrastructure behind our ML work, from ingesting payment and settlement sources through to serving marts, validation and alerting.</span></p>
+          <p><span class="ko">온프레미스 데이터 플랫폼과 ML용 데이터 인프라 구축·운영. 결제·정산 원천 적재, 마트 제공, 검증·알림 체계 담당.</span><span class="en">On-prem data platform and ML data infrastructure. Ingestion of payment and settlement sources, mart serving, validation and alerting.</span></p>
           <div>
             <span class="tag">Hadoop</span><span class="tag">Spark</span><span class="tag">Trino</span><span class="tag">Iceberg</span><span class="tag">Airflow</span>
           </div>
@@ -808,7 +808,7 @@
           </div>
           <h3><span class="ko">사내 AI 스프린톤 본선 진출, Re:cord</span><span class="en">AI Sprintathon Finalist, Re:cord</span></h3>
           <p class="tl__org"><span class="ko">전 그룹사 대상 사내 AI 스프린톤</span><span class="en">Group-wide internal AI sprintathon</span></p>
-          <p><span class="ko">Re:cord는 노무사가 흩어진 증거를 정리하는 워크스페이스입니다. 3인 팀에서 UI/UX와 발표를 담당했고, 프로토타입 전량을 AI 도구로 2일 만에 개발했습니다.</span><span class="en">Re:cord organises scattered evidence for labor attorneys. In a three-person team I owned UI/UX and the final pitch, with the whole prototype built using AI tooling in two days.</span></p>
+          <p><span class="ko">Re:cord: 노무사용 증거 정리 워크스페이스. 3인 팀에서 UI/UX와 발표 담당, 프로토타입은 AI 도구로 2일 개발.</span><span class="en">Re:cord: an evidence workspace for labor attorneys. UI/UX and pitch in a three-person team; prototype built in two days with AI tools.</span></p>
         </div>
       </div>
     </div>
@@ -819,10 +819,10 @@
     <div class="wrap contact">
       <div class="rv">
         <span class="eyebrow"><span class="ko">연락</span><span class="en">Connections</span></span>
-        <h2><span class="ko">궁금하신 게 있다면</span><span class="en">Anything you'd like to ask?</span></h2>
+        <h2><span class="ko">연락</span><span class="en">Contact</span></h2>
         <p class="lead" style="margin-top:20px">
-          <span class="ko">데이터 엔지니어링 업무는 물론 그 외의 이야기도 좋습니다. 어떤 이야기든 환영입니다.</span>
-          <span class="en">Data engineering work, and anything beyond it too. Any conversation is welcome.</span>
+          <span class="ko">문의는 메일로.</span>
+          <span class="en">Reach me by email.</span>
         </p>
 
         <div class="channels">
@@ -852,10 +852,10 @@
 
       <div class="callout rv">
         <span class="callout__bg"><svg viewBox="0 0 24 24"><use href="#i-msg"/></svg></span>
-        <h3><span class="ko">무엇을 보면 좋을까요</span><span class="en">Where to look first</span></h3>
+        <h3><span class="ko">추천 순서</span><span class="en">Suggested reading</span></h3>
         <p>
-          <span class="ko">적재 정합성을 어떻게 보장했는지 궁금하시면 <b>Iceberg-Trino 데이터 마트</b>를, 운영 중 문제를 어떻게 찾아내는지 보시려면 <b>운영 기록</b>을 먼저 보시길 권합니다.</span>
-          <span class="en">If you care about how load integrity is guaranteed, start with the <b>Iceberg-Trino Data Mart</b>. If you want to see how problems get found in production, read <b>Operations</b>.</span>
+          <span class="ko">적재 정합성: <b>Iceberg-Trino 데이터 마트</b>. 운영 중 결함 발견: <b>운영 기록</b>.</span>
+          <span class="en">Load integrity: <b>Iceberg-Trino Data Mart</b>. Finding defects in production: <b>Operations</b>.</span>
         </p>
         <a class="btn btn--solid" href="mailto:moonfg9@gmail.com">
           <span class="ko">메일 보내기</span><span class="en">Send an email</span>
@@ -874,7 +874,7 @@
     <button class="backlink" type="button" data-back><svg viewBox="0 0 24 24"><use href="#i-arrow-left"/></svg><span class="ko">프로젝트로 돌아가기</span><span class="en">Back to projects</span></button>
     <div class="detail__head rv">
       <span class="eyebrow">Project 01 · CI/CD</span>
-      <h1><span class="ko">망 분리 CI/CD, 산출물 없이 코드만 승격</span><span class="en">Air-Gapped CI/CD, Promote Code, Never Artifacts</span></h1>
+      <h1><span class="ko">망 분리 CI/CD 파이프라인</span><span class="en">Air-gapped CI/CD pipeline</span></h1>
       <div class="detail__meta">
         <span><b><span class="ko">기간</span><span class="en">Period</span></b> 2026.07 <span class="ko">~ </span><span class="en">- </span><span class="ko">현재</span><span class="en">Present</span></span>
         <span><b><span class="ko">역할</span><span class="en">Role</span></b> <span class="ko">수작업 파일 배포를 워크플로로 전환</span><span class="en">Replacing a hand-copied release with a GitHub Actions workflow</span></span>
@@ -882,7 +882,7 @@
       <div class="detail__kicker">
         <div class="kick"><span class="kick__n"><span class="ko">5단계</span><span class="en">5 stages</span></span><span class="kick__l"><span class="ko">빌드 · 검증 · 승격 · 재빌드 · 배치</span><span class="en">build · verify · promote · rebuild · deploy</span></span></div>
         <div class="kick"><span class="kick__n"><span class="ko">0건</span><span class="en">0</span></span><span class="kick__l"><span class="ko">수작업 파일 복사</span><span class="en">files copied by hand</span></span></div>
-        <div class="kick"><span class="kick__n"><span class="ko">코드만</span><span class="en">Code only</span></span><span class="kick__l"><span class="ko">망 사이를 넘는 것은 산출물이 아닌 코드</span><span class="en">crosses the gap, never artifacts</span></span></div>
+        <div class="kick"><span class="kick__n"><span class="ko">코드만</span><span class="en">Code only</span></span><span class="kick__l"><span class="ko">승격 대상은 코드, 산출물 제외</span><span class="en">code promoted, artifacts excluded</span></span></div>
       </div>
     </div>
     <figure class="figurewrap rv">
@@ -926,8 +926,8 @@
           </g>
           <text class="dg-head" x="0" y="20">연구개발망  ·  R&amp;D NETWORK</text>
           <text class="dg-head" x="0" y="230">내부망  ·  INTERNAL NETWORK</text>
-          <text class="dg-s ko" x="0" y="376">승격 대상에 빌드 산출물이 섞이면 중단됩니다</text>
-          <text class="dg-s en" x="0" y="376">Promotion aborts if a build artifact slips into the tree</text>
+          <text class="dg-s ko" x="0" y="376">승격 대상에 빌드 산출물 포함 시 중단</text>
+          <text class="dg-s en" x="0" y="376">Abort if build artifacts are in the promotion tree</text>
           <line class="dg-line" x1="367" y1="80" x2="392" y2="80"/>
           <path class="dg-arrow" d="M392 74 L403 80 L392 86 Z"/>
           <line class="dg-line" x1="778" y1="80" x2="803" y2="80"/>
@@ -939,8 +939,8 @@
         </svg>
       </div>
       <figcaption>
-        <span class="ko">망 분리 구간을 넘는 승격 경로입니다. 산출물이 아니라 코드가 넘어가고, 운영망에서 다시 빌드합니다.</span>
-        <span class="en">The promotion path across separated networks. Code crosses, not artifacts, and production rebuilds it.</span>
+        <span class="ko">망 분리 구간의 승격 경로. 코드만 넘어가고 운영망에서 재빌드.</span>
+        <span class="en">Promotion path across separated networks. Only code crosses; production rebuilds.</span>
       </figcaption>
     </figure>
 
@@ -958,7 +958,7 @@
             <li><span class="ko"><strong>자동화 제안</strong> 형상관리를 SVN에서 GitHub Enterprise로 옮기는 시점에 배포 자동화를 함께 제안</span><span class="en"><strong>Proposed with the move</strong> Automating deployment was proposed alongside the move from SVN to GitHub Enterprise</span></li>
             <li><span class="ko"><strong>5단계 워크플로</strong> 파이썬·자바 배포 플로우를 GitHub Actions로 작성하고 빌드 · 검증 · 코드 승격 · 재빌드 · 배치로 분리, 테스트 수행</span><span class="en"><strong>Five-stage workflow</strong> Python and Java flows became GitHub Actions workflows with tests: build, verify, promote code, rebuild, deploy</span></li>
             <li><span class="ko"><strong>배포 경로 구축</strong> Nexus 저장소와 SeaweedFS 오브젝트 스토리지를 구축하고 권한 설정</span><span class="en"><strong>Deployment path</strong> Built and permissioned the Nexus repository and SeaweedFS object storage</span></li>
-            <li><span class="ko"><strong>산출물 가드</strong> 승격 대상 트리에 빌드 산출물이 섞이면 중단</span><span class="en"><strong>Artifact guard</strong> Promotion aborts if a build artifact slips into the tree</span></li>
+            <li><span class="ko"><strong>산출물 가드</strong> 승격 대상 트리에 빌드 산출물이 섞이면 중단</span><span class="en"><strong>Artifact guard</strong> Abort if build artifacts are in the promotion tree</span></li>
           </ul>
         </li>
         <li><b><span class="ko">결과</span><span class="en">Result</span></b>
@@ -991,10 +991,10 @@
     <button class="backlink" type="button" data-back><svg viewBox="0 0 24 24"><use href="#i-arrow-left"/></svg><span class="ko">프로젝트로 돌아가기</span><span class="en">Back to projects</span></button>
     <div class="detail__head rv">
       <span class="eyebrow">Project 02 · Metadata</span>
-      <h1><span class="ko">OpenMetadata 카탈로그와 text-to-SQL 한계 규명</span><span class="en">OpenMetadata Catalog and the Limits of Text-to-SQL</span></h1>
+      <h1><span class="ko">OpenMetadata 카탈로그와 text-to-SQL 검증</span><span class="en">OpenMetadata catalog and text-to-SQL validation</span></h1>
       <div class="detail__meta">
         <span><b><span class="ko">기간</span><span class="en">Period</span></b> 2026.06 <span class="ko">~ </span><span class="en">- </span><span class="ko">현재</span><span class="en">Present</span></span>
-        <span><b><span class="ko">역할</span><span class="en">Role</span></b> <span class="ko">도입 성공 여부가 아니라 사용 가능 범위를 갈라내는 것</span><span class="en">Mapping the usable boundary rather than declaring a rollout</span></span>
+        <span><b><span class="ko">역할</span><span class="en">Role</span></b> <span class="ko">카탈로그 구축과 text-to-SQL 적용 범위 측정</span><span class="en">Catalog build and text-to-SQL range measurement</span></span>
       </div>
       <div class="detail__kicker">
         <div class="kick"><span class="kick__n"><span class="ko">2,759</span><span class="en">2,759</span></span><span class="kick__l"><span class="ko">테이블 등재 · 컬럼 4만여 개</span><span class="en">tables catalogued · 40K+ columns</span></span></div>
@@ -1039,21 +1039,21 @@
           </g>
           <g class="dg-node">
             <rect x="0" y="222" width="578" height="118" rx="14"/>
-            <text class="dg-t-sm ko" x="24" y="265.3">여기까지는 됩니다</text>
-            <text class="dg-t-sm en" x="24" y="265.3">This far it works</text>
-            <text class="dg-s ko" x="24" y="286.6">스키마 · 코드값 · 조인 관계로 풀리는 영역</text>
-            <text class="dg-s en" x="24" y="286.6">Anything solvable from schema, codes and joins</text>
+            <text class="dg-t-sm ko" x="24" y="265.3">가능 영역</text>
+            <text class="dg-t-sm en" x="24" y="265.3">Works</text>
+            <text class="dg-s ko" x="24" y="286.6">스키마 · 코드값 · 조인 관계</text>
+            <text class="dg-s en" x="24" y="286.6">Schema, code values, joins</text>
             <text class="dg-s ko" x="24" y="308.6">조인 경로 탐색, 교차 검증용 대안 쿼리</text>
             <text class="dg-s en" x="24" y="308.6">Join-path discovery, cross-check queries</text>
           </g>
           <g class="dg-node">
             <rect x="602" y="222" width="578" height="118" rx="14"/>
-            <text class="dg-t-sm ko" x="626" y="265.3">여기부터는 안 됩니다</text>
-            <text class="dg-t-sm en" x="626" y="265.3">Past here it does not</text>
+            <text class="dg-t-sm ko" x="626" y="265.3">한계</text>
+            <text class="dg-t-sm en" x="626" y="265.3">Limits</text>
             <text class="dg-s ko" x="626" y="286.6">집계 구간 정의, 산출 항목 구성, 매출 판정 기준</text>
             <text class="dg-s en" x="626" y="286.6">Aggregation windows, output composition, revenue rules</text>
-            <text class="dg-s ko" x="626" y="308.6">업무 규칙이 문서화되지 않은 영역</text>
-            <text class="dg-s en" x="626" y="308.6">Anywhere the business rule was never written down</text>
+            <text class="dg-s ko" x="626" y="308.6">미문서화 업무 규칙</text>
+            <text class="dg-s en" x="626" y="308.6">Undocumented business rules</text>
           </g>
           <text class="dg-head" x="0" y="20">TEXT-TO-SQL LOOP</text>
           <text class="dg-head" x="0" y="208">MEASURED BOUNDARY</text>
@@ -1068,8 +1068,8 @@
         </svg>
       </div>
       <figcaption>
-        <span class="ko">카탈로그가 스키마와 리니지를 주고 실행은 read-only로 분리했습니다. 아래는 실제 업무 요청으로 재 본 경계입니다.</span>
-        <span class="en">The catalog supplies schema and lineage while execution stays read-only. Below is the boundary measured on a real request.</span>
+        <span class="ko">카탈로그는 스키마·리니지 제공, 실행은 read-only로 분리. 아래는 실제 업무 요청으로 측정한 범위.</span>
+        <span class="en">Catalog supplies schema and lineage; execution is read-only. Below is the range measured on a real request.</span>
       </figcaption>
     </figure>
 
@@ -1127,7 +1127,7 @@
       <h1><span class="ko">Iceberg-Trino 데이터 마트</span><span class="en">Iceberg-Trino Data Mart</span></h1>
       <div class="detail__meta">
         <span><b><span class="ko">기간</span><span class="en">Period</span></b> 2026.03 <span class="ko">~ </span><span class="en">- </span><span class="ko">현재</span><span class="en">Present</span></span>
-        <span><b><span class="ko">역할</span><span class="en">Role</span></b> <span class="ko">사후 확인이던 검증을 노출 차단 구조로 전환</span><span class="en">Turning after-the-fact checks into an exposure gate</span></span>
+        <span><b><span class="ko">역할</span><span class="en">Role</span></b> <span class="ko">적재 검증과 노출 차단</span><span class="en">Load validation and exposure gating</span></span>
       </div>
       <div class="detail__kicker">
         <div class="kick"><span class="kick__n"><span class="ko">0건</span><span class="en">0</span></span><span class="kick__l"><span class="ko">검증 실패분의 main 노출</span><span class="en">failed loads reaching main</span></span></div>
@@ -1142,7 +1142,7 @@
         <li><b><span class="ko">문제</span><span class="en">Problem</span></b>
           <ul class="pts">
             <li><span class="ko"><strong>Hive 한계</strong> 스냅샷과 트랜잭션이 없어 파티션이 없으면 행 단위 삭제조차 불가, managed/external 구분이 관리 부담으로 남음</span><span class="en"><strong>Hive limits</strong> No snapshots and no real transactions, so an unpartitioned table could not even be deleted row by row, and the managed/external split stayed a maintenance cost</span></li>
-            <li><span class="ko"><strong>형태만 검증</strong> 적재 검증은 원천 건수를 대상 건수 칸에 복사만 해 실제로 비교하는 값이 없었음</span><span class="en"><strong>A check in shape only</strong> Validation copied the source count into the target-count field, so no value was ever compared</span></li>
+            <li><span class="ko"><strong>형태만 검증</strong> 적재 검증은 원천 건수를 대상 건수 칸에 복사만 해 실제로 비교하는 값이 없었음</span><span class="en"><strong>A check in shape only</strong> Validation copied the source count into the target-count field, no value actually compared</span></li>
             <li><span class="ko"><strong>즉시 노출</strong> main에 바로 쓰고 확인하는 구조라 잘못 적재돼도 이미 조회 가능</span><span class="en"><strong>Instant exposure</strong> Writes went straight to main, so a bad load was already queryable</span></li>
           </ul>
         </li>
@@ -1181,7 +1181,7 @@
     </div>
     <section class="subwork rv">
       <span class="eyebrow"><span class="ko">이 프로젝트 안에서</span><span class="en">Within this project</span></span>
-      <h2><span class="ko">병목 구간 정의, 스토리지 리소스 최적화</span><span class="en">Defining the Bottlenecks, Optimising Storage</span></h2>
+      <h2><span class="ko">병목 분리와 스토리지 최적화</span><span class="en">Bottleneck isolation and storage optimisation</span></h2>
     <figure class="figurewrap rv">
           <div class="diagram">
             <svg viewBox="0 0 1180 508" role="img" aria-labelledby="perfTitle">
@@ -1247,8 +1247,8 @@
             </svg>
           </div>
           <figcaption>
-            <span class="ko">병목을 한 덩어리로 보지 않고 네 구간으로 나눠 각각 측정했습니다.</span>
-            <span class="en">Rather than treat the bottleneck as one thing, it was split into four and each measured.</span>
+            <span class="ko">병목을 네 구간으로 나눠 각각 측정.</span>
+            <span class="en">Bottleneck split into four parts, each measured.</span>
           </figcaption>
         </figure>
       <div class="detail__body">
@@ -1344,8 +1344,8 @@
             <text class="dg-s en" x="947" y="131.6">Search view and dashboards</text>
           </g>
           <text class="dg-head" x="0" y="20">PIPELINE</text>
-          <text class="dg-s ko" x="0" y="228">운영 서버에 접속하지 않고 로그를 찾아볼 수 있는 경로를 만드는 것이 목표였습니다</text>
-          <text class="dg-s en" x="0" y="228">The goal was a path to read logs without opening a production server</text>
+          <text class="dg-s ko" x="0" y="228">목표: 운영 서버 접속 없이 로그 조회</text>
+          <text class="dg-s en" x="0" y="228">Goal: read logs without production access</text>
           <line class="dg-line" x1="263" y1="115" x2="290" y2="115"/>
           <path class="dg-arrow" d="M290 109 L301 115 L290 121 Z"/>
           <line class="dg-line" x1="572" y1="115" x2="599" y2="115"/>
@@ -1355,8 +1355,8 @@
         </svg>
       </div>
       <figcaption>
-        <span class="ko">같은 PoC를 나눠 맡았고, 가운데 두 구간이 제가 개발한 부분입니다.</span>
-        <span class="en">The PoC was split across people; the middle two stages are the part I wrote.</span>
+        <span class="ko">PoC 4구간 중 가운데 두 구간 담당.</span>
+        <span class="en">Two of the four PoC stages were mine.</span>
       </figcaption>
     </figure>
 
@@ -1474,8 +1474,8 @@
           </g>
           <text class="dg-head" x="0" y="20">REAL-TIME LANE</text>
           <text class="dg-head" x="0" y="226">BATCH &amp; ML LANE</text>
-          <text class="dg-s ko" x="0" y="376">컴포넌트를 연결해 동작을 확인한 수준의 개인 학습 기록입니다</text>
-          <text class="dg-s en" x="0" y="376">A personal build: components wired together and confirmed working</text>
+          <text class="dg-s ko" x="0" y="376">개인 학습용 구성, 동작 확인 수준</text>
+          <text class="dg-s en" x="0" y="376">Personal build, verified working</text>
           <line class="dg-line" x1="212" y1="106" x2="225" y2="106"/>
           <path class="dg-arrow" d="M225 100 L236 106 L225 112 Z"/>
           <line class="dg-line" x1="456" y1="106" x2="469" y2="106"/>
@@ -1493,8 +1493,8 @@
         </svg>
       </div>
       <figcaption>
-        <span class="ko">실시간 조회용과 배치·ML용 두 갈래로 나눠 구성했습니다.</span>
-        <span class="en">Two lanes: one for live querying, one for batch and ML.</span>
+        <span class="ko">실시간 조회용과 배치·ML용 2개 레인.</span>
+        <span class="en">Two lanes: live querying and batch/ML.</span>
       </figcaption>
     </figure>
 
@@ -1549,7 +1549,7 @@
       <h1><span class="ko">사내 LLM 서빙(Qwen3), Milvus 벡터 DB 및 RAG</span><span class="en">In-house LLM Serving (Qwen3), Milvus &amp; RAG</span></h1>
       <div class="detail__meta">
         <span><b><span class="ko">기간</span><span class="en">Period</span></b> 2025.04 ~ 2025.08</span>
-        <span><b><span class="ko">역할</span><span class="en">Role</span></b> <span class="ko">폐쇄망에서 코드·내부 문서에 AI를 적용 가능하게 만든 플랫폼</span><span class="en">A platform bringing AI to code and internal documents on an air-gapped network</span></span>
+        <span><b><span class="ko">역할</span><span class="en">Role</span></b> <span class="ko">폐쇄망 코드·문서용 LLM 서빙과 RAG</span><span class="en">LLM serving and RAG for code and documents on an air-gapped network</span></span>
       </div>
       <div class="detail__kicker">
         <div class="kick"><span class="kick__n"><span class="ko">20~30명</span><span class="en">20-30</span></span><span class="kick__l"><span class="ko">사용자</span><span class="en">users</span></span></div>
@@ -1656,8 +1656,8 @@
         </svg>
       </div>
       <figcaption>
-        <span class="ko">문서를 미리 인덱싱해 두고, 개발자용과 임직원용 두 서비스가 같은 모델을 씁니다.</span>
-        <span class="en">Documents are indexed offline, and two services share the same served model.</span>
+        <span class="ko">문서는 사전 인덱싱, 개발자용과 임직원용 두 서비스가 같은 모델 사용.</span>
+        <span class="en">Documents indexed in advance; two services share one served model.</span>
       </figcaption>
     </figure>
 
@@ -1710,7 +1710,7 @@
       <h1><span class="ko">온프레미스 Hadoop 빅데이터 파이프라인 및 마트</span><span class="en">Big Data Pipeline &amp; Mart on On-Prem Hadoop</span></h1>
       <div class="detail__meta">
         <span><b><span class="ko">기간</span><span class="en">Period</span></b> 2023.08 ~ 2025.08</span>
-        <span><b><span class="ko">역할</span><span class="en">Role</span></b> <span class="ko">분석가의 운영 DB 쿼리 부담 제거</span><span class="en">Removing analyst query load from the operational DB</span></span>
+        <span><b><span class="ko">역할</span><span class="en">Role</span></b> <span class="ko">운영 DB 분석 쿼리 분리</span><span class="en">Analytical queries moved off the operational DB</span></span>
       </div>
       <div class="detail__kicker">
         <div class="kick"><span class="kick__n"><span class="ko">300만</span><span class="en">3M</span></span><span class="kick__l"><span class="ko">일 적재 건수</span><span class="en">rows loaded per day</span></span></div>
@@ -1756,8 +1756,8 @@
             <span class="stage" data-level="full"><span class="lbl"><span class="ko">운영</span><span class="en">Operate</span></span><span class="bar"></span></span>
           </div>
           <p style="margin:14px 0 0;font-size:12.5px;color:var(--mute)">
-            <span class="ko">플랫폼 아키텍처 설계는 이미 되어 있었고, 그 위의 적재 파이프라인과 DAG는 전량 직접 작성했습니다.</span>
-            <span class="en">The platform architecture was already designed; every ingestion pipeline and DAG on top of it was written by me.</span>
+            <span class="ko">플랫폼 아키텍처는 기존 설계, 적재 파이프라인과 DAG는 전량 직접 작성.</span>
+            <span class="en">Platform architecture pre-existing; all ingestion pipelines and DAGs written by me.</span>
           </p>
         </div>
         <div class="detail__aside rv">
@@ -1810,15 +1810,15 @@
               </g>
               <text class="dg-head" x="0" y="20">CYCLE</text>
               <text class="dg-head" x="0" y="222">YARN QUEUE 분할  ·  ISOLATION PER DAG</text>
-              <text class="dg-s ko" x="0" y="396">한 파이프라인의 지연이 다른 파이프라인을 밀지 않게 막았습니다</text>
-              <text class="dg-s en" x="0" y="396">One pipeline's delay no longer pushes the others</text>
+              <text class="dg-s ko" x="0" y="396">DAG 간 자원 격리로 지연 전파 차단</text>
+              <text class="dg-s en" x="0" y="396">Queue isolation stops delay spreading between DAGs</text>
               <line class="dg-line" x1="430" y1="104" x2="501" y2="104"/>
               <path class="dg-arrow" d="M501 98 L512 104 L501 110 Z"/>
             </svg>
           </div>
           <figcaption>
-            <span class="ko">주기를 줄이면서 생긴 경합을 큐 분할로 끊었습니다. 현재는 운영하지 않는 파이프라인입니다.</span>
-            <span class="en">Shortening the cycle created contention; splitting queues cut it. This pipeline is no longer in operation.</span>
+            <span class="ko">주기 단축으로 생긴 경합을 큐 분할로 해소. 현재 미운영.</span>
+            <span class="en">Contention from the shorter cycle resolved by queue splitting. No longer in operation.</span>
           </figcaption>
         </figure>
       <div class="detail__body">
