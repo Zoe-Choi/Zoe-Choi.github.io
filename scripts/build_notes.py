@@ -34,7 +34,7 @@ CATEGORY_RULES = [
     ('개발', '저장소 · 인프라'),
     ('work', '저장소 · 인프라'),
 ]
-CATEGORY_ORDER = ['Spark · YARN', 'Iceberg · Lakehouse', '저장소 · 인프라', '운영 · 모니터링', 'Python · DB', '기타']
+CATEGORY_ORDER = ['Spark · YARN', 'Iceberg · Lakehouse', '저장소 · 인프라', '운영 · 모니터링', 'CI/CD · 배포', '데이터 거버넌스', 'Python · DB', '기타']
 
 SECRET_PATTERNS = [
     (r'\b(?!0\.0\.0\.0\b|127\.0\.0\.1\b)(?:\d{1,3}\.){3}\d{1,3}\b', 'IP address'),

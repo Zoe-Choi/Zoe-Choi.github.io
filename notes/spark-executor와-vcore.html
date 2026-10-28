@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spark executor와 vcore · Zoe Choi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="notes-body">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<g id="i-arrow-right" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></g>
+<g id="i-arrow-left" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></g>
+<g id="i-arrow-up-right" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></g>
+<g id="i-chevron-right" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></g>
+<g id="i-mail" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></g>
+<g id="i-github" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9a3.4 3.4 0 0 0-.9-2.6c3-.3 6.2-1.5 6.2-6.7A5.2 5.2 0 0 0 19.9 5a4.9 4.9 0 0 0-.1-3.6s-1.1-.3-3.7 1.4a12.7 12.7 0 0 0-6.6 0C6.9 1.1 5.8 1.4 5.8 1.4A4.9 4.9 0 0 0 5.7 5 5.2 5.2 0 0 0 4.3 8.8c0 5.2 3.2 6.4 6.2 6.7a3.4 3.4 0 0 0-.9 2.6V22"/></g>
+<g id="i-linkedin" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="2.5" width="19" height="19" rx="3"/><line x1="7.3" y1="10.4" x2="7.3" y2="17"/><circle cx="7.3" cy="7.1" r="1"/><path d="M11.4 17v-6.6M11.4 13.2c0-1.6 1-2.8 2.6-2.8s2.6 1.1 2.6 2.9V17"/></g>
+<g id="i-book" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></g>
+<g id="i-target" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4"/></g>
+<g id="i-spark" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/></g>
+<g id="i-code" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></g>
+<g id="i-db" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></g>
+<g id="i-flow" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="7" height="5" rx="1.5"/><rect x="15" y="16" width="7" height="5" rx="1.5"/><path d="M5.5 8v7a3 3 0 0 0 3 3H15"/></g>
+<g id="i-layers" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 9 5-9 5-9-5 9-5z"/><path d="m3 12 9 5 9-5"/><path d="m3 17 9 5 9-5"/></g>
+<g id="i-cap" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 9 12 4 2 9l10 5 10-5z"/><path d="M6 11.5V17c0 1.7 2.7 3 6 3s6-1.3 6-3v-5.5"/></g>
+<g id="i-msg" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.9 8.9 0 0 1-4-.9L3 21l1.9-4.9A8.4 8.4 0 0 1 12 3a8.4 8.4 0 0 1 9 8.5z"/></g>
+</defs></svg>
+<nav class="nav">
+  <div class="nav__inner">
+    <a class="brand" href="../index.html">
+      <span class="brand__mark">ZC</span>
+      <span class="ko">최재연</span><span class="en">Zoe Choi</span>
+    </a>
+    <div class="nav__links">
+      <a href="../index.html#about"><span class="ko">소개</span><span class="en">About</span></a>
+      <a href="../index.html#skills"><span class="ko">기술</span><span class="en">Skills</span></a>
+      <a href="../index.html#architecture"><span class="ko">구조</span><span class="en">Architecture</span></a>
+      <a href="../index.html#projects"><span class="ko">프로젝트</span><span class="en">Projects</span></a>
+      <a href="../index.html#operations"><span class="ko">운영 기록</span><span class="en">Operations</span></a>
+      <a href="../index.html#career"><span class="ko">경력</span><span class="en">Career</span></a>
+      <a href="../index.html#contact"><span class="ko">연락</span><span class="en">Contact</span></a>
+      <a href="index.html" class="nav__ext"><span class="ko">노트</span><span class="en">Notes</span><svg viewBox="0 0 24 24"><use href="../index.html#i-arrow-up-right"/></svg></a>
+    </div>
+    
+  </div>
+</nav>
+
+<main class="notes-main">
+  <section class="band band--white">
+    <div class="wrap">
+      <a class="backlink" href="index.html"><svg viewBox="0 0 24 24"><use href="#i-arrow-left"/></svg>노트 목록</a>
+      <div class="note-head rv">
+        <span class="eyebrow">Spark · YARN · 개념</span>
+        <h1>Spark executor와 vcore</h1>
+        <div class="detail__meta"><span><b>정리</b> 2026-09-14</span></div>
+      </div>
+      <article class="prose rv">
+<h2>한 줄 정의</h2>
+<p>executor는 Spark가 일을 시키는 작업반 하나이고, vcore는 그 반에 배정된 일손 수, num_executors는 반을 몇 개 만들지다. 총 처리 능력 = 반 개수 x 반당 일손.</p>
+<h2>자세히</h2>
+<p>공장 비유로 보면 이렇다.</p>
+<div class="tbl"><table><thead><tr><th>용어</th><th>비유</th><th>실제</th></tr></thead><tbody><tr><td>워커 노드</td><td>공장 건물 한 동</td><td>물리 서버</td></tr><tr><td>YARN</td><td>공장 관리실</td><td>자원을 나눠주는 스케줄러</td></tr><tr><td>Spark 앱(job)</td><td>주문 하나</td><td>테이블 하나 적재</td></tr><tr><td><strong>executor</strong></td><td><strong>작업반 하나</strong></td><td>메모리와 코어를 묶어 받는 실행 단위, JVM 프로세스</td></tr><tr><td><strong>executor cores (vcore)</strong></td><td><strong>반에 있는 일손 수</strong></td><td>그 반이 동시에 처리할 수 있는 task 개수</td></tr><tr><td><strong>num_executors</strong></td><td><strong>반을 몇 개 만들지</strong></td><td>앱이 요청하는 executor 개수</td></tr><tr><td>executor memory</td><td>반이 쓸 작업대 크기</td><td>executor 하나의 JVM 힙</td></tr></tbody></table></div>
+<p>계산은 단순하다.</p>
+<pre><code>주문 하나가 요구하는 일손 = num_executors x executor_cores
+주문 하나가 요구하는 공간 = num_executors x executor_memory</code></pre>
+<h3>vcore는 진짜 CPU 코어가 아니다</h3>
+<p>YARN의 vcore는 <strong>스케줄링 회계 단위</strong>다. cgroups CPU 제한을 켜지 않으면 실제 CPU를 묶어두지 않는다. 물리 코어보다 많이 배정(오버커밋)해도 컨테이너가 죽지 않고 각자 조금씩 느려질 뿐이다.</p>
+<p>메모리는 반대다. 물리적으로 없으면 컨테이너가 죽는다. 그래서 <strong>메모리는 보수적으로, vcore는 관대하게</strong> 잡는 것이 일반적이다.</p>
+<h3>고정 요청의 문제</h3>
+<p><code>num_executors</code>를 고정하면 큰 작업과 작은 작업에 같은 값이 적용된다. 작은 테이블이 필요량의 수백 배를 요청해 다른 앱의 자원을 뺏는다.</p>
+<p>해법이 <strong>dynamic allocation</strong>이다. 적은 수로 시작해 task가 밀리면 자동으로 executor를 늘린다. <code>--num-executors</code>를 같이 넘기면 그 값이 초기 executor 수가 된다.</p>
+<pre><code>Using initial executors = 4, max of initialExecutors, minExecutors and spark.executor.instances
+Requesting 1 new executor because tasks are backlogged (new desired total will be 5)</code></pre>
+<p>증가는 배수로 일어난다. 4 -&gt; 5 -&gt; 7 -&gt; 11 -&gt; 19 -&gt; 35 식이고 라운드 간격이 약 1초라 수 초 안에 필요한 규모에 도달한다.</p>
+<h2>처음 값은 어떻게 정하나</h2>
+<p>순서가 있다. 코어 -&gt; 메모리 -&gt; 개수.</p>
+<p><strong>1. executor_cores: 2~5, 기본 4</strong></p>
+<ul><li>너무 적으면(1~2) 반이 많아져 JVM 기동 비용이 늘고 공통 데이터가 반마다 복제된다</li><li>너무 많으면(6 이상) 한 executor 안에서 HDFS 동시 읽기가 서로 방해해 처리량이 떨어진다</li></ul>
+<p><strong>2. executor_memory: 태스크 하나가 다루는 데이터에서 역산</strong></p>
+<pre><code>파티션 하나 = 128~200MB
+동시 처리    = executor_cores개
+필요 공간    = cores x 200MB</code></pre>
+<p>힙 전부를 데이터에 쓰지 않는다. <code>spark.memory.fraction</code> 기본 0.6이라 실제 데이터용은 60% 수준이고 정렬/조인 중간 공간도 필요하다. 여유를 두면 <strong>4~8GB가 기본</strong>. 32GB를 넘기면 GC 정지가 길어져 역효과다.</p>
+<p><strong>3. num_executors: 데이터 크기에서</strong></p>
+<pre><code>파티션 수      = 데이터 크기 / 150MB
+필요한 총 코어 = 파티션 수 / 3
+num_executors  = 총 코어 / executor_cores</code></pre>
+<p>100GB면 파티션 670개, 코어 220개, 4코어 executor 55개.</p>
+<p><strong>4. 한도 확인</strong></p>
+<p>컨테이너 크기(<code>executor_memory + memoryOverhead</code>)가 <code>yarn.scheduler.maximum-allocation-mb</code>를 넘으면 영원히 배정되지 않는다. 반대로 그 값이 <code>yarn.nodemanager.resource.memory-mb</code>보다 크면 그것도 모순이다.</p>
+<p><strong>5. 공식은 시작점일 뿐</strong></p>
+<p>돌린 뒤 실측으로 고친다.</p>
+<div class="tbl"><table><thead><tr><th>관측</th><th>해석</th><th>조치</th></tr></thead><tbody><tr><td>요청보다 훨씬 적게 사용</td><td>과할당</td><td>줄이기</td></tr><tr><td>executor를 늘려도 시간이 안 줄어듦</td><td>이미 충분</td><td>그만 늘리기</td></tr><tr><td>GC 시간이 김</td><td>메모리 과다 또는 파티션 과대</td><td>파티션 늘리기</td></tr><tr><td>컨테이너가 YARN에 killed</td><td>여유분 부족</td><td><code>memoryOverhead</code> 상향</td></tr></tbody></table></div>
+<p><strong>6. 크기 편차가 크면 공식이 무의미하다</strong></p>
+<p>같은 프로파일을 쓰는 작업의 실측이 수백 배 차이나면 고정값으로는 한쪽이 굶거나 낭비한다. dynamic allocation이 이 문제를 위해 존재한다.</p>
+<h2>왜 중요/어디서 씀</h2>
+<p>병목이 메모리인지 CPU인지에 따라 처방이 정반대다.</p>
+<div class="tbl"><table><thead><tr><th>증상</th><th>병목</th><th>처방</th></tr></thead><tbody><tr><td>앱이 큐에서 대기, 같은 작업이 실행마다 편차 큼</td><td>메모리</td><td><code>yarn.nodemanager.resource.memory-mb</code> 상향</td></tr><tr><td>앱이 동시에 돌지만 각자 느림, 워커 CPU 80%+</td><td>CPU</td><td>executor 과요청 줄이기, dynamic allocation</td></tr><tr><td>컨테이너가 YARN에 killed</td><td>힙 밖 메모리</td><td><code>memoryOverhead</code> 상향</td></tr><tr><td>executor에서 Java heap space</td><td>파티션당 데이터 과다</td><td><code>shuffle.partitions</code> 상향</td></tr></tbody></table></div>
+<p>메모리 병목을 풀면 CPU가 다음 병목으로 드러나는 일이 흔하다. 병목이 사라지는 게 아니라 한 단계 뒤로 밀리는 것이다.</p>
+<h2>예시</h2>
+<p>2026-09 운영 하둡 클러스터 사례. 상세는 Hadoop 메모리 재설계.</p>
+<pre><code>워커 3대, 각 물리 메모리 252GB, logical core 32개 (총 96개)
+
+튜닝 전
+  YARN이 인식한 메모리  : 노드당 48GB, 합계 144GB   &lt;- 증설분 미반영
+  앱 하나의 요청        : executor 30개 x 4코어 = 일손 120명
+                          executor 30개 x 4GB   = 공간 132GB
+  결과                  : 주문 하나가 공장 전체를 요구. 나머지는 대기
+
+조치 1 (메모리)
+  노드당 48GB -&gt; 160GB, 합계 480GB
+  결과: 대기 해소. 최대 앱이 69,915 -&gt; 153,130 MB로 2.2배 확보
+
+조치 2 (CPU)
+  num_executors 30 -&gt; 4 + dynamic allocation
+  결과: 작은 테이블은 4개로 끝, 큰 테이블은 자동 증설</code></pre>
+<p>조치 1 이후 워커 CPU가 84%, 81%로 올라간 것이 병목 이동의 신호였다. 앱들이 동시에 돌기 시작했다는 뜻이다.</p>
+      </article>
+    </div>
+  </section>
+</main>
+<footer class="foot">
+  <div class="foot__inner">
+    <div class="foot__id">
+      <span class="brand__mark">ZC</span>
+      <span class="ko">최재연 · 데이터 엔지니어</span><span class="en">Jaeyeon Choi · Data Engineer</span>
+    </div>
+    <small>© <span id="year">2026</span> Jaeyeon Choi</small>
+    <div class="foot__links">
+      <a href="index.html">Notes</a>
+      <a href="mailto:moonfg9@gmail.com">Email</a>
+      <a href="https://github.com/Zoe-Choi" rel="me noopener" target="_blank">GitHub</a>
+      <a href="https://www.linkedin.com/in/jaeyeon-choi-614026245" rel="me noopener" target="_blank">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+<script>document.querySelectorAll('.rv').forEach(function(e){e.classList.add('in')});</script>
+</body>
+</html>

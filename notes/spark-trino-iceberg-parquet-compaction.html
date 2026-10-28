@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spark, Trino, Iceberg, Parquet, ClickHouse, Kafka 개념 정리 · Zoe Choi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="notes-body">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<g id="i-arrow-right" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></g>
+<g id="i-arrow-left" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></g>
+<g id="i-arrow-up-right" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></g>
+<g id="i-chevron-right" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></g>
+<g id="i-mail" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></g>
+<g id="i-github" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9a3.4 3.4 0 0 0-.9-2.6c3-.3 6.2-1.5 6.2-6.7A5.2 5.2 0 0 0 19.9 5a4.9 4.9 0 0 0-.1-3.6s-1.1-.3-3.7 1.4a12.7 12.7 0 0 0-6.6 0C6.9 1.1 5.8 1.4 5.8 1.4A4.9 4.9 0 0 0 5.7 5 5.2 5.2 0 0 0 4.3 8.8c0 5.2 3.2 6.4 6.2 6.7a3.4 3.4 0 0 0-.9 2.6V22"/></g>
+<g id="i-linkedin" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="2.5" width="19" height="19" rx="3"/><line x1="7.3" y1="10.4" x2="7.3" y2="17"/><circle cx="7.3" cy="7.1" r="1"/><path d="M11.4 17v-6.6M11.4 13.2c0-1.6 1-2.8 2.6-2.8s2.6 1.1 2.6 2.9V17"/></g>
+<g id="i-book" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></g>
+<g id="i-target" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4"/></g>
+<g id="i-spark" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/></g>
+<g id="i-code" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></g>
+<g id="i-db" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></g>
+<g id="i-flow" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="7" height="5" rx="1.5"/><rect x="15" y="16" width="7" height="5" rx="1.5"/><path d="M5.5 8v7a3 3 0 0 0 3 3H15"/></g>
+<g id="i-layers" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 9 5-9 5-9-5 9-5z"/><path d="m3 12 9 5 9-5"/><path d="m3 17 9 5 9-5"/></g>
+<g id="i-cap" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 9 12 4 2 9l10 5 10-5z"/><path d="M6 11.5V17c0 1.7 2.7 3 6 3s6-1.3 6-3v-5.5"/></g>
+<g id="i-msg" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.9 8.9 0 0 1-4-.9L3 21l1.9-4.9A8.4 8.4 0 0 1 12 3a8.4 8.4 0 0 1 9 8.5z"/></g>
+</defs></svg>
+<nav class="nav">
+  <div class="nav__inner">
+    <a class="brand" href="../index.html">
+      <span class="brand__mark">ZC</span>
+      <span class="ko">최재연</span><span class="en">Zoe Choi</span>
+    </a>
+    <div class="nav__links">
+      <a href="../index.html#about"><span class="ko">소개</span><span class="en">About</span></a>
+      <a href="../index.html#skills"><span class="ko">기술</span><span class="en">Skills</span></a>
+      <a href="../index.html#architecture"><span class="ko">구조</span><span class="en">Architecture</span></a>
+      <a href="../index.html#projects"><span class="ko">프로젝트</span><span class="en">Projects</span></a>
+      <a href="../index.html#operations"><span class="ko">운영 기록</span><span class="en">Operations</span></a>
+      <a href="../index.html#career"><span class="ko">경력</span><span class="en">Career</span></a>
+      <a href="../index.html#contact"><span class="ko">연락</span><span class="en">Contact</span></a>
+      <a href="index.html" class="nav__ext"><span class="ko">노트</span><span class="en">Notes</span><svg viewBox="0 0 24 24"><use href="../index.html#i-arrow-up-right"/></svg></a>
+    </div>
+    
+  </div>
+</nav>
+
+<main class="notes-main">
+  <section class="band band--white">
+    <div class="wrap">
+      <a class="backlink" href="index.html"><svg viewBox="0 0 24 24"><use href="#i-arrow-left"/></svg>노트 목록</a>
+      <div class="note-head rv">
+        <span class="eyebrow">Iceberg · Lakehouse · 개념</span>
+        <h1>Spark, Trino, Iceberg, Parquet, ClickHouse, Kafka 개념 정리</h1>
+        <div class="detail__meta"><span><b>정리</b> 2026-06-29</span></div>
+      </div>
+      <article class="prose rv">
+<h2>1. Parquet 파일 구조와 Spark 읽기 원리</h2>
+<h3>Parquet는 무엇인가</h3>
+<ul><li>행 중심이 아니라 컬럼 중심으로 저장하는 파일 포맷</li><li>필요한 컬럼만 읽기 쉬워서 분석 쿼리에 유리</li><li>압축 효율이 좋고, 컬럼 통계를 같이 저장해서 건너뛰기 최적화가 가능</li></ul>
+<h3>구조</h3>
+<ul><li>file<ul><li>row group<ul><li>column chunk<ul><li>page<ul><li>실제 데이터와 인코딩 정보</li></ul></li></ul></li></ul></li></ul></li><li>footer에 schema, row group 위치, 통계 정보가 들어감</li></ul>
+<h3>왜 빠른가</h3>
+<ul><li>필요한 컬럼만 읽음</li><li>row group 단위로 스킵 가능</li><li>min/max 통계로 불필요한 데이터 블록을 건너뜀</li><li>압축과 벡터화 읽기와 잘 맞음</li></ul>
+<h3>Spark가 읽는 과정</h3>
+<ol><li>파일 목록을 찾음</li><li>footer를 읽어서 schema와 row group 위치를 확인</li><li>필요한 컬럼만 남김</li><li>filter pushdown이 가능하면 row group을 스킵</li><li>컬럼 chunk를 batch 단위로 읽음</li><li>디코딩해서 DataFrame으로 만듦</li></ol>
+<h3>읽기 성능을 볼 때 보는 값</h3>
+<ul><li>scanned bytes</li><li>scanned files</li><li>skipped row groups</li><li>같은 쿼리의 실행 시간 변화</li></ul>
+<hr>
+<h2>2. Spark와 Trino 차이</h2>
+<h3>핵심 차이</h3>
+<ul><li>Spark는 대용량 변환과 적재에 강한 배치 처리 엔진</li><li>Trino는 여러 저장소를 바로 읽는 분산 SQL 질의 엔진</li></ul>
+<h3>Spark가 대용량 ETL에 강한 이유</h3>
+<ul><li>driver가 전체 작업 계획을 만들고 stage로 나눔</li><li>shuffle, spill, retry, lineage가 배치 처리에 맞음</li><li>중간 결과를 오래 들고 있는 복잡한 변환에 유리</li><li>쓰기 작업과 대규모 재처리에 적합</li><li>DataFrame과 SQL을 같이 쓰면서 로직을 크게 만들기 좋음</li></ul>
+<h3>Trino가 SQL 조회에 강한 이유</h3>
+<ul><li>coordinator가 쿼리 계획을 만들고 worker에 나눔</li><li>operator들이 파이프라인 방식으로 데이터를 흘려보냄</li><li>connector가 읽기, 필터, projection을 아래로 밀어내는 pushdown을 수행</li><li>데이터 이동을 최소화하면 빠르게 응답 가능</li><li>여러 소스에 동시에 붙는 federated query에 적합</li></ul>
+<h3>왜 ETL에 Trino만 쓰지 않는가</h3>
+<ul><li>ETL은 보통 변환 단계가 많고 shuffle이 큼</li><li>Trino는 조회 엔진이라 긴 배치 파이프라인 제어가 Spark보다 약함</li><li>대량 write, 재시도, 중간 상태 관리, checkpoint 같은 배치 안정성은 Spark가 더 맞음</li><li>단순 조회나 필터, 집계는 Trino가 빠를 수 있지만, ETL 전체를 대체하는 건 아님</li></ul>
+<h3>한 줄로 정리</h3>
+<ul><li>Spark는 많이 바꾸고 많이 쓰는 일에 강하고, Trino는 있는 데이터를 빨리 조회하는 데 강함</li></ul>
+<hr>
+<h2>3. Iceberg와 Parquet 차이, Iceberg가 쓰이는 이유</h2>
+<h3>Parquet와 Iceberg는 다름</h3>
+<ul><li>Parquet는 파일 포맷</li><li>Iceberg는 테이블 포맷</li><li>Iceberg 테이블 안의 실제 데이터 파일이 Parquet일 수 있음</li></ul>
+<h3>Iceberg가 범용적으로 쓰이는 이유</h3>
+<ul><li>schema evolution 지원</li><li>partition evolution 지원</li><li>snapshot 기반 일관성 제공</li><li>time travel 가능</li><li>hidden partitioning 지원</li><li>update, delete, merge 같은 테이블 동작을 지원</li><li>Spark, Trino, Flink 등 여러 엔진이 같이 접근하기 좋음</li></ul>
+<h3>Iceberg 메타데이터</h3>
+<ul><li>data file 목록</li><li>manifest 목록</li><li>partition 정보</li><li>snapshot 정보</li></ul>
+<h3>자주 쓰는 메타데이터 테이블</h3>
+<ul><li><code>$files</code></li><li><code>$manifests</code></li><li><code>$partitions</code></li><li><code>$snapshots</code></li></ul>
+<hr>
+<h2>4. Compaction이 무엇이고 언제 해야 하는가</h2>
+<h3>compaction 정의</h3>
+<ul><li>작은 파일이 너무 많이 생긴 것을 큰 파일로 합치는 작업</li></ul>
+<h3>왜 필요한가</h3>
+<ul><li>파일이 너무 잘게 쪼개지면 open 비용이 늘어남</li><li>계획 단계에서 읽어야 할 파일 수가 많아짐</li><li>manifest와 metadata가 커짐</li><li>스캔 split과 task 수가 늘어남</li><li>쿼리 지연 시간이 길어질 수 있음</li></ul>
+<h3>속도 저하는 어떻게 감지하나</h3>
+<ul><li>같은 쿼리의 실행 시간이 예전보다 길어짐</li><li>P95, P99 같은 느린 구간이 커짐</li><li>bytes는 비슷한데 files 수만 늘어남</li><li>특정 partition에서 작은 파일이 계속 쌓임</li><li><code>$files</code> 조회 시 작은 파일 비율이 높음</li></ul>
+<h3>작은 파일 비율은 어떻게 보나</h3>
+<ul><li>고정된 정답 퍼센트는 없음</li><li>보통 목표 파일 크기를 먼저 정함</li><li>흔한 목표는 128MB에서 1GB 사이</li><li>partition별 파일 크기 분포를 본다</li><li>파일의 상당수가 목표 크기의 1/4 이하이면 경고 신호로 본다</li><li>median file size가 계속 작고 쿼리도 느려지면 compaction 대상</li></ul>
+<h3>컴팩션 주기는 무엇으로 정하나</h3>
+<ul><li>파일 크기 분포</li><li>partition별 small file 개수</li><li>snapshot과 manifest 증가 속도</li><li>실제 쿼리 지연 시간</li><li>ingest 빈도와 배치 주기</li></ul>
+<h3>결론</h3>
+<ul><li>비율 하나로 자르지 않고, 파일 크기 분포와 쿼리 지연을 같이 봐야 함</li></ul>
+<h3>Iceberg에서 확인하는 예</h3>
+<pre><code class="lang-sql">SELECT *
+FROM iceberg.&lt;schema&gt;.&lt;table&gt;$files;</code></pre>
+<hr>
+<h2>5. ClickHouse가 빠른 이유</h2>
+<h3>구조적 이유</h3>
+<ul><li>columnar storage</li><li>강한 compression</li><li>vectorized execution</li><li>필요한 컬럼만 읽음</li><li>primary key 기반 data skipping</li><li>sparse index와 mark structure로 빠르게 건너뜀</li></ul>
+<h3>왜 OLAP에 강한가</h3>
+<ul><li>집계와 스캔이 많을수록 유리</li><li>분석용 쿼리에서 읽지 않아도 되는 블록을 많이 건너뛸 수 있음</li><li>대량 읽기와 집계에 최적화되어 있음</li></ul>
+<h3>주의점</h3>
+<ul><li>OLTP용 일반 RDB와 목표가 다름</li><li>업데이트 중심 업무보다 분석 중심 업무에 맞음</li></ul>
+<hr>
+<h2>6. Kafka에서 트래픽이 예상보다 크게 몰릴 때</h2>
+<h3>가장 먼저 보는 것</h3>
+<ul><li>producer가 너무 빠른지</li><li>consumer가 병렬로 충분히 읽고 있는지</li><li>partition 수가 충분한지</li></ul>
+<h3>가장 간단한 조절</h3>
+<ul><li>처리량을 늘릴 때는 partition과 consumer를 늘림</li><li>유입을 줄일 때는 producer rate limit 또는 quota를 건다</li></ul>
+<h3>왜 partition이 중요한가</h3>
+<ul><li>Kafka 병렬성의 기본 단위가 partition</li><li>partition이 적으면 consumer를 많이 붙여도 병렬도가 안 늘어남</li><li>partition이 많아야 처리량을 수평 확장하기 쉬움</li></ul>
+<h3>실무 대응</h3>
+<ul><li>partition 확장</li><li>consumer scaling</li><li>producer throttling</li><li>backlog 허용량 조절</li><li>필요하면 buffer zone을 두고 downstream 보호</li></ul>
+<hr>
+<h2>7. ETL에 예상보다 많은 데이터가 들어왔을 때</h2>
+<h3>즉시 대응</h3>
+<ul><li>raw zone에 먼저 안전하게 쌓음</li><li>consumer 또는 worker 수평 확장</li><li>batch size 조정</li><li>shuffle 설정과 memory 설정 점검</li><li>backpressure 적용</li><li>ingest rate 제한</li></ul>
+<h3>구조적 대응</h3>
+<ul><li>수집 단계와 처리 단계를 분리</li><li>재처리 가능하게 설계</li><li>idempotent하게 작성</li><li>checkpoint와 replay 경로 확보</li><li>실패한 데이터는 별도 보관</li></ul>
+<h3>핵심</h3>
+<ul><li>데이터를 잃지 않기</li><li>중복이 생겨도 다시 돌릴 수 있게 만들기</li><li>처리 속도와 유입 속도를 분리하기</li></ul>
+<hr>
+<h2>8. 한 줄 정리</h2>
+<ul><li>Parquet는 파일 포맷</li><li>Iceberg는 테이블 포맷</li><li>Spark는 대량 변환 엔진</li><li>Trino는 대화형 SQL 엔진</li><li>ClickHouse는 OLAP용 분석 DB</li><li>Kafka는 스트림 버퍼와 전달 계층</li></ul>
+      </article>
+    </div>
+  </section>
+</main>
+<footer class="foot">
+  <div class="foot__inner">
+    <div class="foot__id">
+      <span class="brand__mark">ZC</span>
+      <span class="ko">최재연 · 데이터 엔지니어</span><span class="en">Jaeyeon Choi · Data Engineer</span>
+    </div>
+    <small>© <span id="year">2026</span> Jaeyeon Choi</small>
+    <div class="foot__links">
+      <a href="index.html">Notes</a>
+      <a href="mailto:moonfg9@gmail.com">Email</a>
+      <a href="https://github.com/Zoe-Choi" rel="me noopener" target="_blank">GitHub</a>
+      <a href="https://www.linkedin.com/in/jaeyeon-choi-614026245" rel="me noopener" target="_blank">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+<script>document.querySelectorAll('.rv').forEach(function(e){e.classList.add('in')});</script>
+</body>
+</html>

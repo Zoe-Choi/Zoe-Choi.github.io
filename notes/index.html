@@ -56,9 +56,113 @@
         <h1>업무하면서 모르던 것들</h1>
         <p class="lead">일하다 막힌 개념을 짧게 정리합니다. 한 줄 정의로 시작해, 왜 중요한지와 예시까지.</p>
       </div>
-      <div class="chips rv"><button type="button" class="chip is-on" data-filter="*">전체 <i>0</i></button></div>
+      <div class="chips rv"><button type="button" class="chip is-on" data-filter="*">전체 <i>15</i></button><button type="button" class="chip" data-filter="Spark · YARN">Spark · YARN <i>3</i></button><button type="button" class="chip" data-filter="Iceberg · Lakehouse">Iceberg · Lakehouse <i>2</i></button><button type="button" class="chip" data-filter="저장소 · 인프라">저장소 · 인프라 <i>3</i></button><button type="button" class="chip" data-filter="운영 · 모니터링">운영 · 모니터링 <i>1</i></button><button type="button" class="chip" data-filter="CI/CD · 배포">CI/CD · 배포 <i>3</i></button><button type="button" class="chip" data-filter="데이터 거버넌스">데이터 거버넌스 <i>2</i></button><button type="button" class="chip" data-filter="Python · DB">Python · DB <i>1</i></button></div>
       <ul class="note-list rv">
-      <li class="note-empty">아직 올린 노트가 없습니다. 정리되는 대로 하나씩 추가합니다.</li>
+      <li class="note-row" data-cat="CI/CD · 배포">
+        <a href="python-ci-정적-검사-도구.html">
+          <span class="note-row__meta"><span class="note-row__date">2026-10-02</span><span class="note-row__kind note-row__kind--concept">개념</span><span class="note-row__cat">CI/CD · 배포</span></span>
+          <strong class="note-row__title">Python CI 정적 검사 도구 (compileall, ruff, pytest)</strong>
+          <span class="note-row__ex">실행 없이 문법을 보는 compileall, 실행 없이 확실한 버그 패턴을 보는 ruff, 실제로 실행해 기대값을 대조하는 pytest. CI에서 비용이 낮은 순서로 쌓는다.</span>
+        </a>
+      </li>
+      <li class="note-row" data-cat="CI/CD · 배포">
+        <a href="알파와-리얼-환경.html">
+          <span class="note-row__meta"><span class="note-row__date">2026-09-21</span><span class="note-row__kind note-row__kind--concept">개념</span><span class="note-row__cat">CI/CD · 배포</span></span>
+          <strong class="note-row__title">알파와 리얼 (배포 환경 호칭)</strong>
+          <span class="note-row__ex">리얼(real)은 운영 환경(production), 알파(alpha)는 운영 배포 직전의 내부 검증 환경(staging / pre-prod)이다.</span>
+        </a>
+      </li>
+      <li class="note-row" data-cat="Spark · YARN">
+        <a href="spark-executor와-vcore.html">
+          <span class="note-row__meta"><span class="note-row__date">2026-09-14</span><span class="note-row__kind note-row__kind--concept">개념</span><span class="note-row__cat">Spark · YARN</span></span>
+          <strong class="note-row__title">Spark executor와 vcore</strong>
+          <span class="note-row__ex">executor는 Spark가 일을 시키는 작업반 하나이고, vcore는 그 반에 배정된 일손 수, num_executors는 반을 몇 개 만들지다. 총 처리 능력 = 반 개수 x 반당 일손.</span>
+        </a>
+      </li>
+      <li class="note-row" data-cat="Spark · YARN">
+        <a href="namenode-힙과-datanode-메모리.html">
+          <span class="note-row__meta"><span class="note-row__date">2026-09-10</span><span class="note-row__kind note-row__kind--concept">개념</span><span class="note-row__cat">Spark · YARN</span></span>
+          <strong class="note-row__title">NameNode 힙과 DataNode 메모리</strong>
+          <span class="note-row__ex">NameNode 힙은 파일과 블록의 개수에 비례하는 메타데이터 저장 공간이고, DataNode 서버의 물리 메모리는 사실상 같은 노드의 YARN NodeManager 컨테이너용이다. 둘은 해결하…</span>
+        </a>
+      </li>
+      <li class="note-row" data-cat="운영 · 모니터링">
+        <a href="airflow-warn_deployment_exposure.html">
+          <span class="note-row__meta"><span class="note-row__date">2026-09-03</span><span class="note-row__kind note-row__kind--concept">개념</span><span class="note-row__cat">운영 · 모니터링</span></span>
+          <strong class="note-row__title">Airflow warn_deployment_exposure</strong>
+          <span class="note-row__ex">Airflow webserver가 /robots.txt 요청을 받으면 "이 배포가 인터넷에 노출된 것 같다"고 UI에 띄우는 경고. [webserver] warn_deployment_exposu…</span>
+        </a>
+      </li>
+      <li class="note-row" data-cat="저장소 · 인프라">
+        <a href="jvm.html">
+          <span class="note-row__meta"><span class="note-row__date">2026-09-02</span><span class="note-row__kind note-row__kind--concept">개념</span><span class="note-row__cat">저장소 · 인프라</span></span>
+          <strong class="note-row__title">JVM</strong>
+          <span class="note-row__ex">Java Virtual Machine. Java, Scala, Kotlin 소스를 컴파일한 바이트코드(.class, .jar)를 OS/CPU 종류와 무관하게 실행해 주는 런타임.</span>
+        </a>
+      </li>
+      <li class="note-row" data-cat="CI/CD · 배포">
+        <a href="커밋-sha-검증.html">
+          <span class="note-row__meta"><span class="note-row__date">2026-07-30</span><span class="note-row__kind note-row__kind--concept">개념</span><span class="note-row__cat">CI/CD · 배포</span></span>
+          <strong class="note-row__title">커밋 SHA 검증</strong>
+          <span class="note-row__ex">git push 종료 코드를 믿지 않고, push 후 원격에 다시 물어서 "그 브랜치가 내가 밀어넣은 커밋을 정확히 가리키는지" 대조하는 배포 승격 단계의 안전장치.</span>
+        </a>
+      </li>
+      <li class="note-row" data-cat="저장소 · 인프라">
+        <a href="github-도메인-구성과-프록시-차단.html">
+          <span class="note-row__meta"><span class="note-row__date">2026-07-28</span><span class="note-row__kind note-row__kind--concept">개념</span><span class="note-row__cat">저장소 · 인프라</span></span>
+          <strong class="note-row__title">프록시 설정 확인</strong>
+          <span class="note-row__ex">github.com은 HTML만 주고 CSS/JS/이미지/API는 전부 별도 도메인에서 오므로, 프록시가 github.com만 허용하면 화면이 스타일 없는 순수 HTML로 깨진다.</span>
+        </a>
+      </li>
+      <li class="note-row" data-cat="데이터 거버넌스">
+        <a href="presidio-spacy-pii-분류.html">
+          <span class="note-row__meta"><span class="note-row__date">2026-07-16</span><span class="note-row__kind note-row__kind--concept">개념</span><span class="note-row__cat">데이터 거버넌스</span></span>
+          <strong class="note-row__title">Presidio spaCy PII 분류</strong>
+          <span class="note-row__ex">OpenMetadata의 PII 자동 분류는 Presidio(판정 총괄) + spaCy(NLP 엔진) + en_core_web_md(학습된 모델)의 3층 구조로 동작한다.</span>
+        </a>
+      </li>
+      <li class="note-row" data-cat="데이터 거버넌스">
+        <a href="pii.html">
+          <span class="note-row__meta"><span class="note-row__date">2026-07-15</span><span class="note-row__kind note-row__kind--concept">개념</span><span class="note-row__cat">데이터 거버넌스</span></span>
+          <strong class="note-row__title">PII</strong>
+          <span class="note-row__ex">PII(Personally Identifiable Information, 개인식별정보)는 특정 개인을 식별할 수 있는 정보다. 단독으로 식별되거나(직접), 조합하면 식별되는(간접) 데이터를 포함…</span>
+        </a>
+      </li>
+      <li class="note-row" data-cat="저장소 · 인프라">
+        <a href="s3-multipart-upload.html">
+          <span class="note-row__meta"><span class="note-row__date">2026-06-30</span><span class="note-row__kind note-row__kind--concept">개념</span><span class="note-row__cat">저장소 · 인프라</span></span>
+          <strong class="note-row__title">S3 multipart upload</strong>
+          <span class="note-row__ex">S3 multipart upload는 큰 객체를 여러 part로 나누어 올린 뒤 마지막에 합치는 업로드 방식이다.</span>
+        </a>
+      </li>
+      <li class="note-row" data-cat="Iceberg · Lakehouse">
+        <a href="spark-trino-iceberg-parquet-compaction.html">
+          <span class="note-row__meta"><span class="note-row__date">2026-06-29</span><span class="note-row__kind note-row__kind--concept">개념</span><span class="note-row__cat">Iceberg · Lakehouse</span></span>
+          <strong class="note-row__title">Spark, Trino, Iceberg, Parquet, ClickHouse, Kafka 개념 정리</strong>
+          <span class="note-row__ex">2. footer를 읽어서 schema와 row group 위치를 확인</span>
+        </a>
+      </li>
+      <li class="note-row" data-cat="Spark · YARN">
+        <a href="yarn-application-id.html">
+          <span class="note-row__meta"><span class="note-row__date">2026-06-26</span><span class="note-row__kind note-row__kind--concept">개념</span><span class="note-row__cat">Spark · YARN</span></span>
+          <strong class="note-row__title">YARN Application ID</strong>
+          <span class="note-row__ex">YARN에서 실행 중인 Spark, MapReduce 같은 작업 하나를 식별하는 고유 ID.</span>
+        </a>
+      </li>
+      <li class="note-row" data-cat="Iceberg · Lakehouse">
+        <a href="iceberg-schema-alignment와-null-safe-cast.html">
+          <span class="note-row__meta"><span class="note-row__date">2026-06-26</span><span class="note-row__kind note-row__kind--concept">개념</span><span class="note-row__cat">Iceberg · Lakehouse</span></span>
+          <strong class="note-row__title">Iceberg schema alignment와 null-safe cast</strong>
+          <span class="note-row__ex">기존 Iceberg 테이블에 데이터를 넣기 전에 컬럼 순서, 누락 컬럼, 타입 차이를 타깃 스키마에 맞추는 처리.</span>
+        </a>
+      </li>
+      <li class="note-row" data-cat="Python · DB">
+        <a href="fetchall-vs-fetchmany.html">
+          <span class="note-row__meta"><span class="note-row__date">2026-06-25</span><span class="note-row__kind note-row__kind--concept">개념</span><span class="note-row__cat">Python · DB</span></span>
+          <strong class="note-row__title">fetchall vs fetchmany (execute)</strong>
+          <span class="note-row__ex">execute는 쿼리를 DB에서 실행만 시키고, 결과 행을 파이썬으로 가져오는 건 fetch 단계다. fetchall은 전체를 한 번에, fetchmany는 청크 단위로 가져온다.</span>
+        </a>
+      </li>
       </ul>
     </div>
   </section>
