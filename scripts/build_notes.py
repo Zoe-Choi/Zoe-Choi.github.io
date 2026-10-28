@@ -304,8 +304,8 @@ def list_body(notes):
     <div class="wrap">
       <div class="notes-head rv">
         <span class="eyebrow">노트</span>
-        <h1>업무하면서 모르던 것들</h1>
-        <p class="lead">일하다 막힌 개념을 짧게 정리합니다. 한 줄 정의로 시작해, 왜 중요한지와 예시까지.</p>
+        <h1>개념 정리</h1>
+        <p class="lead">데이터 엔지니어링 개념을 한 줄 정의, 자세히, 왜 중요한지, 예시 순으로 정리합니다.</p>
       </div>
       <div class="chips rv">%s</div>
       <ul class="note-list rv">
@@ -355,8 +355,8 @@ def teaser_block(notes):
       <div class="teaser rv">
         <div class="teaser__head">
           <span class="eyebrow"><span class="ko">노트</span><span class="en">Notes</span></span>
-          <h2><span class="ko">최근에 정리한 것</span><span class="en">Recently written up</span></h2>
-          <p><span class="ko">업무하면서 모르던 개념을 짧게 정리합니다.</span><span class="en">Short write-ups of things I had to learn on the job.</span></p>
+          <h2><span class="ko">최근 개념 정리</span><span class="en">Recent notes</span></h2>
+          <p><span class="ko">데이터 엔지니어링 개념을 짧게 정리합니다.</span><span class="en">Short write-ups of data engineering concepts.</span></p>
           <a class="teaser__more" href="notes/index.html"><span class="ko">전체 노트 %d개 보기</span><span class="en">All %d notes</span><svg viewBox="0 0 24 24"><use href="#i-arrow-right"/></svg></a>
         </div>
         <ul class="teaser__list">
