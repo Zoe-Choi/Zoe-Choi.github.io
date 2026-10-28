@@ -8,7 +8,7 @@ Usage:
 Rules:
   - Only notes whose frontmatter has `publish: true` are built. Everything else is ignored.
   - Category: `카테고리:` (one of CATEGORY_ORDER) wins; otherwise mapped from the `분류:` prefix.
-  - Only `개념/*.md` and `문서/개발/*.md` are scanned.
+  - Only `개념/*.md` is scanned (guides under `문서/` stay unpublished).
   - The build aborts if any publishable note matches the secret patterns below
     (IP addresses, internal hostnames, credentials). Fix the note, then rebuild.
 Outputs:
@@ -19,7 +19,7 @@ import argparse, datetime, glob, html, io, os, re, shutil, subprocess, sys, temp
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 REPO_URL = 'https://github.com/Zoe-Choi/obsidian_public.git'
-SOURCES = [('개념', '개념'), (os.path.join('문서', '개발'), '가이드')]
+SOURCES = [('개념', '개념')]
 
 # category by `분류` prefix; first match wins, else '기타'
 CATEGORY_RULES = [

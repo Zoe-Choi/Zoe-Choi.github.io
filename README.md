@@ -11,7 +11,7 @@ Jekyll 기반 GitHub Pages 블로그입니다.
 
 ## Notes
 
-`notes/`는 `scripts/build_notes.py`가 생성한다. 원본은 `Zoe-Choi/obsidian_public` 저장소의 `개념/`, `문서/개발/` 노트다.
+`notes/`는 `scripts/build_notes.py`가 생성한다. 원본은 `Zoe-Choi/obsidian_public` 저장소의 `개념/` 노트다. `문서/` 아래 가이드는 올리지 않는다.
 
 ```powershell
 python scripts/build_notes.py              # GitHub에서 clone 후 빌드
