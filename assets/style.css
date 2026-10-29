@@ -42,6 +42,8 @@ body{
   line-height:1.6;
   -webkit-font-smoothing:antialiased;
   text-rendering:optimizeLegibility;
+  word-break:keep-all;
+  overflow-wrap:break-word;
 }
 
 ::selection{ background:var(--rose-soft); color:var(--ink) }
